@@ -16,7 +16,7 @@ public class O2BarValue : MonoBehaviour
         VitalsInput vitalsInput = vitalsStreamObject.GetComponent<VitalsInput>();
 
         textMesh = GetComponent<TextMeshProUGUI>();
-        o2BarValue = vitalsInput.O2;
+        o2BarValue = vitalsInput.getOxygen();
         textMesh.text = o2BarValue.ToString() + "/950 psia";
     }
 }

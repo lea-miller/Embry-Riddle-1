@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class VitalsInput : MonoBehaviour
 {
-    public float O2 = 500f;
+    private float O2 = 500f;
+
+    public float getOxygen()
+    {
+        return O2;
+    }
 }
