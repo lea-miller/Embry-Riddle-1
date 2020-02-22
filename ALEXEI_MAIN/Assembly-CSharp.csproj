@@ -56,8 +56,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\HomeScreenCode\voiceCommand.cs" />
-     <Compile Include="Assets\MetricScripts\MetricsManager.cs" />
-     <Compile Include="Assets\MetricScripts\SuitMetricBar.cs" />
+     <Compile Include="Assets\O2Bar.cs" />
+     <Compile Include="Assets\O2BarValue.cs" />
+     <Compile Include="Assets\VitalsInput.cs" />
      <Compile Include="Assets\timer.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
