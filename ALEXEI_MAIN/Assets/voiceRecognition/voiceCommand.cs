@@ -17,7 +17,6 @@ public class voiceCommand : MonoBehaviour
     void Start()
     {
 
-        vitalScreen.SetActive(false);
         initalizeDictionary();
         initalizeSpeechCommand();
     }
