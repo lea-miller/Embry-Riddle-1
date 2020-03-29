@@ -16,6 +16,7 @@ TagManager:
   - VitalLeftTrigger
   - MainRightTrigger
   - MainLeftTrigger
+  - MLController
   layers:
   - Default
   - TransparentFX

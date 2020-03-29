@@ -234,28 +234,28 @@
      <Compile Include="Assets\MagicLeap\Lumin\Utils\Timer.cs" />
      <None Include="Assets\MagicLeap\Lumin\LuminUnity.asmdef" />
  <Reference Include="UnityEngine.XR.MagicLeap">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.XR.MagicLeap.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.XR.MagicLeap.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.XR.MagicLeap">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.XR.MagicLeap.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.XR.MagicLeap.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.InteractionSubsystems">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.InteractionSubsystems.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.InteractionSubsystems.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.SpatialTracking">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.Management">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>P:/Unity Download/2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -444,10 +444,10 @@
  <HintPath>P:/Unity Download/2019.3.4f1/Editor/Data/PlaybackEngines/LuminSupport/UnityEditor.Lumin.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="MSA.Runtime">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Assets/MagicLeap/Soundfield/MSA.Runtime.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Assets/MagicLeap/Soundfield/MSA.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="MSA.Editor">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Assets/MagicLeap/Soundfield/Editor/MSA.Editor.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Assets/MagicLeap/Soundfield/Editor/MSA.Editor.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>P:/Unity Download/2019.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
