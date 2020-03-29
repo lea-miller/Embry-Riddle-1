@@ -11,9 +11,7 @@ public class torsoScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cameraPos.x = mainCamera.transform.position.x;
-        cameraPos.z = mainCamera.transform.position.z;
-        cameraPos.y = mainCamera.transform.position.y;
+        cameraPos = mainCamera.transform.position;
         transform.position = cameraPos;
     }
 }

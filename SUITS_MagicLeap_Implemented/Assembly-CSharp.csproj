@@ -198,6 +198,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+     <Compile Include="Assets\TrackingScripts\DynamicBeam.cs" />
      <Compile Include="Assets\TrackingScripts\torsoScript.cs" />
      <Compile Include="Assets\TrackingScripts\trackCanvasScreen.cs" />
      <Compile Include="Assets\VitalScripts\MainScreenVitalManager.cs" />
@@ -285,67 +286,67 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
  <Reference Include="Unity.XR.Management">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Subsystem.Registration">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.XR.MagicLeap">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.XR.MagicLeap.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.XR.MagicLeap.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARSubsystems">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.ARSubsystems.Editor">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.InteractionSubsystems">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.InteractionSubsystems.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.InteractionSubsystems.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.XR.LegacyInputHelpers">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.Management.Editor">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.SpatialTracking">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.XR.LegacyInputHelpers">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.XR.MagicLeap">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.XR.MagicLeap.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEngine.XR.MagicLeap.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>P:/Unity Download/2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -522,7 +523,7 @@
  <HintPath>P:/Unity Download/2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
  <Reference Include="MSA.Runtime">
- <HintPath>P:/Unity Download/Unity Saves/SUITS_MagicLeap_Implemented/Assets/MagicLeap/Soundfield/MSA.Runtime.dll</HintPath>
+ <HintPath>P:/GitHub/NASA-Suits/SUITS_MagicLeap_Implemented/Assets/MagicLeap/Soundfield/MSA.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>P:/Unity Download/2019.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

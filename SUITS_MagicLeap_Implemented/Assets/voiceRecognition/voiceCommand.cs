@@ -34,14 +34,12 @@ public class voiceCommand : MonoBehaviour
         mainTrigger = new Dictionary<string, System.Action>();
         mainTrigger.Add("ALEXEI start up", startUp);
         mainTrigger.Add("ALEXEI shutdown", closeDown);
-        mainTrigger.Add("ALEXEI Reposition", recallibrate);
         mainTrigger.Add("ALEXEI hide notes", hideNotesDisplay);
         mainTrigger.Add("ALEXEI hide vitals", hideVitalsDisplay);
         mainTrigger.Add("AELEXI display notes", showNotesDisplay);
         mainTrigger.Add("ALEXEI display vitals", showVitalsDisplay);
 
         keywords = new Dictionary<string, System.Action>();
-        keywords.Add("Reposition", recallibrate);
         keywords.Add("Hide notes", hideNotesDisplay);
         keywords.Add("Hide vitals", hideVitalsDisplay);
         keywords.Add("Display notes", showNotesDisplay);
@@ -81,12 +79,6 @@ public class voiceCommand : MonoBehaviour
     private void closeDown()
     {
         keywordRecognizer.Stop();
-    }
-
-    private void recallibrate()
-    {
-        vitalTrackScript.updateTorso();
-        noteTrackScript.updateTorso();
     }
 
     private void hideNotesDisplay()
