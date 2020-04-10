@@ -32,6 +32,7 @@ public class audioSnippet :  MonoBehaviour
             Microphone.End("");
     }
 
+    //TODO: Will have to wrap into a prossible thread
     public void recordSaveAudio()
     {
             SavWav.Save("audio1", source.clip);           
