@@ -17,15 +17,6 @@ TagManager:
   - MainRightTrigger
   - MainLeftTrigger
   - MLController
-  - Record Counter
-  - Recording Options
-  - Recording Saved
-  - Recording Display
-  - Recording Selection
-  - Recording Save Background
-  - Recording Save Timer
-  - Loading Screen
-  - Recording Notification
   layers:
   - Default
   - TransparentFX
