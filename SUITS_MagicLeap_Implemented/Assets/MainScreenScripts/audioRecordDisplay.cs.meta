@@ -1,4 +1,3 @@
-<<<<<<< HEAD:SUITS_MagicLeap_Implemented/Assets/MainScreenScripts/audioRecordDisplay.cs.meta
 fileFormatVersion: 2
 guid: fed70a7a583d2b94da7ba4d3949fc4a4
 MonoImporter:
@@ -10,16 +9,3 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-=======
-fileFormatVersion: 2
-guid: 95183893ed2d56c40ae3d5db14794c43
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
->>>>>>> master:SUITS_MagicLeap_Implemented/Assets/TrackingScripts/DynamicBeam.cs.meta
