@@ -1869,6 +1869,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxOxygen: 500000
   maxBattery: 30000
+  currentOxygen: 0
+  currentBattery: 0
+  currentPsi: 0
+  currentHeartRate: 0
+  currentCo2: 0
   oxygenStatusBar: {fileID: 1866896491082584089}
   batteryStatusBar: {fileID: 1866896491127083622}
   homeScreen: {fileID: 0}
@@ -1958,7 +1963,7 @@ GameObject:
   - component: {fileID: 1866896492132103912}
   - component: {fileID: 1866896492132103915}
   m_Layer: 5
-  m_Name: 02 Numerical Value
+  m_Name: O2 Numerical Value
   m_TagString: O2VitalDispValue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

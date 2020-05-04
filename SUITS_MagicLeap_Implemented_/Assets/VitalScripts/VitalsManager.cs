@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class VitalsManager : MonoBehaviour
 {
-
-    public int maxOxygen, maxBattery = 5000000;
-    private int  currentOxygen, currentBattery, currentPsi, currentHeartRate, currentCo2;
-    private GameObject oxygenVitalDispNum;
-    public SuitVitalBar oxygenStatusBar, batteryStatusBar;
-    public MainScreenVitalManager homeScreen;
+    [SerializeField] private int maxOxygen = 500000;
+    [SerializeField] private int maxBattery = 30000;
+    [SerializeField] private int  currentOxygen, currentBattery, currentPsi, currentHeartRate, currentCo2;
+    private GameObject oxygenVitalDispNum, batteryVitalDispNum;
+    private GameObject OxygenBar;
+    [SerializeField] private SuitVitalBar oxygenStatusBar, batteryStatusBar;
+    [SerializeField] private MainScreenVitalManager homeScreen;
 
     void Awake()
     {
-        currentOxygen = maxOxygen;
-        currentBattery = maxBattery;
-        oxygenStatusBar.setMaxVitalsValue(maxOxygen);
-        batteryStatusBar.setMaxVitalsValue(maxBattery);
         assignVariables();
     }
 
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
-        oxygenVitalDispNum = GameObject.FindWithTag("O2VitalDispValue");
+        currentOxygen = maxOxygen;
+        currentBattery = maxBattery;
+        oxygenVitalDispNum = GameObject.Find("Torso/VitalsScreen/VitalBars/OxygenBar/O2 Numerical Value");
+        batteryVitalDispNum = GameObject.Find("Torso/VitalsScreen/VitalBars/BatteryBar/Battery Numerical Value");
     }
 
     // Update is called once per frame
@@ -69,6 +69,7 @@ public class VitalsManager : MonoBehaviour
     private void updateVitalScreen()
     {
         oxygenVitalDispNum.GetComponent<Text>().text = currentOxygen.ToString();
+        batteryVitalDispNum.GetComponent<Text>().text = currentBattery.ToString();
     }
 
 }
