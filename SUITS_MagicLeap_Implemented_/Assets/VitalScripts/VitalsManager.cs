@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class VitalsManager : MonoBehaviour
 {
-    [SerializeField] private int maxOxygen = 500000;
-    [SerializeField] private int maxBattery = 30000;
-    [SerializeField] private int  currentOxygen, currentBattery, currentPsi, currentHeartRate, currentCo2;
-    private GameObject oxygenVitalDispNum, batteryVitalDispNum;
-    private GameObject OxygenBar;
-    [SerializeField] private SuitVitalBar oxygenStatusBar, batteryStatusBar;
+     private int maxPO2 = 500000;
+     private int maxBattery = 30000;
+    [SerializeField] private int  currentPO2, currentBattery, currentPsi, currentHeartRate, currentCo2;
+    private GameObject PO2VitalDispNum, batteryVitalDispNum;
+    [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar;
     [SerializeField] private MainScreenVitalManager homeScreen;
 
     void Awake()
@@ -21,34 +20,34 @@ public class VitalsManager : MonoBehaviour
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
-        currentOxygen = maxOxygen;
+        currentPO2 = maxPO2;
         currentBattery = maxBattery;
-        oxygenVitalDispNum = GameObject.Find("Torso/VitalsScreen/VitalBars/OxygenBar/O2 Numerical Value");
-        batteryVitalDispNum = GameObject.Find("Torso/VitalsScreen/VitalBars/BatteryBar/Battery Numerical Value");
+        PO2VitalDispNum = GameObject.Find("/Torso/VitalsScreen/PO2BarBody/PO2BarSlider/PO2NumericalValue");
+        batteryVitalDispNum = GameObject.Find("/Torso/VitalsScreen/BatteryBarBody/BatteryBarSlider/BatteryNumericalValue");
     }
 
     // Update is called once per frame
     void Update()
     {
         changeBattery();
-        changeOxygen();
+        changePO2();
         changeHeartRate();
         changeCo2();
         changePsi();
         updateVitalScreen();
-        homeScreen.updateMainScreen(currentOxygen,currentCo2,currentPsi,currentHeartRate);
+        //homeScreen.updateMainScreen(currentPO2,currentCo2,currentPsi,currentHeartRate);
     }
 
     private void changeBattery()
     {
-        currentBattery = currentBattery - 10;
+        currentBattery = currentBattery - 1;
         batteryStatusBar.setVitalsValue(currentBattery);
     }
 
-    private void changeOxygen()
+    private void changePO2()
     {
-        currentOxygen = currentOxygen - 20;
-        oxygenStatusBar.setVitalsValue(currentOxygen);
+        currentPO2 = currentPO2 - 1000;
+        PO2StatusBar.setVitalsValue(currentPO2);
     }
 
     private void changeHeartRate()
@@ -68,8 +67,8 @@ public class VitalsManager : MonoBehaviour
 
     private void updateVitalScreen()
     {
-        oxygenVitalDispNum.GetComponent<Text>().text = currentOxygen.ToString();
-        batteryVitalDispNum.GetComponent<Text>().text = currentBattery.ToString();
+        PO2VitalDispNum.GetComponent<Text>().text = currentPO2.ToString() + " psia";
+        batteryVitalDispNum.GetComponent<Text>().text = currentBattery.ToString() + " Ah";
     }
 
 }
