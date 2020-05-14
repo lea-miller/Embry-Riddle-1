@@ -8,14 +8,14 @@ public class SuitVitalBar : MonoBehaviour
     public Gradient gradient;
     public Image vitalStatusBar;
 
-    public void setMaxVitalsValue(int vitalStatus)
+    public void setMaxVitalsValue(float vitalStatus)
     {
        slider.maxValue = vitalStatus;
        slider.value = vitalStatus;
        vitalStatusBar.color =  gradient.Evaluate(1f);
     }
 
-    public void setVitalsValue(int vitalStatus)
+    public void setVitalsValue(float vitalStatus)
     {
         slider.value = vitalStatus;
         vitalStatusBar.color = gradient.Evaluate(slider.normalizedValue);
