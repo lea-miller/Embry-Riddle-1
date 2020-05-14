@@ -6,10 +6,9 @@ using TMPro;
 
 public class VitalsManager : MonoBehaviour
 {
-    [SerializeField] private float currentPO2, currentPO2Rate, currentBattery, currentBPM, currentTSUB, currentPSOP, currentPSOPRate, currentPSUB, currentPSUIT, currentPH2Og, currentPH2OL, currentVFan;
+    [SerializeField] private int currentPO2, currentPO2Rate, currentBattery, currentBPM, currentTSUB, currentPSOP, currentPSOPRate, currentPSUB, currentPSUIT, currentPH2Og, currentPH2OL, currentVFan;
     private GameObject PO2VitalDispNum, PO2RateDispNum, batteryVitalDispNum, BPMDispNum, TSUBDispNum, PSOPDispNum, PSOPRateDispNum, PSUBDispNum, PSUITDispNum, PH2OgDispNum, PH2OLDispNum, VFanDispNum;
     [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, PH2OgStatusBar, PH2OLStatusBar, VFanStatusBar;
-    [SerializeField] private TelemetryStream getValues;
     [SerializeField] private MainScreenVitalManager homeScreen;
 
     void Awake()
@@ -20,7 +19,6 @@ public class VitalsManager : MonoBehaviour
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
-        getValues = gameObject.GetComponent<TelemetryStream>();
         PO2VitalDispNum = GameObject.Find("/Torso/VitalsScreen/PO2BarBody/PO2BarSlider/PO2NumericalValue");
         PO2RateDispNum = GameObject.Find("/Torso/VitalsScreen/PO2Rate");
         batteryVitalDispNum = GameObject.Find("/Torso/VitalsScreen/BatteryBarBody/BatteryBarSlider/BatteryNumericalValue");
@@ -38,7 +36,6 @@ public class VitalsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(gameObject.GetComponent<TelemetryStream>().GetText());
         changeBattery();
         changePO2();
         changePO2Rate();
@@ -57,7 +54,7 @@ public class VitalsManager : MonoBehaviour
 
     private void changeBattery()
     {
-        currentBattery = getValues.jsnData.cap_battery;
+        currentBattery = 27;
         batteryStatusBar.setVitalsValue(currentBattery);
     }
 

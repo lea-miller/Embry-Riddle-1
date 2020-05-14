@@ -2052,7 +2052,6 @@ GameObject:
   - component: {fileID: 1866896491652661406}
   - component: {fileID: 1866896491652661393}
   - component: {fileID: 1866896491652661392}
-  - component: {fileID: 6509414787361053166}
   m_Layer: 5
   m_Name: VitalsScreen
   m_TagString: VitalsUI
@@ -2215,20 +2214,7 @@ MonoBehaviour:
   PH2OgStatusBar: {fileID: 5607238245212054407}
   PH2OLStatusBar: {fileID: 6139812137454614025}
   VFanStatusBar: {fileID: 6923823934088641937}
-  getValues: {fileID: 0}
   homeScreen: {fileID: 0}
---- !u!114 &6509414787361053166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866896491652661394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d08aead72a3aad4da7383b0cf1bf733, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1866896492080518779
 GameObject:
   m_ObjectHideFlags: 0
