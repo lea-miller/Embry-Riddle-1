@@ -252,7 +252,6 @@ GameObject:
   - component: {fileID: 5156464047979979844}
   - component: {fileID: 2653367899441312738}
   - component: {fileID: 6676883190147160951}
-  - component: {fileID: 8276738584296381689}
   - component: {fileID: 8904631305095353048}
   - component: {fileID: 3752400846860922205}
   - component: {fileID: 5894702029616285719}
@@ -261,6 +260,7 @@ GameObject:
   - component: {fileID: 704092506479065148}
   - component: {fileID: 5376859121272944262}
   - component: {fileID: 2895526420819445713}
+  - component: {fileID: 4883328314286604792}
   m_Layer: 5
   m_Name: MainScreen
   m_TagString: Main Screen
@@ -282,6 +282,7 @@ RectTransform:
   - {fileID: 9047412690604605575}
   - {fileID: 68710641529569365}
   - {fileID: 5076341834469472974}
+  - {fileID: 1503418348690539357}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -350,19 +351,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8276738584296381689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782393846615823221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231e572c0bdee074a8f405109882136a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
 --- !u!114 &8904631305095353048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +559,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed70a7a583d2b94da7ba4d3949fc4a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4883328314286604792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782393846615823221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dffcb047c29a9d04fbe134c6109b2c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serviceUrl: https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/9df801a0-2eab-455c-a3b4-66e4a8f9ecbb
+  ResultsField: {fileID: 6134251139207288571}
+  _iamApikey: HUuBAf5rWWeKrVIqvq1FiKb57Y8mhXmnpSy8JQQYkRb1
+  _recognizeModel: 
 --- !u!1 &1076264875514397949
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +648,83 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1181695739041425426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503418348690539357}
+  - component: {fileID: 8040771056924447732}
+  - component: {fileID: 6134251139207288571}
+  m_Layer: 5
+  m_Name: voiceFeedBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1503418348690539357
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181695739041425426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6626877318872346229}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 757.87, y: 249}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8040771056924447732
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181695739041425426}
+  m_CullTransparentMesh: 0
+--- !u!114 &6134251139207288571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181695739041425426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
 --- !u!1 &1800120453351191917
 GameObject:
   m_ObjectHideFlags: 0
