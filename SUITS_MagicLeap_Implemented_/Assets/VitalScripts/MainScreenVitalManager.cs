@@ -15,7 +15,7 @@ public class MainScreenVitalManager : MonoBehaviour
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
-        oxygenMainDispNum = GameObject.FindWithTag("O2MainDispValue");
+        oxygenMainDispNum = GameObject.Find("02 Numerical Value");
         heartMainRateDispNum = GameObject.FindWithTag("heartMainDispValue");
         carbonMainDispNum = GameObject.FindWithTag("co2MainDispValue");
         psiMainDispNum = GameObject.FindWithTag("psiMainDispValue");
