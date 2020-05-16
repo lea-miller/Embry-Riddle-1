@@ -18,13 +18,12 @@ public class TelemetryStream : MonoBehaviour
         else
         {
             // Show results as text
-            Debug.Log(getVitals.downloadHandler.text);
             processJsonData(getVitals.downloadHandler.text);
+            //Debug.Log(jsnData.p_h2o_g);
         }
     }
     public void processJsonData(string textFromURL)
     {
         jsnData = JsonUtility.FromJson<jsonDataClass>(textFromURL);
-        Debug.Log(jsnData.batteryPercent);
     }
 }

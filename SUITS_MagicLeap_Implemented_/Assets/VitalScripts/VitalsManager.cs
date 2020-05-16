@@ -6,8 +6,10 @@ using TMPro;
 
 public class VitalsManager : MonoBehaviour
 {
-    [SerializeField] private float currentPO2, currentPO2Rate, currentBattery, currentBPM, currentTSUB, currentPSOP, currentPSOPRate, currentPSUB, currentPSUIT, currentPH2Og, currentPH2OL, currentVFan;
-    private GameObject PO2VitalDispNum, PO2RateDispNum, batteryVitalDispNum, BPMDispNum, TSUBDispNum, PSOPDispNum, PSOPRateDispNum, PSUBDispNum, PSUITDispNum, PH2OgDispNum, PH2OLDispNum, VFanDispNum;
+    [SerializeField] private float currentPO2, currentPO2Rate, currentBattery, currentBPM, currentTSUB, currentPSOP, currentPSOPRate, currentPSUB, currentPSUIT, currentPH2Og, currentPH2OL, currentVFan, batteryPercentage,
+        oxPrimaryPercentage,oxSecondaryPercentage;
+    private GameObject PO2VitalDispNum, PO2RateDispNum, batteryVitalDispNum, BPMDispNum, TSUBDispNum, PSOPDispNum, PSOPRateDispNum, PSUBDispNum, PSUITDispNum, PH2OgDispNum, PH2OLDispNum, VFanDispNum,
+         TimeO2DispNum, TimeBatteryDispNum, TimeH2ODispNum;
     [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, PH2OgStatusBar, PH2OLStatusBar, VFanStatusBar;
     [SerializeField] private TelemetryStream getValues;
     [SerializeField] private MainScreenVitalManager homeScreen;
@@ -33,6 +35,9 @@ public class VitalsManager : MonoBehaviour
         PH2OgDispNum = GameObject.Find("/Torso/VitalsScreen/PH2OgBarBody/PH2OgBarSlider/PH2OgNumericalValue");
         PH2OLDispNum = GameObject.Find("/Torso/VitalsScreen/PH2OLBarBody/PH2OLBarSlider/PH2OLNumericalValue");
         VFanDispNum = GameObject.Find("/Torso/VitalsScreen/VFanBarBody/VFanBarSlider/VFanNumericalValue");
+        TimeO2DispNum = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time O2");
+        TimeBatteryDispNum = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time Battery");
+        TimeH2ODispNum = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time H2O");
     }
 
     // Update is called once per frame
@@ -57,63 +62,66 @@ public class VitalsManager : MonoBehaviour
 
     private void changeBattery()
     {
+        batteryPercentage = getValues.jsnData.batteryPercent;
         currentBattery = getValues.jsnData.cap_battery;
-        batteryStatusBar.setVitalsValue(currentBattery);
+        batteryStatusBar.setVitalsValue(batteryPercentage);
     }
 
     private void changePO2()
     {
-        currentPO2 = 815;
-        PO2StatusBar.setVitalsValue(currentPO2);
+        oxPrimaryPercentage = float.Parse(getValues.jsnData.ox_primary);
+        currentPO2 = float.Parse(getValues.jsnData.p_o2);
+        PO2StatusBar.setVitalsValue(oxPrimaryPercentage);
     }
 
     private void changePO2Rate()
     {
-        currentPO2Rate = 1;
+        currentPO2Rate = float.Parse(getValues.jsnData.rate_o2);
     }
 
     private void changePSOP()
     {
-        currentPSOP = 942;
-        PSOPStatusBar.setVitalsValue(currentPSOP);
+        oxSecondaryPercentage = float.Parse(getValues.jsnData.ox_secondary);
+        currentPSOP = float.Parse(getValues.jsnData.p_sop);
+        PSOPStatusBar.setVitalsValue(oxSecondaryPercentage);
     }
     private void changePSOPRate()
     {
-        currentPSOPRate = 0;
+        currentPSOPRate = float.Parse(getValues.jsnData.rate_sop);
     }
 
     private void changeBPM()
     {
-        currentBPM = 60;
+        currentBPM = getValues.jsnData.heart_bpm;
     }
 
     private void changeTSUB()
     {
-        currentTSUB = 4;
+        currentTSUB = float.Parse(getValues.jsnData.t_sub);
     }
     private void changePSUB()
     {
-        currentPSUB = 2;
+        currentPSUB = float.Parse(getValues.jsnData.p_sub);
         PSUBStatusBar.setVitalsValue(currentPSUB);
     }
     private void changePSUIT()
     {
-        currentPSUIT = 4;
+        currentPSUIT = float.Parse(getValues.jsnData.p_suit);
         PSUITStatusBar.setVitalsValue(currentPSUIT);
     }
     private void changePH2Og()
     {
-        currentPH2Og = 15;
+        currentPH2Og = float.Parse(getValues.jsnData.p_h2o_g);
         PH2OgStatusBar.setVitalsValue(currentPH2Og);
     }
     private void changePH2OL()
     {
-        currentPH2OL = 16;
+        currentPH2OL = float.Parse(getValues.jsnData.p_h2o_l);
         PH2OLStatusBar.setVitalsValue(currentPH2OL);
     }
     private void changeVFan()
     {
-        currentVFan = 39034;
+        currentVFan = float.Parse(getValues.jsnData.v_fan);
         VFanStatusBar.setVitalsValue(currentVFan);
     }
     private void updateVitalScreen()
@@ -129,7 +137,9 @@ public class VitalsManager : MonoBehaviour
         PSUITDispNum.GetComponent<Text>().text = currentPSUIT.ToString() + " psid";
         PH2OgDispNum.GetComponent<Text>().text = currentPH2Og.ToString() + " psia";
         PH2OLDispNum.GetComponent<Text>().text = currentPH2OL.ToString() + " psia";
-        VFanDispNum.GetComponent<Text>().text = currentVFan.ToString() + " RPM";
+        TimeO2DispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_oxygen;
+        TimeBatteryDispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_battery;
+        TimeH2ODispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_water;
     }
 
 }

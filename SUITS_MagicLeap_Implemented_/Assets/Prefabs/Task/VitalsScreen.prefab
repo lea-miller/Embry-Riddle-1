@@ -622,10 +622,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 5082474612716703432}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 750
-  m_MaxValue: 950
+  m_MinValue: 0
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 950
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1457,9 +1457,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 30
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 30
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2207,6 +2207,9 @@ MonoBehaviour:
   currentPH2Og: 0
   currentPH2OL: 0
   currentVFan: 0
+  batteryPercentage: 0
+  oxPrimaryPercentage: 0
+  oxSecondaryPercentage: 0
   batteryStatusBar: {fileID: 1866896491127083622}
   PO2StatusBar: {fileID: 8128708258704305662}
   PSOPStatusBar: {fileID: 3749914819391510900}
@@ -4778,8 +4781,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -257.68, y: 216}
-  m_SizeDelta: {x: 360.86, y: 93}
+  m_AnchoredPosition: {x: -193.51, y: 216}
+  m_SizeDelta: {x: 489.21, y: 93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5822071542685798975
 CanvasRenderer:
@@ -8711,10 +8714,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 6527478969302501264}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 750
-  m_MaxValue: 950
+  m_MinValue: 0
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 950
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9731,8 +9734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -257.65015, y: 309}
-  m_SizeDelta: {x: 360.9, y: 93}
+  m_AnchoredPosition: {x: -193.5, y: 309}
+  m_SizeDelta: {x: 489.2, y: 93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6908549291889191135
 CanvasRenderer:

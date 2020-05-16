@@ -19,8 +19,8 @@ public class jsonDataClass
     public int battery_out;
     public int cap_battery;
     public string t_battery;
-    public string p_h20_g;
-    public string p_h20_l;
+    public string p_h2o_g;
+    public string p_h2o_l;
     public string p_sop;
     public string rate_sop;
     public string t_oxygenPrimary;
