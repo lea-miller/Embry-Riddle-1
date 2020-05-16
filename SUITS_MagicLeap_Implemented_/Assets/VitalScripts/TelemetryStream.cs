@@ -19,7 +19,6 @@ public class TelemetryStream : MonoBehaviour
         {
             // Show results as text
             processJsonData(getVitals.downloadHandler.text);
-            //Debug.Log(jsnData.p_h2o_g);
         }
     }
     public void processJsonData(string textFromURL)

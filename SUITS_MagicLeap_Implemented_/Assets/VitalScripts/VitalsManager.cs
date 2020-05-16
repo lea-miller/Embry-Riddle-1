@@ -137,6 +137,7 @@ public class VitalsManager : MonoBehaviour
         PSUITDispNum.GetComponent<Text>().text = currentPSUIT.ToString() + " psid";
         PH2OgDispNum.GetComponent<Text>().text = currentPH2Og.ToString() + " psia";
         PH2OLDispNum.GetComponent<Text>().text = currentPH2OL.ToString() + " psia";
+        VFanDispNum.GetComponent<Text>().text = currentVFan.ToString() + " RPM";
         TimeO2DispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_oxygen;
         TimeBatteryDispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_battery;
         TimeH2ODispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_water;
