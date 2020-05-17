@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -22,7 +23,10 @@ public class VitalsManager : MonoBehaviour
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
+        //Gets TelemetryStream from the VitalsScreen
         getValues = gameObject.GetComponent<TelemetryStream>();
+
+        //Finds the numbers to change to display Vital Values
         PO2VitalDispNum = GameObject.Find("/Torso/VitalsScreen/PO2BarBody/PO2BarSlider/PO2NumericalValue");
         PO2RateDispNum = GameObject.Find("/Torso/VitalsScreen/PO2Rate");
         batteryVitalDispNum = GameObject.Find("/Torso/VitalsScreen/BatteryBarBody/BatteryBarSlider/BatteryNumericalValue");
@@ -56,8 +60,42 @@ public class VitalsManager : MonoBehaviour
         changePH2Og();
         changePH2OL();
         changeVFan();
+        changeTimes();
         updateVitalScreen();
         //homeScreen.updateMainScreen(currentPO2,currentCo2,currentPsi,currentHeartRate);
+    }
+
+    private void changeTimes()
+    {
+        //Gets time from json, splits into a string array, converts that array to integers, and converts HH:MM:SS to seconds
+        string timeO2String = getValues.jsnData.t_oxygen;
+        string[] O2Array = timeO2String.Split(':');
+        int[] intO2Array = Array.ConvertAll<string, int>(O2Array, int.Parse);
+        int O2SecondsValue = 3600 * intO2Array[0] + 60* intO2Array[1] + intO2Array[2];
+
+        string timeBatteryString = getValues.jsnData.t_battery;
+        string[] BatteryArray = timeBatteryString.Split(':');
+        int[] intBatteryArray = Array.ConvertAll<string, int>(BatteryArray, int.Parse);
+        int BatterySecondsValue = 3600 * intBatteryArray[0] + 60 * intBatteryArray[1] + intBatteryArray[2];
+
+        string timeH2OString = getValues.jsnData.t_water;
+        string[] H2OArray = timeH2OString.Split(':');
+        int[] intH2OArray = Array.ConvertAll<string, int>(H2OArray, int.Parse);
+        int H2OSecondsValue = 3600 * intH2OArray[0] + 60 * intH2OArray[1] + intH2OArray[2];
+
+        // finds the lowest value from the seconds obtained from each
+        int lowest = Mathf.Min(O2SecondsValue, BatterySecondsValue, H2OSecondsValue);
+        if( lowest == O2SecondsValue) {
+            Debug.Log("O2 is Lowest!");
+        }
+        if (lowest == BatterySecondsValue)
+        {
+            Debug.Log("Battery is Lowest!");
+        }
+        if (lowest == H2OSecondsValue)
+        {
+            Debug.Log("H2O is Lowest!");
+        }
     }
 
     private void changeBattery()
