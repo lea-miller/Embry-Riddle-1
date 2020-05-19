@@ -11,6 +11,8 @@ public class VitalsManager : MonoBehaviour
         oxPrimaryPercentage,oxSecondaryPercentage;
     private GameObject PO2VitalDispNum, PO2RateDispNum, batteryVitalDispNum, BPMDispNum, TSUBDispNum, PSOPDispNum, PSOPRateDispNum, PSUBDispNum, PSUITDispNum, PH2OgDispNum, PH2OLDispNum, VFanDispNum,
          TimeO2DispNum, TimeBatteryDispNum, TimeH2ODispNum;
+    private GameObject textO2time, textBatterytime, textH2Otime, textBPM, textPO2, textPSOP, textBattery, textPSUB, textPSUIT,
+        textPH2Og, textPH2OL, textVFAN;
     [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, PH2OgStatusBar, PH2OLStatusBar, VFanStatusBar;
     [SerializeField] private TelemetryStream getValues;
     [SerializeField] private MainScreenVitalManager homeScreen;
@@ -26,7 +28,7 @@ public class VitalsManager : MonoBehaviour
         //Gets TelemetryStream from the VitalsScreen
         getValues = gameObject.GetComponent<TelemetryStream>();
 
-        //Finds the numbers to change to display Vital Values
+        //Finds the numbers as gameobjects to change to display Vital Values
         PO2VitalDispNum = GameObject.Find("/Torso/VitalsScreen/PO2BarBody/PO2BarSlider/PO2NumericalValue");
         PO2RateDispNum = GameObject.Find("/Torso/VitalsScreen/PO2Rate");
         batteryVitalDispNum = GameObject.Find("/Torso/VitalsScreen/BatteryBarBody/BatteryBarSlider/BatteryNumericalValue");
@@ -42,6 +44,20 @@ public class VitalsManager : MonoBehaviour
         TimeO2DispNum = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time O2");
         TimeBatteryDispNum = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time Battery");
         TimeH2ODispNum = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time H2O");
+
+        //Assigns text to gameobjects
+        textO2time = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time O2 Label");
+        textBatterytime = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time Battery Label");
+        textH2Otime = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time H2O Label");
+        textBPM = GameObject.Find("/Torso/VitalsScreen/BPM");
+        textPO2 = GameObject.Find("/Torso/VitalsScreen/PO2");
+        textPSOP = GameObject.Find("/Torso/VitalsScreen/PSOP");
+        textBattery = GameObject.Find("/Torso/VitalsScreen/Battery");
+        textPSUB = GameObject.Find("/Torso/VitalsScreen/PSUB");
+        textPSUIT = GameObject.Find("/Torso/VitalsScreen/PSUIT");
+        textPH2Og = GameObject.Find("/Torso/VitalsScreen/PH2Og");
+        textPH2OL = GameObject.Find("/Torso/VitalsScreen/PH2OL");
+        textVFAN = GameObject.Find("/Torso/VitalsScreen/VFan");
     }
 
     // Update is called once per frame
@@ -87,14 +103,20 @@ public class VitalsManager : MonoBehaviour
         int lowest = Mathf.Min(O2SecondsValue, BatterySecondsValue, H2OSecondsValue);
         if( lowest == O2SecondsValue) {
             Debug.Log("O2 is Lowest!");
+            textO2time.GetComponent<TextMeshProUGUI>().color = Color.red;
+            TimeO2DispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
         }
         if (lowest == BatterySecondsValue)
         {
             Debug.Log("Battery is Lowest!");
+            textBatterytime.GetComponent<TextMeshProUGUI>().color = Color.red;
+            TimeBatteryDispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
         }
         if (lowest == H2OSecondsValue)
         {
             Debug.Log("H2O is Lowest!");
+            textH2Otime.GetComponent<TextMeshProUGUI>().color = Color.red;
+            TimeH2ODispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
         }
     }
 
@@ -103,6 +125,10 @@ public class VitalsManager : MonoBehaviour
         batteryPercentage = getValues.jsnData.batteryPercent;
         currentBattery = getValues.jsnData.cap_battery;
         batteryStatusBar.setVitalsValue(batteryPercentage);
+        if (batteryPercentage <= 30)
+        {
+            textBattery.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
     }
 
     private void changePO2()
@@ -110,6 +136,10 @@ public class VitalsManager : MonoBehaviour
         oxPrimaryPercentage = float.Parse(getValues.jsnData.ox_primary);
         currentPO2 = float.Parse(getValues.jsnData.p_o2);
         PO2StatusBar.setVitalsValue(oxPrimaryPercentage);
+        if (oxPrimaryPercentage <= 30)
+        {
+            textBattery.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
     }
 
     private void changePO2Rate()
@@ -122,6 +152,10 @@ public class VitalsManager : MonoBehaviour
         oxSecondaryPercentage = float.Parse(getValues.jsnData.ox_secondary);
         currentPSOP = float.Parse(getValues.jsnData.p_sop);
         PSOPStatusBar.setVitalsValue(oxSecondaryPercentage);
+        if (oxSecondaryPercentage <= 30)
+        {
+            textBattery.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
     }
     private void changePSOPRate()
     {
