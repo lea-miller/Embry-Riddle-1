@@ -11,7 +11,7 @@ public class VitalsManager : MonoBehaviour
         oxPrimaryPercentage,oxSecondaryPercentage;
     private GameObject PO2VitalDispNum, PO2RateDispNum, batteryVitalDispNum, BPMDispNum, TSUBDispNum, PSOPDispNum, PSOPRateDispNum, PSUBDispNum, PSUITDispNum, PH2OgDispNum, PH2OLDispNum, VFanDispNum,
          TimeO2DispNum, TimeBatteryDispNum, TimeH2ODispNum;
-    private GameObject textO2time, textBatterytime, textH2Otime, textBPM, textPO2, textPSOP, textBattery, textPSUB, textPSUIT,
+    private GameObject textO2time, textBatterytime, textH2Otime, textBPM, textTSUB, textPO2, textPO2rate, textPSOP, textPSOPrate, textBattery, textPSUB, textPSUIT,
         textPH2Og, textPH2OL, textVFAN;
     [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, PH2OgStatusBar, PH2OLStatusBar, VFanStatusBar;
     [SerializeField] private TelemetryStream getValues;
@@ -50,8 +50,11 @@ public class VitalsManager : MonoBehaviour
         textBatterytime = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time Battery Label");
         textH2Otime = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time H2O Label");
         textBPM = GameObject.Find("/Torso/VitalsScreen/BPM");
+        textTSUB = GameObject.Find("/Torso/VitalsScreen/TSUB");
         textPO2 = GameObject.Find("/Torso/VitalsScreen/PO2");
+        textPO2rate = GameObject.Find("/Torso/VitalsScreen/PO2Rate");
         textPSOP = GameObject.Find("/Torso/VitalsScreen/PSOP");
+        textPSOPrate = GameObject.Find("/Torso/VitalsScreen/PSOPRate");
         textBattery = GameObject.Find("/Torso/VitalsScreen/Battery");
         textPSUB = GameObject.Find("/Torso/VitalsScreen/PSUB");
         textPSUIT = GameObject.Find("/Torso/VitalsScreen/PSUIT");
@@ -129,6 +132,10 @@ public class VitalsManager : MonoBehaviour
         {
             textBattery.GetComponent<TextMeshProUGUI>().color = Color.red;
         }
+        else
+        {
+            textBattery.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
 
     private void changePO2()
@@ -138,13 +145,25 @@ public class VitalsManager : MonoBehaviour
         PO2StatusBar.setVitalsValue(oxPrimaryPercentage);
         if (oxPrimaryPercentage <= 30)
         {
-            textBattery.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textPO2.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textPO2.GetComponent<TextMeshProUGUI>().color = Color.white;
         }
     }
 
     private void changePO2Rate()
     {
         currentPO2Rate = float.Parse(getValues.jsnData.rate_o2);
+        if (currentPO2Rate > 1)
+        {
+            textPO2rate.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textPO2rate.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
 
     private void changePSOP()
@@ -154,47 +173,115 @@ public class VitalsManager : MonoBehaviour
         PSOPStatusBar.setVitalsValue(oxSecondaryPercentage);
         if (oxSecondaryPercentage <= 30)
         {
-            textBattery.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textPSOP.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textPSOP.GetComponent<TextMeshProUGUI>().color = Color.white;
         }
     }
     private void changePSOPRate()
     {
         currentPSOPRate = float.Parse(getValues.jsnData.rate_sop);
+        if (currentPSOPRate > 1)
+        {
+            textPSOPrate.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textPSOPrate.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
 
     private void changeBPM()
     {
         currentBPM = getValues.jsnData.heart_bpm;
+        if (currentBPM > 100)
+        {
+            textBPM.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textBPM.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
 
     private void changeTSUB()
     {
         currentTSUB = float.Parse(getValues.jsnData.t_sub);
+        if (currentTSUB > 100)
+        {
+            textTSUB.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textTSUB.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
     private void changePSUB()
     {
         currentPSUB = float.Parse(getValues.jsnData.p_sub);
         PSUBStatusBar.setVitalsValue(currentPSUB);
+        if (currentPSUB <= 2 || currentPSUB >= 4)
+        {
+            textPSUB.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textPSUB.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
     private void changePSUIT()
     {
         currentPSUIT = float.Parse(getValues.jsnData.p_suit);
         PSUITStatusBar.setVitalsValue(currentPSUIT);
+        if (currentPSUIT <= 2 || currentPSUIT >= 4)
+        {
+            textPSUIT.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textPSUIT.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
     private void changePH2Og()
     {
         currentPH2Og = float.Parse(getValues.jsnData.p_h2o_g);
         PH2OgStatusBar.setVitalsValue(currentPH2Og);
+        if (currentPH2Og <= 14 || currentPH2Og >= 16)
+        {
+            textPH2Og.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textPH2Og.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
     private void changePH2OL()
     {
         currentPH2OL = float.Parse(getValues.jsnData.p_h2o_l);
         PH2OLStatusBar.setVitalsValue(currentPH2OL);
+        if (currentPH2OL <= 14 || currentPH2OL >= 16)
+        {
+            textPH2OL.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textPH2OL.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
     private void changeVFan()
     {
         currentVFan = float.Parse(getValues.jsnData.v_fan);
         VFanStatusBar.setVitalsValue(currentVFan);
+        if (currentVFan <= 10000 || currentVFan >= 40000)
+        {
+            textVFAN.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        else
+        {
+            textVFAN.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
     }
     private void updateVitalScreen()
     {
