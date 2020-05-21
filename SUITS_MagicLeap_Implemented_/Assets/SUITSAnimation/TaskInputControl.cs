@@ -80,10 +80,12 @@ public class TaskInputControl : MonoBehaviour
         if (!isOpenPanel)
         {
             previousTask();
+            Debug.Log("Prev Task");
         }
         else //Task is closed
         {
             prevPage();
+            Debug.Log("Prev Page");
         }
     }
 
@@ -117,7 +119,7 @@ public class TaskInputControl : MonoBehaviour
             pageCounter = pageCounter - 1;
             getInstruction();
         }
-        else if (pageCounter < 0)
+        else if (pageCounter <= 0)
         {
             pageCounter = pageCounter + 1;
             getInstruction();
@@ -135,7 +137,7 @@ public class TaskInputControl : MonoBehaviour
         {
             return taskCounter = taskCounter - 1;
         }
-        else if (pageCounter < 0)
+        else if (taskCounter < 0)
         {
             return taskCounter = taskCounter + 1;
         }
