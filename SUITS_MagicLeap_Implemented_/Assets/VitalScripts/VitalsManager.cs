@@ -66,6 +66,7 @@ public class VitalsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //start getting values, and update the telemetry values every frame
         StartCoroutine(gameObject.GetComponent<TelemetryStream>().GetText());
         changeBattery();
         changePO2();
@@ -80,6 +81,9 @@ public class VitalsManager : MonoBehaviour
         changePH2OL();
         changeVFan();
         changeTimes();
+        //change UIA values every frame as well
+
+
         updateVitalScreen();
         //homeScreen.updateMainScreen(currentPO2,currentCo2,currentPsi,currentHeartRate);
     }
@@ -90,7 +94,7 @@ public class VitalsManager : MonoBehaviour
         string timeO2String = getValues.jsnData.t_oxygen;
         string[] O2Array = timeO2String.Split(':');
         int[] intO2Array = Array.ConvertAll<string, int>(O2Array, int.Parse);
-        int O2SecondsValue = 3600 * intO2Array[0] + 60* intO2Array[1] + intO2Array[2];
+        int O2SecondsValue = 3600 * intO2Array[0] + 60 * intO2Array[1] + intO2Array[2];
 
         string timeBatteryString = getValues.jsnData.t_battery;
         string[] BatteryArray = timeBatteryString.Split(':');
@@ -105,19 +109,16 @@ public class VitalsManager : MonoBehaviour
         // finds the lowest value from the seconds obtained from each
         int lowest = Mathf.Min(O2SecondsValue, BatterySecondsValue, H2OSecondsValue);
         if( lowest == O2SecondsValue) {
-            Debug.Log("O2 is Lowest!");
             textO2time.GetComponent<TextMeshProUGUI>().color = Color.red;
             TimeO2DispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
         }
         if (lowest == BatterySecondsValue)
         {
-            Debug.Log("Battery is Lowest!");
             textBatterytime.GetComponent<TextMeshProUGUI>().color = Color.red;
             TimeBatteryDispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
         }
         if (lowest == H2OSecondsValue)
         {
-            Debug.Log("H2O is Lowest!");
             textH2Otime.GetComponent<TextMeshProUGUI>().color = Color.red;
             TimeH2ODispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
         }

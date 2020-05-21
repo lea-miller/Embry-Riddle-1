@@ -32,3 +32,21 @@ public class jsonDataClass
     public string t_water;
     public int _v;
 }
+
+public class UIAjsonDataClass
+{
+    public string emu1;
+    public string emu2;
+    public int o2_supply_pressure1;
+    public int o2_supply_pressure2;
+    public string ev1_supply;
+    public string ev2_supply;
+    public string ev1_waste;
+    public string ev2_waste;
+    public string emu1_O2;
+    public string emu2_O2;
+    public int oxygen_supp_out1;
+    public int oxygen_supp_out2;
+    public string O2_vent;
+    public string depress_pump;
+}
