@@ -5,66 +5,35 @@ using UnityEngine;
 public class JSONReader : MonoBehaviour
 {
     public TextAsset jsonFile;
-    private List<List<string>> groupList;
-    private List<string> taskListInstruction;
-    private List<string> taskListImage;
-    private List<List<List<string>>> tasks;
+    private List<List<string>> resources;
+    private List<string> taskList;
     private TaskValues tasksInJson;
-    
+
+
     void Awake()
     {
         tasksInJson = JsonUtility.FromJson<TaskValues>(jsonFile.text);
-        tasks = new List<List<List<string>>>();
         initalize();
     }
 
     private void initalize()
     {
-        groupList = new List<List<string>>();
-        taskListImage = new List<string>();
-        taskListInstruction = new List<string>();
+        resources = new List<List<string>>();
+        taskList = new List<string>();
     }
 
     private void Start()
     {
-        /*
-         * groupList[task index] [list index] [element in the list];
-         * Example: groupList [task one] [instruction list] [instruction one]
-         * Example: groupList [task one] [image list] [image one]
-         */
-
-        foreach (TaskValue taskValue in tasksInJson.task1)
+        foreach (TaskValue taskValue in tasksInJson.taskNames)
         {
-            addJasonTolist(taskValue);
+            taskList.Add(taskValue.task);
         }
-        addToList();
-
-        foreach (TaskValue taskValue in tasksInJson.task2)
-        {
-            addJasonTolist(taskValue);
-        }
-        addToList();
+        resources.Add(taskList);
     }
 
-    //Takes the imported data and adds it to a list
-    private void addJasonTolist(TaskValue taskValue)
+    public List<List<string>> getResources()
     {
-        taskListInstruction.Add(taskValue.instruction);
-        taskListImage.Add(taskValue.image);
-    }
-
-    //Adds the data to the list to then be able to use for later use
-    private void addToList()
-    {
-        groupList.Add(taskListInstruction);
-        groupList.Add(taskListImage);
-        tasks.Add(groupList);
-        initalize();
-    }
-
-    public List<List<List<string>>> getTask()
-    {
-        return tasks;
+        return resources;
     }
 }
 

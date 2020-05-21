@@ -10,7 +10,9 @@ public class CSVReader : MonoBehaviour
     private List<string> taskListInstruction;
     private List<string> taskListImage;
     private List<List<List<string>>> tasks;
+    private List<List<string>> jsonTaskNames;
     private int maxPages, instructLength;
+    private JSONReader json;
 
     /*
   * groupList[task index] [list index] [element in the list];
@@ -21,12 +23,15 @@ public class CSVReader : MonoBehaviour
     void Start()
     {
         tasks = new List<List<List<string>>>();
+        jsonTaskNames = new List<List<string>>();
+        json = gameObject.GetComponentInParent<JSONReader>();
         importTaskList();
     }
     
     private void importTaskList()
     {
-        TextAsset questdata = Resources.Load<TextAsset>("task1");
+        jsonTaskNames = json.getResources();
+        TextAsset questdata = Resources.Load<TextAsset>(jsonTaskNames[0][0]);
         taskListPage = new List<string>();
         taskListInstruction = new List<string>();
         taskListImage = new List<string>();

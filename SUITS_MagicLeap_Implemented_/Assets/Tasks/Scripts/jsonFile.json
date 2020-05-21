@@ -1,26 +1,14 @@
 {
-  "task1":
+  "taskNames":
   [
     {
-      "instruction": "1. Take out the Archer tool from the left side pocket",
-      "image": "Isometric.jpg"
+       "task" : "task1"
     },
     {
-      "instruction": "2. Press the trigger and push the handle trigger forward",
-      "image": "OpenView.jpg"
+      "task" : "task2"
     },
     {
-      "instruction": "3. Ensure that the device is fully opened",
-      "image": "OpenView2.jpg"
+      "task" : "task3"
     }
-  ],
-  
-  "task2":
-  [
-	{
-      "instruction": "Pick up sample",
-      "image": ""
-	}
   ]
-  
 }

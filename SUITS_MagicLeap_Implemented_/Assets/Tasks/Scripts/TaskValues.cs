@@ -6,7 +6,6 @@ using UnityEngine;
 public class TaskValues
 {
     //Is case sensitive and must match the string in the JSON.
-    public TaskValue[] task1;
-    public TaskValue[] task2;
+    public TaskValue[] taskNames;
 }
 
