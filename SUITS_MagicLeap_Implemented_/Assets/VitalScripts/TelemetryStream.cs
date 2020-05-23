@@ -23,7 +23,6 @@ public class TelemetryStream : MonoBehaviour
         {
             // Show results as text
             processJsonData(getVitals.downloadHandler.text, getUIAState.downloadHandler.text);
-            Debug.Log(jsnUIAData.o2_supply_pressure1);
         }
     }
     public void processJsonData(string jsonDataText, string jsonUIADataText)

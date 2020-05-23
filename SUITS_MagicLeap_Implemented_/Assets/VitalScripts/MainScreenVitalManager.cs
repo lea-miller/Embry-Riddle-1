@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MainScreenVitalManager : MonoBehaviour
 {
-    private GameObject oxygenMainDispNum, batteryMainDispNum, heartMainRateDispNum, carbonMainDispNum, psiMainDispNum;
+    private GameObject BPMMainDispNum, missionTime, lowestTime;
 
     void Awake()
     {
@@ -15,19 +15,27 @@ public class MainScreenVitalManager : MonoBehaviour
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
-        //oxygenMainDispNum = GameObject.Find("02 Numerical Value");
+        BPMMainDispNum = GameObject.Find("/Head/MainScreen/Vitals/HeartRate/Heart-Rate Numerical Value");
+        missionTime = GameObject.Find("/Head/MainScreen/Timers/MissionTime");
+        lowestTime = GameObject.Find("/Head/MainScreen/Timers/LowestTime");
     }
 
     //Is called from Vitals Manager, every update
-    public void updateMainScreen(int currentOxygen, int currentCo2, int currentPsi, int currentHeartRate)
+    public void updateMainScreen(float currentBPM, string missionTimeString, int lowestCase, string o2Time, string batteryTime, string h2OTime)
     {
-        oxygenMainDispNum.GetComponent<Text>().text = currentOxygen.ToString();
-        carbonMainDispNum.GetComponent<Text>().text = currentCo2.ToString();
-        psiMainDispNum.GetComponent<Text>().text = currentPsi.ToString();
-        if (Random.Range(1, 3) == 2)
+        BPMMainDispNum.GetComponent<Text>().text = currentBPM.ToString();
+        missionTime.GetComponent<Text>().text = missionTimeString;
+        switch (lowestCase)
         {
-            heartMainRateDispNum.GetComponent<Text>().text = currentHeartRate.ToString();
+            case 1:
+                lowestTime.GetComponent<Text>().text = o2Time;
+                break;
+            case 2:
+                lowestTime.GetComponent<Text>().text = batteryTime;
+                break;
+            case 3:
+                lowestTime.GetComponent<Text>().text = h2OTime;
+                break;
         }
-        
     }
 }

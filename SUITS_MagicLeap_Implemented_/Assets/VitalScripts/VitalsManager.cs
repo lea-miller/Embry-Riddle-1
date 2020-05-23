@@ -16,6 +16,7 @@ public class VitalsManager : MonoBehaviour
     [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, PH2OgStatusBar, PH2OLStatusBar, VFanStatusBar;
     [SerializeField] private TelemetryStream getValues;
     [SerializeField] private MainScreenVitalManager homeScreen;
+    [SerializeField] private int lowestCase;
 
     void Awake()
     {
@@ -85,7 +86,7 @@ public class VitalsManager : MonoBehaviour
 
 
         updateVitalScreen();
-        //homeScreen.updateMainScreen(currentPO2,currentCo2,currentPsi,currentHeartRate);
+        homeScreen.updateMainScreen(currentBPM, getValues.jsnData.timer, lowestCase, getValues.jsnData.t_oxygen, getValues.jsnData.t_battery, getValues.jsnData.t_water);
     }
 
     private void changeTimes()
@@ -111,16 +112,19 @@ public class VitalsManager : MonoBehaviour
         if( lowest == O2SecondsValue) {
             textO2time.GetComponent<TextMeshProUGUI>().color = Color.red;
             TimeO2DispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
+            lowestCase = 1;
         }
         if (lowest == BatterySecondsValue)
         {
             textBatterytime.GetComponent<TextMeshProUGUI>().color = Color.red;
             TimeBatteryDispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
+            lowestCase = 2;
         }
         if (lowest == H2OSecondsValue)
         {
             textH2Otime.GetComponent<TextMeshProUGUI>().color = Color.red;
             TimeH2ODispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
+            lowestCase = 3;
         }
     }
 
