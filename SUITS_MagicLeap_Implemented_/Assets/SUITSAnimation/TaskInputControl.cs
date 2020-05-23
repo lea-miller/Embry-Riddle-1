@@ -22,10 +22,9 @@ public class TaskInputControl : MonoBehaviour
         reader = gameObject.GetComponent<CSVReader>();
         textInstruction = instruct.GetComponent<TextMeshProUGUI>();
         textPage = pageText.GetComponent<TextMeshProUGUI>();
-        pageCounter = 0;
         taskCounter = 0;
     }
-
+ 
     void Start()
     {
         tasks = reader.getTask();

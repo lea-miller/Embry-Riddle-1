@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CSVReader : MonoBehaviour
 {
     private List<List<string>> groupList;
@@ -10,9 +11,12 @@ public class CSVReader : MonoBehaviour
     private List<string> taskListInstruction;
     private List<string> taskListImage;
     private List<List<List<string>>> tasks;
-    private List<List<string>> jsonTaskNames;
+    private List<List<string>> jsonList;
     private int maxPages, instructLength;
-    private JSONReader json;
+    private TextAsset fileData;
+    public TextAsset jsonFile;
+    private List<string> jsonNameList;
+    private TaskValues tasksInJson;
 
     /*
   * groupList[task index] [list index] [element in the list];
@@ -20,24 +24,45 @@ public class CSVReader : MonoBehaviour
   * Example: groupList [page one] [image list] [image one]
   */
 
-    void Start()
+    void Awake()
     {
         tasks = new List<List<List<string>>>();
-        jsonTaskNames = new List<List<string>>();
-        json = gameObject.GetComponentInParent<JSONReader>();
+        jsonList = new List<List<string>>();
+        jsonNameList = jsonNameList = new List<string>();
+        tasksInJson = JsonUtility.FromJson<TaskValues>(jsonFile.text);
+
+    }
+
+    void Start()
+    {
+        loadJson();
+        loadTaskName(0);
         importTaskList();
     }
-    
+
+    private void loadJson()
+    {
+        foreach (TaskValue taskValue in tasksInJson.taskNames)
+        {
+            jsonNameList.Add(taskValue.task);
+        }
+        jsonList.Add(jsonNameList);
+    }
+
+    private void loadTaskName(int taskNumber)
+    {
+        fileData = Resources.Load<TextAsset>(jsonList[0][taskNumber]);
+    }
+
     private void importTaskList()
     {
-        jsonTaskNames = json.getResources();
-        TextAsset questdata = Resources.Load<TextAsset>(jsonTaskNames[0][0]);
+
         taskListPage = new List<string>();
         taskListInstruction = new List<string>();
         taskListImage = new List<string>();
         groupList = new List<List<string>>();
 
-        string[] data = questdata.text.Split(new char[] { '\n' });
+        string[] data = fileData.text.Split(new char[] { '\n' });
 
         for (int i = 1; i < data.Length - 1; i++)
         {
@@ -58,6 +83,7 @@ public class CSVReader : MonoBehaviour
         groupList.Add(taskListInstruction);
         groupList.Add(taskListImage);
         tasks.Add(groupList);
+        getMaxPages();
     }
 
     //Returns the max number of pages

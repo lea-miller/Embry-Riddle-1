@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 48222279556969882}
   - component: {fileID: 48222279556969877}
   - component: {fileID: 48222279556969876}
-  - component: {fileID: 8213476234907074773}
   m_Layer: 0
   m_Name: Torso
   m_TagString: Torso
@@ -110,19 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
---- !u!114 &8213476234907074773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48222279556969879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483f4c27de4025d419b634a6569a0b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: 3031e6323bc78d7468b6536688854bd6, type: 3}
 --- !u!1001 &4504630348582454601
 PrefabInstance:
   m_ObjectHideFlags: 0
