@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainScreenVitalManager : MonoBehaviour
 {
-    private GameObject BPMMainDispNum, missionTime, lowestTime;
+    private GameObject BPMMainDispNum, missionTime, lowestTime, vitalsListText;
+
 
     void Awake()
     {
         assignVariables();
+        vitalsListText.GetComponent<TextMeshProUGUI>().color = Color.red;
     }
     
     //Assigns the variables once so performance can be quicker than assigining it every update
@@ -18,10 +21,11 @@ public class MainScreenVitalManager : MonoBehaviour
         BPMMainDispNum = GameObject.Find("/Head/MainScreen/Vitals/HeartRate/Heart-Rate Numerical Value");
         missionTime = GameObject.Find("/Head/MainScreen/Timers/MissionTime");
         lowestTime = GameObject.Find("/Head/MainScreen/Timers/LowestTime");
+        vitalsListText = GameObject.Find("/Head/MainScreen/Vitals/VitalsList");
     }
 
     //Is called from Vitals Manager, every update
-    public void updateMainScreen(float currentBPM, string missionTimeString, int lowestCase, string o2Time, string batteryTime, string h2OTime)
+    public void updateMainScreen(float currentBPM, string missionTimeString, int lowestCase, string o2Time, string batteryTime, string h2OTime, string vitalsListString)
     {
         BPMMainDispNum.GetComponent<Text>().text = currentBPM.ToString();
         missionTime.GetComponent<Text>().text = missionTimeString;
@@ -37,5 +41,7 @@ public class MainScreenVitalManager : MonoBehaviour
                 lowestTime.GetComponent<Text>().text = h2OTime;
                 break;
         }
+        // Display vitals list string
+        vitalsListText.GetComponent<TextMeshProUGUI>().text = vitalsListString;
     }
 }

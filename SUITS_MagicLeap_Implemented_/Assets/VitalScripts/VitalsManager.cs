@@ -12,7 +12,9 @@ public class VitalsManager : MonoBehaviour
     private GameObject PO2VitalDispNum, PO2RateDispNum, batteryVitalDispNum, BPMDispNum, TSUBDispNum, PSOPDispNum, PSOPRateDispNum, PSUBDispNum, PSUITDispNum, PH2OgDispNum, PH2OLDispNum, VFanDispNum,
          TimeO2DispNum, TimeBatteryDispNum, TimeH2ODispNum;
     private GameObject textO2time, textBatterytime, textH2Otime, textBPM, textTSUB, textPO2, textPO2rate, textPSOP, textPSOPrate, textBattery, textPSUB, textPSUIT,
-        textPH2Og, textPH2OL, textVFAN;
+        textPH2Og, textPH2OL, textVFAN, vitalsListText;
+    [SerializeField] private List<string> vitalsList = new List<string>();
+    public string vitalsListString;
     [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, PH2OgStatusBar, PH2OLStatusBar, VFanStatusBar;
     [SerializeField] private TelemetryStream getValues;
     [SerializeField] private MainScreenVitalManager homeScreen;
@@ -69,6 +71,9 @@ public class VitalsManager : MonoBehaviour
     {
         //start getting values, and update the telemetry values every frame
         StartCoroutine(gameObject.GetComponent<TelemetryStream>().GetText());
+        //clear the vitals notification list every frame so errors do not persist after they are fixed
+        vitalsList = new List<string>();
+        //update vitals values
         changeBattery();
         changePO2();
         changePO2Rate();
@@ -82,11 +87,13 @@ public class VitalsManager : MonoBehaviour
         changePH2OL();
         changeVFan();
         changeTimes();
+        writeListToString();
         //change UIA values every frame as well
 
-
+        //writes new values to vitals screen
         updateVitalScreen();
-        homeScreen.updateMainScreen(currentBPM, getValues.jsnData.timer, lowestCase, getValues.jsnData.t_oxygen, getValues.jsnData.t_battery, getValues.jsnData.t_water);
+        //writes new values to main screen
+        homeScreen.updateMainScreen(currentBPM, getValues.jsnData.timer, lowestCase, getValues.jsnData.t_oxygen, getValues.jsnData.t_battery, getValues.jsnData.t_water, vitalsListString);
     }
 
     private void changeTimes()
@@ -136,6 +143,7 @@ public class VitalsManager : MonoBehaviour
         if (batteryPercentage <= 30)
         {
             textBattery.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("Battery");
         }
         else
         {
@@ -151,6 +159,7 @@ public class VitalsManager : MonoBehaviour
         if (oxPrimaryPercentage <= 30)
         {
             textPO2.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("PO2");
         }
         else
         {
@@ -164,6 +173,7 @@ public class VitalsManager : MonoBehaviour
         if (currentPO2Rate > 1)
         {
             textPO2rate.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("PO2 RATE");
         }
         else
         {
@@ -179,6 +189,7 @@ public class VitalsManager : MonoBehaviour
         if (oxSecondaryPercentage <= 30)
         {
             textPSOP.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("PSOP");
         }
         else
         {
@@ -191,6 +202,7 @@ public class VitalsManager : MonoBehaviour
         if (currentPSOPRate > 1)
         {
             textPSOPrate.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("PSOP Rate");
         }
         else
         {
@@ -204,6 +216,7 @@ public class VitalsManager : MonoBehaviour
         if (currentBPM > 100)
         {
             textBPM.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("BPM");
         }
         else
         {
@@ -217,6 +230,7 @@ public class VitalsManager : MonoBehaviour
         if (currentTSUB > 100)
         {
             textTSUB.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("TSUB");
         }
         else
         {
@@ -227,9 +241,10 @@ public class VitalsManager : MonoBehaviour
     {
         currentPSUB = float.Parse(getValues.jsnData.p_sub);
         PSUBStatusBar.setVitalsValue(currentPSUB);
-        if (currentPSUB <= 2 || currentPSUB >= 4)
+        if (currentPSUB < 2 || currentPSUB > 4)
         {
             textPSUB.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("PSUB");
         }
         else
         {
@@ -240,9 +255,10 @@ public class VitalsManager : MonoBehaviour
     {
         currentPSUIT = float.Parse(getValues.jsnData.p_suit);
         PSUITStatusBar.setVitalsValue(currentPSUIT);
-        if (currentPSUIT <= 2 || currentPSUIT >= 4)
+        if (currentPSUIT < 2 || currentPSUIT > 4)
         {
             textPSUIT.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("PSUIT");
         }
         else
         {
@@ -253,9 +269,10 @@ public class VitalsManager : MonoBehaviour
     {
         currentPH2Og = float.Parse(getValues.jsnData.p_h2o_g);
         PH2OgStatusBar.setVitalsValue(currentPH2Og);
-        if (currentPH2Og <= 14 || currentPH2Og >= 16)
+        if (currentPH2Og < 14 || currentPH2Og > 16)
         {
             textPH2Og.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("PH2Og");
         }
         else
         {
@@ -266,9 +283,10 @@ public class VitalsManager : MonoBehaviour
     {
         currentPH2OL = float.Parse(getValues.jsnData.p_h2o_l);
         PH2OLStatusBar.setVitalsValue(currentPH2OL);
-        if (currentPH2OL <= 14 || currentPH2OL >= 16)
+        if (currentPH2OL < 14 || currentPH2OL > 16)
         {
             textPH2OL.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("PH2OL");
         }
         else
         {
@@ -279,14 +297,20 @@ public class VitalsManager : MonoBehaviour
     {
         currentVFan = float.Parse(getValues.jsnData.v_fan);
         VFanStatusBar.setVitalsValue(currentVFan);
-        if (currentVFan <= 10000 || currentVFan >= 40000)
+        if (currentVFan < 10000 || currentVFan > 40000)
         {
             textVFAN.GetComponent<TextMeshProUGUI>().color = Color.red;
+            vitalsList.Add("VFAN");
         }
         else
         {
             textVFAN.GetComponent<TextMeshProUGUI>().color = Color.white;
         }
+    }
+
+    private void writeListToString()
+    {
+        vitalsListString = string.Join ("\n", vitalsList);
     }
     private void updateVitalScreen()
     {
