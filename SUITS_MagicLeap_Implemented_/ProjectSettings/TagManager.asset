@@ -29,6 +29,7 @@ TagManager:
   - Recording Saved
   - InstructText
   - PageCounter
+  - TaskCounter
   layers:
   - Default
   - TransparentFX
