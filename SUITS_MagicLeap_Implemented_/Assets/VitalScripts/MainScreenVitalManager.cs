@@ -28,17 +28,28 @@ public class MainScreenVitalManager : MonoBehaviour
     public void updateMainScreen(float currentBPM, string missionTimeString, int lowestCase, string o2Time, string batteryTime, string h2OTime, string vitalsListString)
     {
         BPMMainDispNum.GetComponent<Text>().text = currentBPM.ToString();
+
+        if (currentBPM > 100)
+        {
+            BPMMainDispNum.GetComponent<Text>().color = Color.red;
+        }
+        else
+        {
+            BPMMainDispNum.GetComponent<Text>().color = Color.white;
+        }
+        //show mission time
         missionTime.GetComponent<Text>().text = missionTimeString;
+        //show the lowest resource time from vitalsmanager
         switch (lowestCase)
         {
             case 1:
-                lowestTime.GetComponent<Text>().text = o2Time;
+                lowestTime.GetComponent<Text>().text = o2Time + " (O2)";
                 break;
             case 2:
-                lowestTime.GetComponent<Text>().text = batteryTime;
+                lowestTime.GetComponent<Text>().text = batteryTime + " (BATTERY)";
                 break;
             case 3:
-                lowestTime.GetComponent<Text>().text = h2OTime;
+                lowestTime.GetComponent<Text>().text = h2OTime + " (H2O)";
                 break;
         }
         // Display vitals list string

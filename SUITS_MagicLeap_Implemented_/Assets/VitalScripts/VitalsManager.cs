@@ -8,14 +8,15 @@ using TMPro;
 public class VitalsManager : MonoBehaviour
 {
     [SerializeField] private float currentPO2, currentPO2Rate, currentBattery, currentBPM, currentTSUB, currentPSOP, currentPSOPRate, currentPSUB, currentPSUIT, currentPH2Og, currentPH2OL, currentVFan, batteryPercentage,
-        oxPrimaryPercentage,oxSecondaryPercentage;
+        oxPrimaryPercentage, oxSecondaryPercentage, currentEMU1O2Value, currentEMU2O2Value;
     private GameObject PO2VitalDispNum, PO2RateDispNum, batteryVitalDispNum, BPMDispNum, TSUBDispNum, PSOPDispNum, PSOPRateDispNum, PSUBDispNum, PSUITDispNum, PH2OgDispNum, PH2OLDispNum, VFanDispNum,
          TimeO2DispNum, TimeBatteryDispNum, TimeH2ODispNum;
     private GameObject textO2time, textBatterytime, textH2Otime, textBPM, textTSUB, textPO2, textPO2rate, textPSOP, textPSOPrate, textBattery, textPSUB, textPSUIT,
-        textPH2Og, textPH2OL, textVFAN, vitalsListText;
+        textPH2Og, textPH2OL, textVFAN;
+    private GameObject textEMU1, textEMU2, textPUMP, textEV1SUPPLY, textEV1OXYGEN, textEV1WASTE, textEV2SUPPLY, textEV2OXYGEN, textEV2WASTE, textO2VENT, textEMU1O2PRESSUREVALUE, textEMU2O2PRESSUREVALUE;
     [SerializeField] private List<string> vitalsList = new List<string>();
     public string vitalsListString;
-    [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, PH2OgStatusBar, PH2OLStatusBar, VFanStatusBar;
+    [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, VFanStatusBar;
     [SerializeField] private TelemetryStream getValues;
     [SerializeField] private MainScreenVitalManager homeScreen;
     [SerializeField] private int lowestCase;
@@ -41,8 +42,8 @@ public class VitalsManager : MonoBehaviour
         PSOPRateDispNum = GameObject.Find("/Torso/VitalsScreen/PSOPRate");
         PSUBDispNum = GameObject.Find("/Torso/VitalsScreen/PSUBBarBody/PSUBBarSlider/PSUBNumericalValue");
         PSUITDispNum = GameObject.Find("/Torso/VitalsScreen/PSUITBarBody/PSUITBarSlider/PSUITNumericalValue");
-        PH2OgDispNum = GameObject.Find("/Torso/VitalsScreen/PH2OgBarBody/PH2OgBarSlider/PH2OgNumericalValue");
-        PH2OLDispNum = GameObject.Find("/Torso/VitalsScreen/PH2OLBarBody/PH2OLBarSlider/PH2OLNumericalValue");
+        PH2OgDispNum = GameObject.Find("/Torso/VitalsScreen/PH2OgValue");
+        PH2OLDispNum = GameObject.Find("/Torso/VitalsScreen/PH2OLValue");
         VFanDispNum = GameObject.Find("/Torso/VitalsScreen/VFanBarBody/VFanBarSlider/VFanNumericalValue");
         TimeO2DispNum = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time O2");
         TimeBatteryDispNum = GameObject.Find("/Torso/VitalsScreen/TimesCanvas/Time Battery");
@@ -64,6 +65,22 @@ public class VitalsManager : MonoBehaviour
         textPH2Og = GameObject.Find("/Torso/VitalsScreen/PH2Og");
         textPH2OL = GameObject.Find("/Torso/VitalsScreen/PH2OL");
         textVFAN = GameObject.Find("/Torso/VitalsScreen/VFan");
+
+        //Assigns text to UIA switch gameobjects
+        textEMU1 = GameObject.Find("/Torso/VitalsScreen/EMU1");
+        textEMU2 = GameObject.Find("/Torso/VitalsScreen/EMU2");
+        textPUMP = GameObject.Find("/Torso/VitalsScreen/PUMP");
+        textO2VENT = GameObject.Find("/Torso/VitalsScreen/O2VENT");
+        textEV1SUPPLY = GameObject.Find("/Torso/VitalsScreen/EV1 SUPPLY");
+        textEV1OXYGEN = GameObject.Find("/Torso/VitalsScreen/EV1 OXYGEN");
+        textEV1WASTE = GameObject.Find("/Torso/VitalsScreen/EV1 WASTE");
+        textEV2SUPPLY = GameObject.Find("/Torso/VitalsScreen/EV2 SUPPLY");
+        textEV2OXYGEN = GameObject.Find("/Torso/VitalsScreen/EV2 OXYGEN");
+        textEV2WASTE = GameObject.Find("/Torso/VitalsScreen/EV2 WASTE");
+
+        textEMU1O2PRESSUREVALUE = GameObject.Find("/Torso/VitalsScreen/EMU1 O2 PRESSURE VALUE");
+        textEMU2O2PRESSUREVALUE = GameObject.Find("/Torso/VitalsScreen/EMU2 O2 PRESSURE VALUE");
+
     }
 
     // Update is called once per frame
@@ -89,7 +106,7 @@ public class VitalsManager : MonoBehaviour
         changeTimes();
         writeListToString();
         //change UIA values every frame as well
-
+        changeUIA();
         //writes new values to vitals screen
         updateVitalScreen();
         //writes new values to main screen
@@ -116,10 +133,15 @@ public class VitalsManager : MonoBehaviour
 
         // finds the lowest value from the seconds obtained from each
         int lowest = Mathf.Min(O2SecondsValue, BatterySecondsValue, H2OSecondsValue);
-        if( lowest == O2SecondsValue) {
+        if (lowest == O2SecondsValue) {
             textO2time.GetComponent<TextMeshProUGUI>().color = Color.red;
             TimeO2DispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
             lowestCase = 1;
+        }
+        else
+        {
+            textO2time.GetComponent<TextMeshProUGUI>().color = Color.white;
+            TimeO2DispNum.GetComponent<TextMeshProUGUI>().color = Color.white;
         }
         if (lowest == BatterySecondsValue)
         {
@@ -127,11 +149,21 @@ public class VitalsManager : MonoBehaviour
             TimeBatteryDispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
             lowestCase = 2;
         }
+        else
+        {
+            textBatterytime.GetComponent<TextMeshProUGUI>().color = Color.white;
+            TimeBatteryDispNum.GetComponent<TextMeshProUGUI>().color = Color.white;
+        }
         if (lowest == H2OSecondsValue)
         {
             textH2Otime.GetComponent<TextMeshProUGUI>().color = Color.red;
             TimeH2ODispNum.GetComponent<TextMeshProUGUI>().color = Color.red;
             lowestCase = 3;
+        }
+        else
+        {
+            textH2Otime.GetComponent<TextMeshProUGUI>().color = Color.white;
+            TimeH2ODispNum.GetComponent<TextMeshProUGUI>().color = Color.white;
         }
     }
 
@@ -143,7 +175,7 @@ public class VitalsManager : MonoBehaviour
         if (batteryPercentage <= 30)
         {
             textBattery.GetComponent<TextMeshProUGUI>().color = Color.red;
-            vitalsList.Add("Battery");
+            vitalsList.Add("BATTERY");
         }
         else
         {
@@ -202,7 +234,7 @@ public class VitalsManager : MonoBehaviour
         if (currentPSOPRate > 1)
         {
             textPSOPrate.GetComponent<TextMeshProUGUI>().color = Color.red;
-            vitalsList.Add("PSOP Rate");
+            vitalsList.Add("PSOP RATE");
         }
         else
         {
@@ -268,7 +300,6 @@ public class VitalsManager : MonoBehaviour
     private void changePH2Og()
     {
         currentPH2Og = float.Parse(getValues.jsnData.p_h2o_g);
-        PH2OgStatusBar.setVitalsValue(currentPH2Og);
         if (currentPH2Og < 14 || currentPH2Og > 16)
         {
             textPH2Og.GetComponent<TextMeshProUGUI>().color = Color.red;
@@ -282,7 +313,6 @@ public class VitalsManager : MonoBehaviour
     private void changePH2OL()
     {
         currentPH2OL = float.Parse(getValues.jsnData.p_h2o_l);
-        PH2OLStatusBar.setVitalsValue(currentPH2OL);
         if (currentPH2OL < 14 || currentPH2OL > 16)
         {
             textPH2OL.GetComponent<TextMeshProUGUI>().color = Color.red;
@@ -310,8 +340,106 @@ public class VitalsManager : MonoBehaviour
 
     private void writeListToString()
     {
-        vitalsListString = string.Join ("\n", vitalsList);
+        vitalsListString = string.Join("\n", vitalsList);
     }
+
+    private void changeUIA()
+    {
+        //EMU1
+        if (String.Equals(getValues.jsnUIAData.emu1, "OFF") == true)
+        {
+            textEMU1.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textEMU1.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //EMU2
+        if (String.Equals(getValues.jsnUIAData.emu2, "OFF") == true)
+        {
+            textEMU2.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textEMU2.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //PUMP
+        if (String.Equals(getValues.jsnUIAData.depress_pump, "FAULT") == true)
+        {
+            textPUMP.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textPUMP.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //O2VENT
+        if (String.Equals(getValues.jsnUIAData.O2_vent, "FAULT") == true)
+        {
+            textO2VENT.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textO2VENT.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //EV1SUPPLY
+        if (String.Equals(getValues.jsnUIAData.ev1_supply, "CLOSE") == true)
+        {
+            textEV1SUPPLY.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textEV1SUPPLY.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //EV1OXYGEN
+        if (String.Equals(getValues.jsnUIAData.emu1_O2, "CLOSE") == true)
+        {
+            textEV1OXYGEN.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textEV1OXYGEN.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //EV1WASTE
+        if (String.Equals(getValues.jsnUIAData.ev1_waste, "CLOSE") == true)
+        {
+            textEV1WASTE.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textEV1WASTE.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //EV2SUPPLY
+        if (String.Equals(getValues.jsnUIAData.ev2_supply, "CLOSE") == true)
+        {
+            textEV2SUPPLY.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textEV2SUPPLY.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //EV2OXYGEN
+        if (String.Equals(getValues.jsnUIAData.emu2_O2, "CLOSE") == true)
+        {
+            textEV2OXYGEN.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textEV2OXYGEN.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //EV2WASTE
+        if (String.Equals(getValues.jsnUIAData.ev2_waste, "CLOSE") == true)
+        {
+            textEV2WASTE.GetComponent<TextMeshProUGUI>().color = Color.gray;
+        }
+        else
+        {
+            textEV2WASTE.GetComponent<TextMeshProUGUI>().color = Color.red;
+        }
+        //set EMU pressure values every frame
+        currentEMU1O2Value = getValues.jsnUIAData.o2_supply_pressure1;
+        currentEMU2O2Value = getValues.jsnUIAData.o2_supply_pressure2;
+    }
+
     private void updateVitalScreen()
     {
         PO2VitalDispNum.GetComponent<Text>().text = currentPO2.ToString() + " psia";
@@ -323,9 +451,11 @@ public class VitalsManager : MonoBehaviour
         PSOPRateDispNum.GetComponent<TextMeshProUGUI>().text = currentPSOPRate.ToString() + " psi/min";
         PSUBDispNum.GetComponent<Text>().text = currentPSUB.ToString() + " psia";
         PSUITDispNum.GetComponent<Text>().text = currentPSUIT.ToString() + " psid";
-        PH2OgDispNum.GetComponent<Text>().text = currentPH2Og.ToString() + " psia";
-        PH2OLDispNum.GetComponent<Text>().text = currentPH2OL.ToString() + " psia";
+        PH2OgDispNum.GetComponent<TextMeshProUGUI>().text = currentPH2Og.ToString() + " psia";
+        PH2OLDispNum.GetComponent<TextMeshProUGUI>().text = currentPH2OL.ToString() + " psia";
         VFanDispNum.GetComponent<Text>().text = currentVFan.ToString() + " RPM";
+        textEMU1O2PRESSUREVALUE.GetComponent<TextMeshProUGUI>().text = currentEMU1O2Value.ToString() + " psi";
+        textEMU2O2PRESSUREVALUE.GetComponent<TextMeshProUGUI>().text = currentEMU2O2Value.ToString() + " psi";
         TimeO2DispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_oxygen;
         TimeBatteryDispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_battery;
         TimeH2ODispNum.GetComponent<TextMeshProUGUI>().text = getValues.jsnData.t_water;
