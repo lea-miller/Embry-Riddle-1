@@ -6,7 +6,7 @@ using TMPro;
 
 public class TaskInputControl : MonoBehaviour
 {
-    private GameObject btn, panel, instruct, pageText;
+    private GameObject instruct, pageText;
     private bool isOpenPanel;
     private TextMeshProUGUI textInstruction, textPage;
     private CSVReader reader;
@@ -15,8 +15,6 @@ public class TaskInputControl : MonoBehaviour
 
     void Awake()
     {
-        btn = gameObject.transform.Find("Grouping Button").gameObject;
-        panel = gameObject.transform.Find("Panel Task View").gameObject;
         instruct = GameObject.FindGameObjectWithTag("InstructText");
         pageText = GameObject.FindGameObjectWithTag("PageCounter");
         reader = gameObject.GetComponent<CSVReader>();
@@ -34,18 +32,7 @@ public class TaskInputControl : MonoBehaviour
 
     public void TriggerTaskView()
     {
-        if (btn != null && panel != null)
-        {
-            Animator animPanel = panel.GetComponent<Animator>();
-            Animator animBtn = btn.GetComponent<Animator>();
-            if (animBtn != null && animBtn != null)
-            {
-                isOpenPanel = animPanel.GetBool("open");
-                setTaskBoolean();
-                animPanel.SetBool("open", getTaskBoolean());
-                animBtn.SetBool("open", getTaskBoolean());
-            }
-        }
+        setTaskBoolean();
     }
 
     private bool getTaskBoolean()
