@@ -83,33 +83,39 @@ public class CSVReader : MonoBehaviour
         groupList.Add(taskListInstruction);
         groupList.Add(taskListImage);
         tasks.Add(groupList);
-        getMaxPages();
     }
 
     //Returns the max number of pages
-    public int getMaxPages()
+    public int getMaxPages(int taskNumber)
     {
-        int length = groupList[0].Count;
+        int length = tasks[taskNumber][0].Count;
         string maxInt = tasks[0][0][length-1];
         maxPages = Int32.Parse(maxInt);
         return maxPages;
     }
 
     //Returns the instruction index's per the page
-    public List<int> getInstructionIndex(int pageNumber)
+    public List<int> getInstructionIndex(int pageNumber, int taskNumber)
     {
         string pageNum = Convert.ToString(pageNumber);
         List<int> indexList = new List<int>();
         
-        for(int i = 0; i<groupList[1].Count; i++)
+        for(int i = 0; i<tasks[taskNumber][1].Count; i++)
         {
-            if (string.Equals(groupList[0][i],pageNum))
+            if (string.Equals(tasks[taskNumber][0][i],pageNum))
             {
                 indexList.Add(i);
             }
         }
         return indexList;
     }
+
+    //Returns the list length
+    public int getTaskLength()
+    {
+        return jsonList[0].Count;
+    }
+
 
     //Returns the entire list
     public List<List<List<string>>> getTask()

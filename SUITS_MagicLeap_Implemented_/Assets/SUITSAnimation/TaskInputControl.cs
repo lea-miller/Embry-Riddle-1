@@ -6,9 +6,9 @@ using TMPro;
 
 public class TaskInputControl : MonoBehaviour
 {
-    private GameObject instruct, pageText;
+    private GameObject instruct, pageText, taskLengthObj;
     private bool isOpenPanel;
-    private TextMeshProUGUI textInstruction, textPage;
+    private TextMeshProUGUI textInstruction, textPage, textTaskLength;
     private CSVReader reader;
     private List<List<List<string>>> tasks;
     private int pageCounter, taskCounter;
@@ -17,9 +17,11 @@ public class TaskInputControl : MonoBehaviour
     {
         instruct = GameObject.FindGameObjectWithTag("InstructText");
         pageText = GameObject.FindGameObjectWithTag("PageCounter");
+        taskLengthObj = GameObject.FindGameObjectWithTag("TaskCounter");
         reader = gameObject.GetComponent<CSVReader>();
         textInstruction = instruct.GetComponent<TextMeshProUGUI>();
         textPage = pageText.GetComponent<TextMeshProUGUI>();
+        textTaskLength = taskLengthObj.GetComponent<TextMeshProUGUI>();
         taskCounter = 0;
     }
  
@@ -28,6 +30,7 @@ public class TaskInputControl : MonoBehaviour
         tasks = reader.getTask();
         pageCounter = 1;
         getInstruction();
+        displayInstruct();
     }
 
     public void TriggerTaskView()
@@ -78,11 +81,13 @@ public class TaskInputControl : MonoBehaviour
     private void nextTask()
     {
         taskCounter = taskCounter + 1;
+        counterTaskCheck();
     }
 
     private void previousTask()
     {
         taskCounter = taskCounter - 1;
+        counterTaskCheck();
     }
 
     private void nextPage()
@@ -100,7 +105,7 @@ public class TaskInputControl : MonoBehaviour
     //Ensures that the user doesn't exceed the instruct page limits
     private void pageCounterCheck()
     {
-        if(pageCounter > reader.getMaxPages())
+        if(pageCounter > reader.getMaxPages(taskCounter))
         {
             pageCounter = pageCounter - 1;
             getInstruction();
@@ -117,26 +122,28 @@ public class TaskInputControl : MonoBehaviour
     }
 
     //Ensures that the user doesn't exceed the task limits
-    private int counterTaskCheck()
+    private void counterTaskCheck()
     {
-        if (taskCounter > 1)
+        if (taskCounter > reader.getTaskLength())
         {
-            return taskCounter = taskCounter - 1;
+           taskCounter = taskCounter - 1;
+            displayInstruct();
         }
         else if (taskCounter < 0)
         {
-            return taskCounter = taskCounter + 1;
+            taskCounter = taskCounter + 1;
+            displayInstruct();
         }
         else
         {
-            return taskCounter;
+            displayInstruct();
         }
     }
 
     //Builds the string for the TextMeshPro
     private void getInstruction()
     {
-        List<int> list = reader.getInstructionIndex(pageCounter);
+        List<int> list = reader.getInstructionIndex(pageCounter,taskCounter);
         int startIndex = list[0];
         int endIndex = list.Last();
         string joinString = "";
@@ -145,7 +152,7 @@ public class TaskInputControl : MonoBehaviour
         //displays the instruction per the indexs related to that page
         for (int i=endIndex; i>=startIndex; i--)
         {
-            string tempInstruct = tasks[0][1][i];
+            string tempInstruct = tasks[taskCounter][1][i];
             stepNum = i + 1;
             joinString = stepNum + " " + tempInstruct + "\n" + "\n" + joinString;
         }
@@ -157,6 +164,16 @@ public class TaskInputControl : MonoBehaviour
     private void displayInstructCanvas(string joinString)
     {
         textInstruction.text = joinString;
-        textPage.text = pageCounter + " out of " + reader.getMaxPages();
+        textPage.text = pageCounter + " out of " + reader.getMaxPages(taskCounter);
+    }
+
+    //Displays Task Total
+    private void displayInstruct()
+    {
+ 
+        textTaskLength.text = ((taskCounter < reader.getTaskLength()-1) ? taskCounter+1 : taskCounter) 
+            + " out of " + reader.getTaskLength();
+
+        Debug.Log("TaskCounter: " + taskCounter);
     }
 }
