@@ -30,11 +30,6 @@ public class CSVReader : MonoBehaviour
         jsonList = new List<List<string>>();
         jsonNameList = jsonNameList = new List<string>();
         tasksInJson = JsonUtility.FromJson<TaskValues>(jsonFile.text);
-
-    }
-
-    void Start()
-    {
         loadJson();
         loadTaskName(0);
         importTaskList();
@@ -56,7 +51,6 @@ public class CSVReader : MonoBehaviour
 
     private void importTaskList()
     {
-
         taskListPage = new List<string>();
         taskListInstruction = new List<string>();
         taskListImage = new List<string>();
@@ -87,9 +81,9 @@ public class CSVReader : MonoBehaviour
 
     //Returns the max number of pages
     public int getMaxPages(int taskNumber)
-    {
+    { 
         int length = tasks[taskNumber][0].Count;
-        string maxInt = tasks[0][0][length-1];
+        string maxInt = tasks[taskNumber][0][length-1];
         maxPages = Int32.Parse(maxInt);
         return maxPages;
     }

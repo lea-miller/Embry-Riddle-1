@@ -23,18 +23,20 @@ public class TaskInputControl : MonoBehaviour
         textPage = pageText.GetComponent<TextMeshProUGUI>();
         textTaskLength = taskLengthObj.GetComponent<TextMeshProUGUI>();
         taskCounter = 0;
+        pageCounter = 1;
+        
     }
  
     void Start()
     {
         tasks = reader.getTask();
-        pageCounter = 1;
         getInstruction();
         displayInstruct();
     }
 
     public void TriggerTaskView()
     {
+        Debug.Log("Switched View");
         setTaskBoolean();
     }
 
@@ -147,7 +149,7 @@ public class TaskInputControl : MonoBehaviour
         int startIndex = list[0];
         int endIndex = list.Last();
         string joinString = "";
-        int stepNum;
+        int stepNum = 0;
 
         //displays the instruction per the indexs related to that page
         for (int i=endIndex; i>=startIndex; i--)
@@ -170,10 +172,7 @@ public class TaskInputControl : MonoBehaviour
     //Displays Task Total
     private void displayInstruct()
     {
- 
         textTaskLength.text = ((taskCounter < reader.getTaskLength()-1) ? taskCounter+1 : taskCounter) 
             + " out of " + reader.getTaskLength();
-
-        Debug.Log("TaskCounter: " + taskCounter);
     }
 }
