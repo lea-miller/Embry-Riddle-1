@@ -15,6 +15,7 @@ public class TaskInputControl : MonoBehaviour
     private int pageCounter, taskCounter, testCounter;
     private static int rectangleLoc = 550;
     private static float waitTime = 0.5f;
+    private List<int> taskTracker;
 
     void Awake()
     {
@@ -27,15 +28,19 @@ public class TaskInputControl : MonoBehaviour
         textInstruction = instruct.GetComponent<TextMeshProUGUI>();
         textPage = pageText.GetComponent<TextMeshProUGUI>();
         textTaskLength = taskLengthObj.GetComponent<TextMeshProUGUI>();
-        taskCounter = 0;
-        pageCounter = 1;
+        
+        taskTracker = new List<int>();
         curTaskSelected = true;
         isOnTask = false;
+        taskCounter = 0;
+        pageCounter = 1;
+
     }
 
     void Start()
     {
         tasks = reader.getTask();
+        taskTracker.Add(taskCounter);
         getInstruction();
         displayTaskPanel();
         TriggerTaskView();
@@ -64,12 +69,10 @@ public class TaskInputControl : MonoBehaviour
         if(isOnTask)
         {
             nextTask();
-            Debug.Log("Next Task");
         }
         else //Task is closed
         {
             nextPage();
-            Debug.Log("Next Page");
         }
     }
 
@@ -91,8 +94,7 @@ public class TaskInputControl : MonoBehaviour
         taskCounter = taskCounter + 1;
         isSelectedNext = true;
         counterTaskCheck();
-        displayTaskPanel();
-        transitionRectangleMove();
+        updateTaskSelected();
     }
 
     private void previousTask()
@@ -100,8 +102,7 @@ public class TaskInputControl : MonoBehaviour
         taskCounter = taskCounter - 1;
         isSelectedNext = false;
         counterTaskCheck();
-        displayTaskPanel();
-        transitionRectangleMove();
+        updateTaskSelected();
     }
 
     private void nextPage()
@@ -203,7 +204,6 @@ public class TaskInputControl : MonoBehaviour
     //Feedback to the user : the selected task is highlighted
     private void transitionRectangleMove()
     {
-        
         if (taskCounter == 0)
         {
             Debug.Log("transitionRect");
@@ -249,4 +249,18 @@ public class TaskInputControl : MonoBehaviour
         }
     }
 
+    //If the user selects a new task
+    private void updateTaskSelected()
+    {
+        //check the counter and list : import if it hasn't already
+        if (!taskTracker.Contains(taskCounter))
+        {
+            taskTracker.Add(taskCounter);
+            reader.loadTaskName(taskCounter);
+            reader.importTaskList();
+            tasks = reader.getTask();
+        }
+        getInstruction();
+        displayTaskPanel();
+    }
 }

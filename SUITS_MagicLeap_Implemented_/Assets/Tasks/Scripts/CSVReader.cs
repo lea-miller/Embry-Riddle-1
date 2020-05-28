@@ -44,12 +44,12 @@ public class CSVReader : MonoBehaviour
         jsonList.Add(jsonNameList);
     }
 
-    private void loadTaskName(int taskNumber)
+    public void loadTaskName(int taskNumber)
     {
         fileData = Resources.Load<TextAsset>(jsonList[0][taskNumber]);
     }
 
-    private void importTaskList()
+    public void importTaskList()
     {
         taskListPage = new List<string>();
         taskListInstruction = new List<string>();
