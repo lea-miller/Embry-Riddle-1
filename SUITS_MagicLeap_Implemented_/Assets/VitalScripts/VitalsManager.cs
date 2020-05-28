@@ -352,7 +352,7 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textEMU1.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textEMU1.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //EMU2
         if (String.Equals(getValues.jsnUIAData.emu2, "OFF") == true)
@@ -361,7 +361,7 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textEMU2.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textEMU2.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //PUMP
         if (String.Equals(getValues.jsnUIAData.depress_pump, "FAULT") == true)
@@ -370,16 +370,16 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textPUMP.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textPUMP.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //O2VENT
-        if (String.Equals(getValues.jsnUIAData.O2_vent, "FAULT") == true)
+        if (String.Equals(getValues.jsnUIAData.O2_vent, "CLOSE") == true)
         {
             textO2VENT.GetComponent<TextMeshProUGUI>().color = Color.gray;
         }
         else
         {
-            textO2VENT.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textO2VENT.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //EV1SUPPLY
         if (String.Equals(getValues.jsnUIAData.ev1_supply, "CLOSE") == true)
@@ -388,7 +388,7 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textEV1SUPPLY.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textEV1SUPPLY.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //EV1OXYGEN
         if (String.Equals(getValues.jsnUIAData.emu1_O2, "CLOSE") == true)
@@ -397,7 +397,7 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textEV1OXYGEN.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textEV1OXYGEN.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //EV1WASTE
         if (String.Equals(getValues.jsnUIAData.ev1_waste, "CLOSE") == true)
@@ -406,7 +406,7 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textEV1WASTE.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textEV1WASTE.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //EV2SUPPLY
         if (String.Equals(getValues.jsnUIAData.ev2_supply, "CLOSE") == true)
@@ -415,7 +415,7 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textEV2SUPPLY.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textEV2SUPPLY.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //EV2OXYGEN
         if (String.Equals(getValues.jsnUIAData.emu2_O2, "CLOSE") == true)
@@ -424,7 +424,7 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textEV2OXYGEN.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textEV2OXYGEN.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //EV2WASTE
         if (String.Equals(getValues.jsnUIAData.ev2_waste, "CLOSE") == true)
@@ -433,7 +433,7 @@ public class VitalsManager : MonoBehaviour
         }
         else
         {
-            textEV2WASTE.GetComponent<TextMeshProUGUI>().color = Color.red;
+            textEV2WASTE.GetComponent<TextMeshProUGUI>().color = Color.green;
         }
         //set EMU pressure values every frame
         currentEMU1O2Value = getValues.jsnUIAData.o2_supply_pressure1;
