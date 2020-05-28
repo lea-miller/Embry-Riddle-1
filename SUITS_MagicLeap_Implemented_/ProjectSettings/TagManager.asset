@@ -30,6 +30,7 @@ TagManager:
   - InstructText
   - PageCounter
   - TaskCounter
+  - Task Selected
   layers:
   - Default
   - TransparentFX

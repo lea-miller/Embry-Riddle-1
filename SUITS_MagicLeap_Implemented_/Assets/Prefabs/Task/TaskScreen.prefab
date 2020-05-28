@@ -245,8 +245,11 @@ MonoBehaviour:
       m_Calls: []
   OnTriggerDown:
     m_PersistentCalls:
+      m_Calls: []
+  OnDoubleTrigger:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2612092958267527469}
         m_MethodName: checkTrigger
         m_Mode: 1
         m_Arguments:
@@ -257,9 +260,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnDoubleTrigger:
-    m_PersistentCalls:
-      m_Calls: []
   OnTriggerUp:
     m_PersistentCalls:
       m_Calls: []
@@ -280,8 +280,11 @@ MonoBehaviour:
       m_Calls: []
   OnBumperDown:
     m_PersistentCalls:
+      m_Calls: []
+  OnDoubleBumper:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2612092958267527469}
         m_MethodName: checkBumper
         m_Mode: 1
         m_Arguments:
@@ -292,15 +295,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnDoubleBumper:
-    m_PersistentCalls:
-      m_Calls: []
   OnBumperUp:
     m_PersistentCalls:
       m_Calls: []
   OnBumperHold:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2612092958267527469}
+        m_MethodName: TriggerTaskView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTouchDown:
     m_PersistentCalls:
       m_Calls: []
@@ -1145,11 +1156,6 @@ PrefabInstance:
       propertyPath: m_Type
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2177762388006055947, guid: 49eb33d414401b44686a5c0c166db394,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -872
-      objectReference: {fileID: 0}
     - target: {fileID: 2267343724951007025, guid: 49eb33d414401b44686a5c0c166db394,
         type: 3}
       propertyPath: m_Enabled
@@ -1194,37 +1200,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaycastTarget
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370971633300348172, guid: 49eb33d414401b44686a5c0c166db394,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 934fd37db723a49628c59af6dd57ff12,
-        type: 3}
-    - target: {fileID: 3370971633300348172, guid: 49eb33d414401b44686a5c0c166db394,
-        type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370971633300348172, guid: 49eb33d414401b44686a5c0c166db394,
-        type: 3}
-      propertyPath: m_FillCenter
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370971633300348172, guid: 49eb33d414401b44686a5c0c166db394,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.8000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370971633300348172, guid: 49eb33d414401b44686a5c0c166db394,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.8000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370971633300348172, guid: 49eb33d414401b44686a5c0c166db394,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.8000001
       objectReference: {fileID: 0}
     - target: {fileID: 3534266883401092821, guid: 49eb33d414401b44686a5c0c166db394,
         type: 3}
