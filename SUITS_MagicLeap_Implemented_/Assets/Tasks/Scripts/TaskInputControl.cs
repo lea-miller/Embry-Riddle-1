@@ -14,7 +14,7 @@ public class TaskInputControl : MonoBehaviour
     private List<List<List<string>>> tasks;
     private int pageCounter, taskCounter, testCounter;
     private static int rectangleLoc = 550;
-    private static float waitTime = 0.5f;
+    private static float waitTime = 0.3f;
     private List<int> taskTracker;
 
     void Awake()
@@ -158,14 +158,12 @@ public class TaskInputControl : MonoBehaviour
         int startIndex = list[0];
         int endIndex = list.Last();
         string joinString = "";
-        int stepNum = 0;
 
         //displays the instruction per the indexs related to that page
         for (int i=endIndex; i>=startIndex; i--)
         {
             string tempInstruct = tasks[taskCounter][1][i];
-            stepNum = i + 1;
-            joinString = stepNum + " " + tempInstruct + "\n" + "\n" + joinString;
+            joinString = tempInstruct + "\n" + "\n" + joinString;
         }
 
         displayInstructionPanel(joinString);
@@ -206,10 +204,12 @@ public class TaskInputControl : MonoBehaviour
     {
         if (taskCounter == 0)
         {
-            Debug.Log("transitionRect");
-            taskSelBtn.SetActive(true);
-            taskSelBtn1.SetActive(false);
-            taskSelBtn2.SetActive(false);
+            if (isOnTask)
+            {
+                taskSelBtn.SetActive(true);
+                taskSelBtn1.SetActive(false);
+                taskSelBtn2.SetActive(false);
+            }
         }
         else if (taskCounter == 1)
         {
@@ -228,7 +228,6 @@ public class TaskInputControl : MonoBehaviour
     //Feedback to the user : blink if on task
     private IEnumerator currentSelection()
     {
-        Debug.Log("CurrentSelect: " + isOnTask);
         while (isOnTask)
         {
             yield return new WaitForSeconds(waitTime);
@@ -247,6 +246,7 @@ public class TaskInputControl : MonoBehaviour
                 taskSelBtn2.SetActive(curTaskSelected);
             }
         }
+        yield return new WaitForSeconds(0);
     }
 
     //If the user selects a new task
@@ -260,7 +260,10 @@ public class TaskInputControl : MonoBehaviour
             reader.importTaskList();
             tasks = reader.getTask();
         }
+        //Display newly update information
+        pageCounter = 1;
         getInstruction();
         displayTaskPanel();
+        transitionRectangleMove();
     }
 }
