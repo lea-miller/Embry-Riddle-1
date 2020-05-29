@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TaskInputControl : MonoBehaviour
 {
     public GameObject taskSelBtn, taskSelBtn1, taskSelBtn2;
-    private GameObject instruct, pageText, taskLengthObj, taskRectangle;
+    private GameObject instruct, pageText, taskLengthObj, taskRectangle, instImageObj;
+    public Image instImage;
+    private Material mat;
     private bool isOnTask, isSelectedNext, curTaskSelected;
     private TextMeshProUGUI textInstruction, textPage, textTaskLength;
     private CSVReader reader;
@@ -16,25 +19,27 @@ public class TaskInputControl : MonoBehaviour
     private static int rectangleLoc = 550;
     private static float waitTime = 0.3f;
     private List<int> taskTracker;
-
+   
     void Awake()
     {
         instruct = GameObject.FindGameObjectWithTag("InstructText");
         pageText = GameObject.FindGameObjectWithTag("PageCounter");
         taskLengthObj = GameObject.FindGameObjectWithTag("TaskCounter");
         taskRectangle = GameObject.FindGameObjectWithTag("Task Selected");
+        instImageObj = GameObject.FindGameObjectWithTag("Task Image");
+        mat = Resources.Load<Material>("Materials/Transparent");
 
+        instImage = instImage.GetComponent<Image>();
         reader = gameObject.GetComponent<CSVReader>();
         textInstruction = instruct.GetComponent<TextMeshProUGUI>();
         textPage = pageText.GetComponent<TextMeshProUGUI>();
         textTaskLength = taskLengthObj.GetComponent<TextMeshProUGUI>();
-        
+      
         taskTracker = new List<int>();
         curTaskSelected = true;
         isOnTask = false;
         taskCounter = 0;
         pageCounter = 1;
-
     }
 
     void Start()
@@ -44,6 +49,7 @@ public class TaskInputControl : MonoBehaviour
         getInstruction();
         displayTaskPanel();
         TriggerTaskView();
+        updateImage();
     }
 
     public void TriggerTaskView()
@@ -109,12 +115,16 @@ public class TaskInputControl : MonoBehaviour
     {
         pageCounter = pageCounter + 1;
         pageCounterCheck();
+        getInstruction();
+        updateImage();
     }
 
     private void prevPage()
     {
         pageCounter = pageCounter - 1;
         pageCounterCheck();
+        getInstruction();
+        updateImage();
     }
 
     //Ensures that the user doesn't exceed the instruct page limits
@@ -123,16 +133,12 @@ public class TaskInputControl : MonoBehaviour
         if(pageCounter > reader.getMaxPages(taskCounter))
         {
             pageCounter = pageCounter - 1;
-            getInstruction();
+
         }
         else if (pageCounter <= 0)
         {
             pageCounter = pageCounter + 1;
-            getInstruction();
-        }
-        else
-        {
-            getInstruction();
+
         }
     }
 
@@ -265,5 +271,28 @@ public class TaskInputControl : MonoBehaviour
         getInstruction();
         displayTaskPanel();
         transitionRectangleMove();
+        updateImage();
+    }
+
+    //Updates the impage based on the instruction
+    private void updateImage()
+    {
+        //Only need to pull the first index of the instImage for the page
+        List<int> list = reader.getInstructionIndex(pageCounter,taskCounter);
+        int startIndex = list[0];
+        string currImage = tasks[taskCounter][2][startIndex];
+            //Trim is needed to remove the white spaces that are in the list
+            string path = "Sprites/" + currImage.Trim();
+            Sprite currSprite = Resources.Load<Sprite>(path);
+            if(currSprite == null)
+            {
+                mat = Resources.Load<Material>("Materials/Transparent");
+            }
+            else
+            {
+                instImage.sprite = currSprite;
+                mat = Resources.Load<Material>("Materials/White");
+            }
+            instImage.material = mat;
     }
 }

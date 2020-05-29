@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a9b9368258ee3646b0c110a9ba8e89a
+guid: 3f981b842a7f9c449ba4467578454b41
 VideoClipImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -23,7 +23,7 @@ VideoClipImporter:
       bitrateMode: 2
       spatialQuality: 2
     28:
-      enableTranscoding: 1
+      enableTranscoding: 0
       codec: 0
       resizeFormat: 0
       aspectRatio: 0
