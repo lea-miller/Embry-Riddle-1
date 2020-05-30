@@ -16,8 +16,7 @@ public class TelemetryStream : MonoBehaviour
 
         if (getVitals.isNetworkError || getVitals.isHttpError || getUIAState.isNetworkError || getUIAState.isHttpError)
         {
-            Debug.Log(getVitals.error);
-            Debug.Log(getUIAState.error);
+            Debug.Log("Vital Newtwork Error");
         }
         else
         {

@@ -284,6 +284,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2112530160}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1890299405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4173485250042802252, guid: 34510ac972e4f1f4795604795d2b4be5,
+    type: 3}
+  m_PrefabInstance: {fileID: 355771982065232201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6b27b4c84048f45ad7f452bac51c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1890299406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7265721582597635856, guid: 34510ac972e4f1f4795604795d2b4be5,
+    type: 3}
+  m_PrefabInstance: {fileID: 355771982065232201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed70a7a583d2b94da7ba4d3949fc4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2112530160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -362,10 +386,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 183254777825131371, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 211608116843617918, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
       propertyPath: m_Name
       value: Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 378431720220566586, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179822426161257415, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1788555756173410689, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
@@ -452,6 +491,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4173485250042802252, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 1890299406}
+    - target: {fileID: 4473034544555344557, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6193948255244405548, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128374617449545434, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7340301018472485035, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -476,6 +535,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Voice Feedback
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937453346603425079, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284276311098393343, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8302897397418739624, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
@@ -1519,11 +1588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnTriggerHold.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1890299405}
     - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
         type: 3}
       propertyPath: OnTriggerHold.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: checkDoubleTrigger
+      value: recording
       objectReference: {fileID: 0}
     - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
         type: 3}

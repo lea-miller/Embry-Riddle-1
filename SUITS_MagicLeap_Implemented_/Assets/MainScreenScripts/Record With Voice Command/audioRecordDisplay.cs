@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class audioRecordDisplay : MonoBehaviour
 {
     private GameObject recordDisplay, recordSelection, recordOption,recordSave,
-        recordSaveTimer, recordSaveBackground, recordNotify;
+        recordSaveTimer, recordSaveBackground, recordNotify, recordCounter;
     private bool isNotify;
 
     void Awake()
@@ -18,6 +18,9 @@ public class audioRecordDisplay : MonoBehaviour
         recordSaveTimer = GameObject.FindWithTag("Recording Save Timer");
         recordSaveBackground = GameObject.FindWithTag("Recording Save Background");
         recordNotify = GameObject.FindWithTag("Recording Notification");
+
+        recordDisplay.SetActive(false);
+        recordSelection.SetActive(false);
     }
 
     void Start()
