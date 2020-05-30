@@ -46,7 +46,7 @@ public class CSVReader : MonoBehaviour
 
     public void loadTaskName(int taskNumber)
     {
-        fileData = Resources.Load<TextAsset>(jsonList[0][taskNumber]);
+        fileData = Resources.Load<TextAsset>("Tasks/"+jsonList[0][taskNumber]);
     }
 
     public void importTaskList()
