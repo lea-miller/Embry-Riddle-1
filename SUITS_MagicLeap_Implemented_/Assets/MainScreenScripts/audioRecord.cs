@@ -7,20 +7,24 @@ public class audioRecord : MonoBehaviour
 {
 
 private bool isRecording;
-private int  endCount, startCounter, savedCounter;
+private int savedCounter;
 private AudioSource _source;
 private List<string> savedNames;
 private string defualtName, currentName;
 public audioRecordDisplay display;
+private audioTimer timer;
+private List<AudioClip> recordList;
 
     void Awake()
     {
-        defualtName = "audioRecording";
-        savedNames = new List<string>();
+   
+        recordList = new List<AudioClip>();
         _source = GetComponent<AudioSource>();
-        endCount = 200;
-        savedCounter = 0;
+        timer = new audioTimer();
+        savedNames = new List<string>();
         isRecording = false;
+        defualtName = "audioRecording";
+        savedCounter = 0;
     }
 
     public void recording()
@@ -28,7 +32,7 @@ public audioRecordDisplay display;
         isRecording = isRecording? false:true;
         if(isRecording)
         {
-            startCounter = 0;
+            timer.setStartCount(0);
             StartCoroutine(startCount());
             startMic();
         }
@@ -36,7 +40,6 @@ public audioRecordDisplay display;
         {
             endRecording();
         }
-
     }
 
     public void endRecording()
@@ -49,7 +52,7 @@ public audioRecordDisplay display;
     private void startMic()
     {
         display.changeRecordingDisplay(true);
-        _source.clip = Microphone.Start("",true,10,48000);
+        _source.clip = Microphone.Start("",false,(int)timer.getEndCount(),48000);
     }
 
     private void endMic()
@@ -58,17 +61,19 @@ public audioRecordDisplay display;
         _source.Stop();
     }
 
+    //Saves a temporary Location of it until system shuts down
     private void saveRecording()
     {
         checkSaveFile();
+        recordList.Add(_source.clip);
         SavWav.Save(currentName, _source.clip);
         display.changeRecordingDisplay(false);          
     }
 
     //If the time ran out before the user clicked to finish recording
     private void checkCounter()
-    {
-        if(startCounter == endCount && isRecording)
+    {   
+        if(timer.getStartCount() > timer.getEndCount() && isRecording)
         {
             endRecording();
         }
@@ -80,7 +85,8 @@ public audioRecordDisplay display;
         while(isRecording)
         {
             yield return new WaitForSeconds(0);
-            startCounter = startCounter + 1;
+            timer.setStartCount(timer.getStartCount());
+            display.displayCounterGUI(timer.getStartCount());
             checkCounter();
         }
     }
@@ -88,12 +94,12 @@ public audioRecordDisplay display;
     //Check SaveFile Exists
     private void checkSaveFile()
     {
-        savedCounter = savedCounter + 1;
+        timer.setStartCount(timer.getStartCount());
         if(savedNames.Contains(currentName))
         {
+            savedCounter = savedCounter + 1;
             currentName = defualtName + "_" + savedCounter;
             savedNames.Add(currentName);
-            Debug.Log(savedNames[savedCounter-1]);
         }else
         {
             currentName = defualtName;
@@ -101,5 +107,6 @@ public audioRecordDisplay display;
         }
 
     }
+
 
 }
