@@ -17,6 +17,21 @@ TagManager:
   - MainRightTrigger
   - MainLeftTrigger
   - MLController
+  - batteryVitalDispValue
+  - Loading Screen
+  - Recording Selection
+  - Recording Display
+  - Recording Options
+  - Recording Save Timer
+  - Recording Notification
+  - Record Counter
+  - Recording Save Background
+  - Recording Saved
+  - InstructText
+  - PageCounter
+  - TaskCounter
+  - Task Selected
+  - Task Image
   layers:
   - Default
   - TransparentFX
