@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -104,16 +105,34 @@ public class CSVReader : MonoBehaviour
         return indexList;
     }
 
+    //Builds the string for the TextMeshPro
+    public string getInstruction(int pageCounter, int taskNumber)
+    {
+        List<int> list = getInstructionIndex(pageCounter,taskNumber);
+        int startIndex = list[0];
+        int endIndex = list.Last();
+        string joinString = "";
+
+        //displays the instruction per the indexs related to that page
+        for (int i=endIndex; i>=startIndex; i--)
+        {
+            string tempInstruct = tasks[taskNumber][1][i];
+            joinString = tempInstruct + "\n" + "\n" + joinString;
+        }
+        return joinString;
+    }
+
     //Returns the list length
     public int getTaskLength()
     {
         return jsonList[0].Count;
     }
 
-
     //Returns the entire list
     public List<List<List<string>>> getTask()
     {
         return tasks;
     }
+
+    
 }

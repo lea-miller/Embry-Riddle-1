@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 4591109296923966805}
   - component: {fileID: 4591109296923966804}
   - component: {fileID: 4591109296923966808}
+  - component: {fileID: 1846745161614875147}
   - component: {fileID: 6672458647059430388}
   - component: {fileID: 561511124952751817}
   - component: {fileID: 2612092958267527469}
@@ -220,6 +221,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScreen: {fileID: 4591109296923966803}
+--- !u!114 &1846745161614875147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591109296923966803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a119a2737f1653419c65f1861f716a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskSelBtn: {fileID: 6380768876715285720}
+  taskSelBtn1: {fileID: 4182404211560596771}
+  taskSelBtn2: {fileID: 1982114937257192914}
 --- !u!114 &6672458647059430388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,19 +284,7 @@ MonoBehaviour:
       m_Calls: []
   OnTriggerHold:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 655259119827285532, guid: 4bc3cb96b2bc0c34c9eb03d5701aec4d,
-          type: 3}
-        m_MethodName: recording
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnTriggerMove:
     m_PersistentCalls:
       m_Calls: []
@@ -382,10 +386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9300d83d985a7a544a23394bd79e6113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskSelBtn: {fileID: 0}
-  taskSelBtn1: {fileID: 0}
-  taskSelBtn2: {fileID: 0}
-  instImage: {fileID: 0}
 --- !u!1001 &18865282360892075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -924,6 +924,24 @@ GameObject:
 --- !u!224 &7037373276582290886 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7055663328990265197, guid: 600a149045d70174b82e553027e6212d,
+    type: 3}
+  m_PrefabInstance: {fileID: 18865282360892075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6380768876715285720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6399068214987245171, guid: 600a149045d70174b82e553027e6212d,
+    type: 3}
+  m_PrefabInstance: {fileID: 18865282360892075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4182404211560596771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4200142833230782344, guid: 600a149045d70174b82e553027e6212d,
+    type: 3}
+  m_PrefabInstance: {fileID: 18865282360892075}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1982114937257192914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2000414997586425721, guid: 600a149045d70174b82e553027e6212d,
     type: 3}
   m_PrefabInstance: {fileID: 18865282360892075}
   m_PrefabAsset: {fileID: 0}
