@@ -152,22 +152,16 @@ public class TaskInputControl : MonoBehaviour
         {
             if (isOnTask)
             {
-                display.taskSelBtn.SetActive(true);
-                display.taskSelBtn1.SetActive(false);
-                display.taskSelBtn2.SetActive(false);
+                display.changeActiceBtnState(true, false, false);
             }
         }
         else if (taskCounter == 1)
         {
-            display.taskSelBtn1.SetActive(true);
-            display.taskSelBtn.SetActive(false);
-            display.taskSelBtn2.SetActive(false);
+            display.changeActiceBtnState(false, true, false);
         }
         else if (taskCounter == 2)
         {
-            display.taskSelBtn2.SetActive(true);
-            display.taskSelBtn.SetActive(false);
-            display.taskSelBtn1.SetActive(false);
+           display.changeActiceBtnState(false, false, true);
         }
     }
 
@@ -181,15 +175,15 @@ public class TaskInputControl : MonoBehaviour
            
             if (taskCounter == 0)
             {
-                display.taskSelBtn.SetActive(curTaskSelected);
+                display.changeBtnState(curTaskSelected);
             }
             else if (taskCounter == 1)
             {
-                display.taskSelBtn1.SetActive(curTaskSelected);
+                display.changeBtn1State(curTaskSelected);
             }
             else if (taskCounter == 2)
             {
-                display.taskSelBtn2.SetActive(curTaskSelected);
+                display.changeBtn2State(curTaskSelected);
             }
         }
         yield return new WaitForSeconds(0);

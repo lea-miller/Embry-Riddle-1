@@ -7,8 +7,8 @@ using TMPro;
 public class TaskDisplay : MonoBehaviour
 {
 
-    public GameObject taskSelBtn, taskSelBtn1, taskSelBtn2;
-    public Text taskName1, taskName2, taskName3;
+    [SerializeField] protected GameObject taskSelBtn, taskSelBtn1, taskSelBtn2;
+   [SerializeField] protected Text taskName1, taskName2, taskName3;
     private GameObject instImageObj,instruct,pageText,taskLengthObj;
     private TextMeshProUGUI textInstruction, textPage, textTaskLength;
     private Material mat;
@@ -83,6 +83,30 @@ public class TaskDisplay : MonoBehaviour
        taskName1.text = taskNames[0];
        taskName2.text = taskNames[1];
        taskName3.text = taskNames[2];
+    }
+
+    
+    public void changeActiceBtnState(bool btn, bool btn1, bool btn2)
+    {
+        changeBtnState(btn);
+        changeBtn1State(btn1);
+        changeBtn2State(btn2);
+    }
+
+
+    public void changeBtnState(bool isActive)
+    {
+        taskSelBtn.SetActive(isActive);
+    }
+
+    public void changeBtn1State(bool isActive)
+    {
+        taskSelBtn1.SetActive(isActive);
+    }
+
+    public void changeBtn2State(bool isActive)
+    {
+        taskSelBtn2.SetActive(isActive);
     }
 
 }
