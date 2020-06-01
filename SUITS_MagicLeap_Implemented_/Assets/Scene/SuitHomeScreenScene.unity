@@ -392,7 +392,7 @@ PrefabInstance:
     - target: {fileID: 5850404675360181103, guid: 24158fb1437dc8e418d893939758764d,
         type: 3}
       propertyPath: m_StabilizationMode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5850404675360181103, guid: 24158fb1437dc8e418d893939758764d,
         type: 3}
@@ -1686,11 +1686,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
         type: 3}
-      propertyPath: OnTriggerHold.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
-        type: 3}
       propertyPath: OnTriggerHold.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -1737,31 +1732,6 @@ PrefabInstance:
     - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
         type: 3}
       propertyPath: OnTriggerPressEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
-        type: 3}
-      propertyPath: OnBumperUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
-        type: 3}
-      propertyPath: OnBumperUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
-        type: 3}
-      propertyPath: OnBumperUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1544486030}
-    - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
-        type: 3}
-      propertyPath: OnBumperUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: checkBumper
-      objectReference: {fileID: 0}
-    - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
-        type: 3}
-      propertyPath: OnBumperUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7171104675619192054, guid: bdf4685586a8d1b469fd0deed5d99f38,
