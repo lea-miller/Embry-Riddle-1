@@ -8,11 +8,11 @@ public class TaskDisplay : MonoBehaviour
 {
 
     public GameObject taskSelBtn, taskSelBtn1, taskSelBtn2;
+    public Text taskName1, taskName2, taskName3;
     private GameObject instImageObj,instruct,pageText,taskLengthObj;
     private TextMeshProUGUI textInstruction, textPage, textTaskLength;
     private Material mat;
     private Image instImage;
-    private static float waitTime = 0.3f;
     private CSVReader reader;
 
 
@@ -31,6 +31,14 @@ public class TaskDisplay : MonoBehaviour
         
         reader = gameObject.GetComponent<CSVReader>();
 
+    }
+
+    void Start()
+    {
+        displayTaskNames();
+        string instructionString = reader.getInstruction(1,0);
+        displayInstructionPanel(instructionString,1,0);
+        displayTaskPanel(0);
     }
 
     //Displays the page information to the GUI
@@ -67,6 +75,14 @@ public class TaskDisplay : MonoBehaviour
                 mat = Resources.Load<Material>("Materials/White");
             }
             instImage.material = mat;
+    }
+
+    private void displayTaskNames()
+    {
+       List<string> taskNames = reader.getTaskNames();
+       taskName1.text = taskNames[0];
+       taskName2.text = taskNames[1];
+       taskName3.text = taskNames[2];
     }
 
 }

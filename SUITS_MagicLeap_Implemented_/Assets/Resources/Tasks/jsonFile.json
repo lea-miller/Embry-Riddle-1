@@ -2,13 +2,13 @@
   "taskNames":
   [
     {
-       "task" : "task4"
+       "task" : "PRE-SAMPLE"
     },
     {
-      "task" : "task2"
+      "task" : "SAMPLE-SURVEY"
     },
     {
-      "task" : "task3"
+      "task" : "STOW-SAMPLE"
     }
   ]
 }

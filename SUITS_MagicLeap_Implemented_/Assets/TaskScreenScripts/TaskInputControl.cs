@@ -30,11 +30,6 @@ public class TaskInputControl : MonoBehaviour
     {
         tasks = reader.getTask();
         taskTracker.Add(taskCounter);
-        
-        instructionString = reader.getInstruction(pageCounter,taskCounter);
-        display.displayInstructionPanel(instructionString,pageCounter,taskCounter);
-        display.displayTaskPanel(taskCounter);
-        
         TriggerTaskView();
         display.updateImage(tasks,taskCounter,pageCounter);
     }
@@ -151,7 +146,7 @@ public class TaskInputControl : MonoBehaviour
     }
 
     //Feedback to the user : the selected task is highlighted
-    public void transitionRectangleMove()
+    private void transitionRectangleMove()
     {
         if (taskCounter == 0)
         {
@@ -177,7 +172,7 @@ public class TaskInputControl : MonoBehaviour
     }
 
    //Feedback to the user : blink if on task
-    public IEnumerator currentSelection()
+    private IEnumerator currentSelection()
     {
         while (isOnTask)
         {

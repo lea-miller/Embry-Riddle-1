@@ -134,5 +134,8 @@ public class CSVReader : MonoBehaviour
         return tasks;
     }
 
-    
+    public List<string> getTaskNames()
+    {
+        return jsonNameList;
+    }
 }
