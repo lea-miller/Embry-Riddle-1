@@ -56,6 +56,7 @@ public class TaskInputControl : MonoBehaviour
         else //Task is closed
         {
             pageCounter = pageCounter + 1;
+            pageCounterCheck();
             display.changePage(tasks,pageCounter, taskCounter);
         }
     }
