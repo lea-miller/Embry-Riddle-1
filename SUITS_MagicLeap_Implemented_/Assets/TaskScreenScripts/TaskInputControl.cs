@@ -10,10 +10,9 @@ public class TaskInputControl : MonoBehaviour
     private int pageCounter, taskCounter, testCounter;
     private List<int> taskTracker;
     private TaskDisplay display;
-    private string instructionString;
-    private bool curTaskSelected;
+    private bool curTaskSelected, isBumperHeld;
     private readonly float waitTime = 0.3f;
-   
+
     void Awake()
     {
         reader = gameObject.GetComponent<CSVReader>();
@@ -21,9 +20,9 @@ public class TaskInputControl : MonoBehaviour
         taskTracker = new List<int>();
         isOnTask = false;
         curTaskSelected = true;
+        isBumperHeld = false;
         taskCounter = 0;
         pageCounter = 1;
-        instructionString = "";
     }
 
     void Start()
@@ -34,19 +33,11 @@ public class TaskInputControl : MonoBehaviour
         display.updateImage(tasks,taskCounter,pageCounter);
     }
 
-    private void refreshTaskScreen()
-    {
-        instructionString = reader.getInstruction(pageCounter,taskCounter);
-        display.displayInstructionPanel(instructionString,pageCounter,taskCounter);
-        display.displayTaskPanel(taskCounter);
-       
-        transitionRectangleMove();
-        display.updateImage(tasks,taskCounter,pageCounter);
-    }
 
     //Swaps between task selection and instruction selection
     public void TriggerTaskView()
     {
+        isBumperHeld = true;
         setTaskBoolean();
         StartCoroutine(currentSelection());
         transitionRectangleMove();
@@ -59,44 +50,36 @@ public class TaskInputControl : MonoBehaviour
         {
             taskCounter = taskCounter + 1;
             isSelectedNext = true;
-            changeTask();
+            counterTaskCheck();
+            updateTaskSelected();
         }
         else //Task is closed
         {
             pageCounter = pageCounter + 1;
-            changePage();
-            
+            display.changePage(tasks,pageCounter, taskCounter);
         }
     }
 
     public void checkBumper()
     {
-        //Task is open
-        if (isOnTask)
-        {
-            taskCounter = taskCounter - 1;
-            isSelectedNext = false;
-            changeTask();
+        if(!isBumperHeld)
+            {
+            //Task is open
+            if (isOnTask)
+            {
+                taskCounter = taskCounter - 1;
+                isSelectedNext = false;
+                counterTaskCheck();
+                updateTaskSelected();
+            }
+            else //Task is closed
+            {
+                pageCounter = pageCounter - 1;
+                pageCounterCheck();
+                display.changePage(tasks,pageCounter, taskCounter);
+            }
         }
-        else //Task is closed
-        {
-            pageCounter = pageCounter - 1;
-            changePage();
-        }
-    }
-
-    private void changeTask()
-    {
-        counterTaskCheck();
-        updateTaskSelected();
-    }
-
-    private void changePage()
-    {
-        pageCounterCheck();
-        instructionString = reader.getInstruction(pageCounter,taskCounter);
-        display.displayInstructionPanel(instructionString,pageCounter,taskCounter);
-        display.updateImage(tasks,taskCounter,pageCounter);
+        isBumperHeld = false;
     }
 
     //Ensures that the user doesn't exceed the instruct page limits
@@ -105,12 +88,10 @@ public class TaskInputControl : MonoBehaviour
         if(pageCounter > reader.getMaxPages(taskCounter))
         {
             pageCounter = pageCounter - 1;
-
         }
         else if (pageCounter <= 0)
         {
             pageCounter = pageCounter + 1;
-
         }
     }
 
@@ -120,12 +101,10 @@ public class TaskInputControl : MonoBehaviour
         if (taskCounter > reader.getTaskLength()-1)
         {
            taskCounter = taskCounter - 1;
-            
         }
         else if (taskCounter < 0)
         {
             taskCounter = taskCounter + 1;
-            
         }
     }
 
@@ -142,7 +121,8 @@ public class TaskInputControl : MonoBehaviour
         }
         //Display newly update information
         pageCounter = 1;
-        refreshTaskScreen();
+        transitionRectangleMove();
+        display.refreshTaskScreen(tasks,pageCounter,taskCounter);
     }
 
     //Feedback to the user : the selected task is highlighted
@@ -189,7 +169,6 @@ public class TaskInputControl : MonoBehaviour
         yield return new WaitForSeconds(0);
     }
 
-
     private bool canMove()
     {
         if(taskCounter < 0 && !isSelectedNext)
@@ -204,11 +183,6 @@ public class TaskInputControl : MonoBehaviour
         {
             return true;
         }
-    }
-
-    private bool getTaskBoolean()
-    {
-        return isOnTask;
     }
 
     private void setTaskBoolean()

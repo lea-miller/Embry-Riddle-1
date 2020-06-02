@@ -8,13 +8,12 @@ public class TaskDisplay : MonoBehaviour
 {
 
     [SerializeField] protected GameObject taskSelBtn, taskSelBtn1, taskSelBtn2;
-   [SerializeField] protected Text taskName1, taskName2, taskName3;
+    [SerializeField] protected Text taskName1, taskName2, taskName3;
     private GameObject instImageObj,instruct,pageText,taskLengthObj;
     private TextMeshProUGUI textInstruction, textPage, textTaskLength;
     private Material mat;
     private Image instImage;
     private CSVReader reader;
-
 
     void Awake()
     {
@@ -77,6 +76,21 @@ public class TaskDisplay : MonoBehaviour
             instImage.material = mat;
     }
 
+    public void changePage(List<List<List<string>>> tasks, int pageCounter,int taskCounter)
+    {
+        string instructionString = reader.getInstruction(pageCounter,taskCounter);
+        displayInstructionPanel(instructionString,pageCounter,taskCounter);
+        updateImage(tasks,taskCounter,pageCounter);
+    }
+
+
+    public void refreshTaskScreen(List<List<List<string>>> tasks, int pageCounter,int taskCounter)
+    {
+        string instructionString = reader.getInstruction(pageCounter,taskCounter);
+        displayInstructionPanel(instructionString,pageCounter,taskCounter);
+        displayTaskPanel(taskCounter);
+        updateImage(tasks,taskCounter,pageCounter);
+    }
     private void displayTaskNames()
     {
        List<string> taskNames = reader.getTaskNames();
