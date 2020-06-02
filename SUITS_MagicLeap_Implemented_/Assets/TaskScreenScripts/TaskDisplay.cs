@@ -7,8 +7,8 @@ using TMPro;
 public class TaskDisplay : MonoBehaviour
 {
 
-    [SerializeField] protected GameObject taskSelBtn, taskSelBtn1, taskSelBtn2;
-    [SerializeField] protected Text taskName1, taskName2, taskName3;
+    [SerializeField] private GameObject taskSelBtn, taskSelBtn1, taskSelBtn2;
+    [SerializeField] private Text taskName1, taskName2, taskName3;
     private GameObject instImageObj,instruct,pageText,taskLengthObj;
     private TextMeshProUGUI textInstruction, textPage, textTaskLength;
     private Material mat;
