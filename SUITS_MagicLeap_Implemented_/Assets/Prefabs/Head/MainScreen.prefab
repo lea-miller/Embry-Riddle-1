@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 3752400846860922205}
   - component: {fileID: 5894702029616285719}
   - component: {fileID: 6029950475195184765}
+  - component: {fileID: 6338749593968376620}
   m_Layer: 5
   m_Name: MainScreen
   m_TagString: Main Screen
@@ -413,6 +414,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6338749593968376620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782393846615823221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ea0a67854ce984f9b9770cd3ca92a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1076264875514397949
 GameObject:
   m_ObjectHideFlags: 0

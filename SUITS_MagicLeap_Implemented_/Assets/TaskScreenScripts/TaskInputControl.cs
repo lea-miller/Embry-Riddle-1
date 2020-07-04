@@ -1,193 +1,101 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class TaskInputControl : MonoBehaviour
+public class TaskInputControl : MonoBehaviour, IonTaskScreen
 {
-    private bool isOnTask, isSelectedNext;
-    private CSVReader reader;
-    private List<List<List<string>>> tasks;
-    private int pageCounter, taskCounter, testCounter;
-    private List<int> taskTracker;
-    private TaskDisplay display;
-    private bool curTaskSelected, isBumperHeld;
-    private readonly float waitTime = 0.3f;
+
+    TaskScreenManager _taskScreen;
+    public Image taskImage, instructImage;
+    
+    [HideInInspector]
+    public bool isOnTask {get; set;}
+    [HideInInspector]
+    public bool isOnInst {get; set;}
+    [HideInInspector]
+    public bool isOnScreen {get; set;} //check if neither
 
     void Awake()
     {
-        reader = gameObject.GetComponent<CSVReader>();
-        display = gameObject.GetComponent<TaskDisplay>();
-        taskTracker = new List<int>();
-        isOnTask = false;
-        curTaskSelected = true;
-        isBumperHeld = false;
-        taskCounter = 0;
-        pageCounter = 1;
+        userCollider.notifyTaskHit += isOnTaskCheck;
+        userCollider.notifyInstHit += isOnInstCheck;
+        userCollider.notifyScreenHit += isOnScreenCheck;
+        _taskScreen = GameObject.FindWithTag("NotesUI").GetComponent<TaskScreenManager>();
+        taskImage = GameObject.FindWithTag("TaskView").GetComponent<Image>();
+        instructImage = GameObject.FindWithTag("InstructionView").GetComponent<Image>();
+        isOnScreen = false;
     }
-
-    void Start()
+    
+    private void isOnTaskCheck()
     {
-        tasks = reader.getTask();
-        taskTracker.Add(taskCounter);
-        TriggerTaskView();
-        display.updateImage(tasks,taskCounter,pageCounter);
+        if(isOnTask)
+        {
+            instructImage.enabled = false;
+            taskImage.enabled = true;
+ 
+            isOnTask = false; //avoid GUI constantly refreshing
+            isOnInst = true;
+            isOnScreen = false;
+        }
     }
 
-
-    //Swaps between task selection and instruction selection
-    public void TriggerTaskView()
+    private void isOnInstCheck()
     {
-        isBumperHeld = true;
-        setTaskBoolean();
-        StartCoroutine(currentSelection());
-        transitionRectangleMove();
+        if(isOnInst)
+        {
+            taskImage.enabled = false;
+            instructImage.enabled = true;
+            
+            isOnInst = false; //avoid GUI constantly refreshing
+            isOnTask = true;
+            isOnScreen = false;
+        }
     }
 
+    //This method also initalizes the boolens b/c on startup the user never starts on taskscreen
+    private void isOnScreenCheck()
+    {
+        if(!isOnScreen)
+        {
+            taskImage.enabled = false;
+            instructImage.enabled = false;
+            isOnTask = true;
+            isOnInst = true;
+            isOnScreen = true; //avoid GUI constantly refreshing
+        }
+    }
+
+    //The event would have changed the boolens before the trigger, thats why bool logic seems nonlogical
     public void checkTrigger()
     {
         //Task is open
-        if(isOnTask)
+        if(!isOnTask && !isOnScreen)
         {
-            taskCounter = taskCounter + 1;
-            isSelectedNext = true;
-            counterTaskCheck();
-            updateTaskSelected();
+            _taskScreen.getTask().nextTask();
+            _taskScreen.getDisplay().changeTask();
+
         }
-        else //Task is closed
+        else if(!isOnInst && !isOnScreen)
         {
-            pageCounter = pageCounter + 1;
-            pageCounterCheck();
-            display.changePage(tasks,pageCounter, taskCounter);
+            _taskScreen.getInstruct().nextInst();
+            _taskScreen.getDisplay().changePage();
         }
     }
-
+    
+    //The event would have changed the boolens before the bumper, thats why bool logic seems nonlogical
     public void checkBumper()
     {
-        if(!isBumperHeld)
-            {
             //Task is open
-            if (isOnTask)
+            if (!isOnTask && !isOnScreen)
             {
-                taskCounter = taskCounter - 1;
-                isSelectedNext = false;
-                counterTaskCheck();
-                updateTaskSelected();
+                _taskScreen.getTask().prevTask();
+                _taskScreen.getDisplay().changeTask();
             }
-            else //Task is closed
+            else if(!isOnInst && !isOnScreen)
             {
-                pageCounter = pageCounter - 1;
-                pageCounterCheck();
-                display.changePage(tasks,pageCounter, taskCounter);
+                _taskScreen.getInstruct().prevInst();
+                _taskScreen.getDisplay().changePage();
             }
-        }
-        isBumperHeld = false;
-    }
-
-    //Ensures that the user doesn't exceed the instruct page limits
-    private void pageCounterCheck()
-    {
-        if(pageCounter > reader.getMaxPages(taskCounter))
-        {
-            pageCounter = pageCounter - 1;
-        }
-        else if (pageCounter <= 0)
-        {
-            pageCounter = pageCounter + 1;
-        }
-    }
-
-    //Ensures that the user doesn't exceed the task limits
-    private void counterTaskCheck()
-    {
-        if (taskCounter > reader.getTaskLength()-1)
-        {
-           taskCounter = taskCounter - 1;
-        }
-        else if (taskCounter < 0)
-        {
-            taskCounter = taskCounter + 1;
-        }
-    }
-
-    //If the user selects a new task
-    private void updateTaskSelected()
-    {
-        //check the counter and list : import if it hasn't already
-        if (!taskTracker.Contains(taskCounter))
-        {
-            taskTracker.Add(taskCounter);
-            reader.loadTaskName(taskCounter);
-            reader.importTaskList();
-            tasks = reader.getTask();
-        }
-        //Display newly update information
-        pageCounter = 1;
-        transitionRectangleMove();
-        display.refreshTaskScreen(tasks,pageCounter,taskCounter);
-    }
-
-    //Feedback to the user : the selected task is highlighted
-    private void transitionRectangleMove()
-    {
-        if (taskCounter == 0)
-        {
-            if (isOnTask)
-            {
-                display.changeActiceBtnState(true, false, false);
-            }
-        }
-        else if (taskCounter == 1)
-        {
-            display.changeActiceBtnState(false, true, false);
-        }
-        else if (taskCounter == 2)
-        {
-           display.changeActiceBtnState(false, false, true);
-        }
-    }
-
-   //Feedback to the user : blink if on task
-    private IEnumerator currentSelection()
-    {
-        while (isOnTask)
-        {
-            yield return new WaitForSeconds(waitTime);
-            curTaskSelected = !curTaskSelected;
-           
-            if (taskCounter == 0)
-            {
-                display.changeBtnState(curTaskSelected);
-            }
-            else if (taskCounter == 1)
-            {
-                display.changeBtn1State(curTaskSelected);
-            }
-            else if (taskCounter == 2)
-            {
-                display.changeBtn2State(curTaskSelected);
-            }
-        }
-        yield return new WaitForSeconds(0);
-    }
-
-    private bool canMove()
-    {
-        if(taskCounter < 0 && !isSelectedNext)
-        {
-            return false;
-        }
-        else if (taskCounter > reader.getTaskLength() && isSelectedNext)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
-    private void setTaskBoolean()
-    {
-        isOnTask = !isOnTask;
     }
 }

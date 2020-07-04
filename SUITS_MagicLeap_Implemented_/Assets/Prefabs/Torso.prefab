@@ -701,16 +701,6 @@ PrefabInstance:
       propertyPath: OnDoubleTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 5847541068274742465, guid: ffd6633936d67b4469cc90e69839818f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.025146484
-      objectReference: {fileID: 0}
-    - target: {fileID: 5847541068274742465, guid: ffd6633936d67b4469cc90e69839818f,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -0.049561
-      objectReference: {fileID: 0}
     - target: {fileID: 6075786341932408479, guid: ffd6633936d67b4469cc90e69839818f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -790,26 +780,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037373276582290886, guid: ffd6633936d67b4469cc90e69839818f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1423.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037373276582290886, guid: ffd6633936d67b4469cc90e69839818f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -7.5125
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037373276582290886, guid: ffd6633936d67b4469cc90e69839818f,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1994.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 7037373276582290886, guid: ffd6633936d67b4469cc90e69839818f,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 3584.9
       objectReference: {fileID: 0}
     - target: {fileID: 7055824436189045634, guid: ffd6633936d67b4469cc90e69839818f,
         type: 3}
