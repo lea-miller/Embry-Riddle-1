@@ -21,7 +21,6 @@ public class VitalsScreenManager : MonoBehaviour
     {
         if(isOnVital)
         {
-            Debug.Log("Enabled");
             vitalImage.enabled = true;
             isOnScreen = false; //avoid GUI constantly refreshing
             isOnVital = false;
@@ -33,7 +32,6 @@ public class VitalsScreenManager : MonoBehaviour
     {
         if(!isOnScreen)
         {
-            Debug.Log("Disabled");
             vitalImage.enabled = false;
             isOnScreen = true;
             isOnVital = true;

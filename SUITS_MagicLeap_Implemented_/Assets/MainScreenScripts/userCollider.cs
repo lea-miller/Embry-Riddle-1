@@ -41,7 +41,6 @@ public class userCollider : MonoBehaviour
             }
             else if (hit.transform.gameObject.tag == "VitalsUI")
             {
-                Debug.Log("HIT?!: " + hit.transform.gameObject.tag);
                 notifyVitalHit();
             }
           }
