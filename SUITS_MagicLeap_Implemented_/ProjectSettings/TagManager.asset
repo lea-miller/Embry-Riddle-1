@@ -32,6 +32,9 @@ TagManager:
   - TaskCounter
   - Task Selected
   - Task Image
+  - TaskView
+  - InstructionView
+  - VitalView
   layers:
   - Default
   - TransparentFX

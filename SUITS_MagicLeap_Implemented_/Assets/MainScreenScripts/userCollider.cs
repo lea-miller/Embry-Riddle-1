@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class userCollider : MonoBehaviour, IonTaskScreen
+public class userCollider : MonoBehaviour
 {
     RaycastHit hit;
     public delegate void TaskHitNotify();
@@ -10,16 +10,14 @@ public class userCollider : MonoBehaviour, IonTaskScreen
 
     public delegate void InstHitNotify();
     public static event InstHitNotify notifyInstHit;
-    
+
+    public delegate void VitalHitNotify();
+    public static event VitalHitNotify notifyVitalHit;  
+  
     public delegate void ScreenHitNotify();
     public static event ScreenHitNotify notifyScreenHit;
-    
-    [HideInInspector]
-    public bool isOnTask {get; set;}
-    [HideInInspector]
-    public bool isOnInst {get; set;}
-    [HideInInspector]
-    public bool isOnScreen {get; set;} //check if neither
+
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -40,6 +38,11 @@ public class userCollider : MonoBehaviour, IonTaskScreen
             else if (hit.transform.gameObject.tag == "InstructionView")
             {
                 notifyInstHit();
+            }
+            else if (hit.transform.gameObject.tag == "VitalsUI")
+            {
+                Debug.Log("HIT?!: " + hit.transform.gameObject.tag);
+                notifyVitalHit();
             }
           }
           else

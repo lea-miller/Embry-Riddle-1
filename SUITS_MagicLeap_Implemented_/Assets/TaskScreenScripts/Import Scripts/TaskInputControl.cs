@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TaskInputControl : MonoBehaviour, IonTaskScreen
+public class TaskInputControl : MonoBehaviour
 {
 
     TaskScreenManager _taskScreen;
-    public Image taskImage, instructImage;
+    private Image taskImage, instructImage;
     
-    [HideInInspector]
-    public bool isOnTask {get; set;}
-    [HideInInspector]
-    public bool isOnInst {get; set;}
-    [HideInInspector]
-    public bool isOnScreen {get; set;} //check if neither
+    private bool isOnTask {get; set;}
+    private bool isOnInst {get; set;}
+    private bool isOnScreen {get; set;} //check if neither
 
     void Awake()
     {
