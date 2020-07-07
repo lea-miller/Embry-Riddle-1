@@ -9332,7 +9332,6 @@ GameObject:
   - component: {fileID: 8229833345049270447}
   - component: {fileID: 8229833345049270446}
   - component: {fileID: 8229833345049270433}
-  - component: {fileID: 8229833345049270432}
   - component: {fileID: 3569287319253303774}
   - component: {fileID: 7980777455650767938}
   - component: {fileID: 5165140370146238471}
@@ -9476,46 +9475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScreen: {fileID: 8229833345049270434}
---- !u!114 &8229833345049270432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8229833345049270434}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d0fe82b9876e1428c42a66a6c0c6c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPO2: 0
-  currentPO2Rate: 0
-  currentBattery: 0
-  currentBPM: 0
-  currentTSUB: 0
-  currentPSOP: 0
-  currentPSOPRate: 0
-  currentPSUB: 0
-  currentPSUIT: 0
-  currentPH2Og: 0
-  currentPH2OL: 0
-  currentVFan: 0
-  batteryPercentage: 0
-  oxPrimaryPercentage: 0
-  oxSecondaryPercentage: 0
-  currentEMU1O2Value: 0
-  currentEMU2O2Value: 0
-  vitalsList: []
-  vitalsListString: 
-  batteryStatusBar: {fileID: 8229833343487658582}
-  PO2StatusBar: {fileID: 1950138571749357006}
-  PSOPStatusBar: {fileID: 6905405864627077444}
-  PSUBStatusBar: {fileID: 7209869080890208918}
-  PSUITStatusBar: {fileID: 4138282609965784283}
-  VFanStatusBar: {fileID: 849188608073115041}
-  getValues: {fileID: 0}
-  homeScreen: {fileID: 0}
-  lowestCase: 0
 --- !u!114 &3569287319253303774
 MonoBehaviour:
   m_ObjectHideFlags: 0
