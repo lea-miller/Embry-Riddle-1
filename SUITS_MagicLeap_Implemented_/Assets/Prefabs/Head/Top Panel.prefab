@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 18235074302566180}
   - component: {fileID: 4623734115344817033}
   - component: {fileID: 2037634392467822913}
+  - component: {fileID: 5965345836673877919}
   m_Layer: 5
   m_Name: Top Panel
   m_TagString: Untagged
@@ -101,7 +102,7 @@ RectTransform:
   m_GameObject: {fileID: 2427128494342817685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.572696, y: 1.572696, z: 1.572696}
   m_Children:
   - {fileID: 5592480593355348285}
   - {fileID: 3523712008262752751}
@@ -164,6 +165,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2427128494342817685}
   m_CullTransparentMesh: 0
+--- !u!114 &5965345836673877919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427128494342817685}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fded01d7a68b04c8a0329fbbc516fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3818791772050622327
 GameObject:
   m_ObjectHideFlags: 0

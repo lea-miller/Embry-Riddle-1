@@ -6,7 +6,7 @@ using TMPro;
 
 public class MainScreenVitalManager : MonoBehaviour
 {
-    private GameObject BPMMainDispNum, missionTime, lowestTime, vitalsListText;
+    private Transform BPMMainDispNum, missionTime, lowestTime, vitalsListText;
 
 
     void Awake()
@@ -18,10 +18,10 @@ public class MainScreenVitalManager : MonoBehaviour
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
-        BPMMainDispNum = GameObject.Find("/Head/MainScreen/Vitals/HeartRate/Heart-Rate Numerical Value");
-        missionTime = GameObject.Find("/Head/MainScreen/Timers/MissionTime");
-        lowestTime = GameObject.Find("/Head/MainScreen/Timers/LowestTime");
-        vitalsListText = GameObject.Find("/Head/MainScreen/Vitals/VitalsList");
+        BPMMainDispNum = gameObject.transform.Find("Vitals/HeartRate/Heart-Rate Numerical Value");
+        missionTime = gameObject.transform.Find("Vitals/Vital Timers/MissionTime");
+        lowestTime = gameObject.transform.Find("Vitals/Vital Timers/LowestTime");
+        vitalsListText = gameObject.transform.Find("Vitals/VitalsList");
     }
 
     //Is called from Vitals Manager, every update

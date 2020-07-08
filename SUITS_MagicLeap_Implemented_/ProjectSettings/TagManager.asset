@@ -30,6 +30,7 @@ TagManager:
   - InstructionView
   - VitalView
   - TaskTopView
+  - VitalTopView
   layers:
   - Default
   - TransparentFX

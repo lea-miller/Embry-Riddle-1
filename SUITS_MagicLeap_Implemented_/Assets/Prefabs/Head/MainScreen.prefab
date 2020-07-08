@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2653367899441312738}
   - component: {fileID: 6676883190147160951}
   - component: {fileID: 8904631305095353048}
-  - component: {fileID: 3752400846860922205}
   - component: {fileID: 5894702029616285719}
   - component: {fileID: 6029950475195184765}
   - component: {fileID: 6338749593968376620}
@@ -120,18 +119,6 @@ MonoBehaviour:
   CanvasDistanceUpwards: 0
   PositionLerpSpeed: 10
   RotationLerpSpeed: 10
---- !u!114 &3752400846860922205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782393846615823221}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fded01d7a68b04c8a0329fbbc516fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5894702029616285719
 MonoBehaviour:
   m_ObjectHideFlags: 0

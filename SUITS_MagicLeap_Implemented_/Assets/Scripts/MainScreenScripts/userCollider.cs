@@ -13,6 +13,9 @@ public class userCollider : MonoBehaviour
 
     public delegate void VitalHitNotify();
     public static event VitalHitNotify notifyVitalHit;  
+
+    public delegate void VitalTopViewHitNotify();
+    public static event VitalTopViewHitNotify notifyVitalTopViewHit; 
   
     public delegate void ScreenHitNotify();
     public static event ScreenHitNotify notifyScreenHit;
@@ -20,11 +23,12 @@ public class userCollider : MonoBehaviour
     public delegate void MainTaskHitNotify();
     public static event MainTaskHitNotify notifyMainTaskHit;
 
-    bool isOnScreen{set;get;} //check if neither
-    bool isOnMainTask{set;get;}
-    bool isOnTask{set;get;}
-    bool isOnInst{set;get;}
-    bool isOnVital{set;get;}
+    private bool isOnScreen; //check if neither
+    private bool isOnMainTask;
+    private bool isOnTask;
+    private bool isOnInst;
+    private bool isOnVital;
+    private bool isOnMainVital;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -76,10 +80,17 @@ public class userCollider : MonoBehaviour
                 if(isOnVital)
                 {
                     notifyVitalHit();
-                    isOnMainTask = true;
-                    isOnInst = true;
-                    isOnTask = true;
+                    isOnMainVital = true;
                     isOnVital = false;
+                }
+            }
+            else if (hit.transform.gameObject.tag == "VitalTopView")
+            {
+                if(isOnMainVital)
+                {
+                    notifyVitalTopViewHit();
+                    isOnMainVital = false;
+                    isOnVital = true;
                 }
             }
           }

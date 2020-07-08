@@ -5,24 +5,42 @@ using UnityEngine.UI;
 
 public class VitalsInputControl: MonoBehaviour
 {   
-    private Image vitalImage {get;set;}
+    private Image vitalImage, vitalMainScreen;
+    [SerializeField]
+    private GameObject mainScreen, topView;
     
     void Awake()
     {
         userCollider.notifyVitalHit += isOnVitalCheck;
         userCollider.notifyScreenHit += isOnScreenCheck;
+        userCollider.notifyVitalTopViewHit += isOnViewTopPanelCheck;
+
         vitalImage = GameObject.FindWithTag("VitalsUI").GetComponent<Image>();
+        vitalMainScreen = GameObject.FindWithTag("VitalTopView").GetComponent<Image>();
     }
 
     private void isOnVitalCheck()
     {
+        mainScreen.SetActive(false);
+        topView.SetActive(true);
+        vitalMainScreen.enabled = false;
         vitalImage.enabled = true;
     }
 
     //This method also initalizes the boolens b/c on startup the user never starts on taskscreen
     private void isOnScreenCheck()
     {
+        mainScreen.SetActive(true);
+        topView.SetActive(false);
+        vitalMainScreen.enabled = false;
         vitalImage.enabled = false;
     }
 
+    private void isOnViewTopPanelCheck()
+    {
+        mainScreen.SetActive(false);
+        topView.SetActive(true);
+        vitalMainScreen.enabled = true;
+        vitalImage.enabled = false;
+    }
 }
