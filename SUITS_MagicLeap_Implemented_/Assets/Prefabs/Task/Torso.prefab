@@ -226,7 +226,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaskScreen
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5422794651581838923, guid: ffd6633936d67b4469cc90e69839818f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ffd6633936d67b4469cc90e69839818f, type: 3}
 --- !u!224 &2006392318697786655 stripped
 RectTransform:

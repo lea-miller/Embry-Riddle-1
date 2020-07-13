@@ -2,28 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.MagicLeap;
 
 public class TaskInputControl : MonoBehaviour
 {
-
     TaskScreenManager _taskScreen;
     private Image taskImage, instructImage,taskTopImage;
     [SerializeField ]
     private GameObject topPanel, mainScreen;
+    private PlayerController _controllerJoyStick;
 
     void Awake()
     {
-        userCollider.notifyTaskHit += isOnTaskCheck;
-        userCollider.notifyInstHit += isOnInstCheck;
-        userCollider.notifyScreenHit += isOnScreenCheck;
-        userCollider.notifyMainTaskHit += isOnMainTaskCheck;
-        
         _taskScreen = GameObject.FindWithTag("NotesUI").GetComponent<TaskScreenManager>();
         taskImage = GameObject.FindWithTag("TaskView").GetComponent<Image>();
         instructImage = GameObject.FindWithTag("InstructionView").GetComponent<Image>();
         taskTopImage = GameObject.FindWithTag("TaskTopView").GetComponent<Image>();
+
+        //Focus Indicators
+        userCollider.notifyTaskHit += isOnTaskCheck;
+        userCollider.notifyInstHit += isOnInstCheck;
+        userCollider.notifyScreenHit += isOnScreenCheck;
+        userCollider.notifyMainTaskHit += isOnMainTaskCheck;
+
+        //The Joystick
+        _controllerJoyStick = new PlayerController();
+        _controllerJoyStick.Selection.MoveUp.performed += ctx => prevSelection();
+        _controllerJoyStick.Selection.MoveUp.canceled += ctx => nothing();
+        _controllerJoyStick.Selection.MoveDown.performed += ctx => nextSelection();
+        _controllerJoyStick.Selection.MoveDown.canceled += ctx => nothing();
     }
     
+    void onEnable()
+    {
+        _controllerJoyStick.Selection.Enable();
+    }
+
+    void nothing(){}
+
+    void onDisable()
+    {
+        _controllerJoyStick.Selection.Disable();
+    }
+
     private void isOnTaskCheck()
     {
         instructImage.enabled = false;
@@ -65,8 +87,7 @@ public class TaskInputControl : MonoBehaviour
         mainScreen.SetActive(true);
     }
 
-    //The event would have changed the boolens before the trigger, thats why bool logic seems nonlogical
-    public void checkTrigger()
+    public void nextSelection()
     {
         //Task is open
         if(taskImage.enabled)
@@ -81,8 +102,7 @@ public class TaskInputControl : MonoBehaviour
         }
     }
     
-    //The event would have changed the boolens before the bumper, thats why bool logic seems nonlogical
-    public void checkBumper()
+    public void prevSelection()
     {
         //Task is open
         if (taskImage.enabled)
