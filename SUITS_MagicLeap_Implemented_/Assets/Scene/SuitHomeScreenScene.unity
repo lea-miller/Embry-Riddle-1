@@ -1859,6 +1859,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ' Task Selection'
       objectReference: {fileID: 0}
+    - target: {fileID: 7959582609042822445, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_TagString
+      value: TaskSelection
+      objectReference: {fileID: 0}
     - target: {fileID: 7980975586178405588, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -30,6 +30,7 @@ TagManager:
   - MainLCanvas
   - CanvasLGroup
   - TopLCanvas
+  - TaskSelection
   layers:
   - Default
   - TransparentFX

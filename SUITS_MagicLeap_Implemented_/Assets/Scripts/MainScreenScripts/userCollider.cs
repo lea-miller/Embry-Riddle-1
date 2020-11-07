@@ -53,7 +53,7 @@ public class userCollider : MonoBehaviour
                     isOnVital = true;
                 }
             }
-            else if (hit.transform.gameObject.tag == "TaskView") 
+            else if (hit.transform.gameObject.tag == "TaskSelection") 
             {
                 if(isOnTask)
                 {

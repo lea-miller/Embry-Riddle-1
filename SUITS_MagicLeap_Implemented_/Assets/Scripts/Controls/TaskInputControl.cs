@@ -16,7 +16,7 @@ public class TaskInputControl : MonoBehaviour
     void Awake()
     {
         _taskScreen = GameObject.FindWithTag("NotesUI").GetComponent<TaskScreenManager>();
-        taskImage = GameObject.FindWithTag("TaskView").GetComponent<Image>();
+        taskImage = GameObject.FindWithTag("TaskSelection").GetComponent<Image>();
         instructImage = GameObject.FindWithTag("InstructionView").GetComponent<Image>();
         taskTopImage = GameObject.FindWithTag("TopLCanvas").GetComponent<Image>();
 

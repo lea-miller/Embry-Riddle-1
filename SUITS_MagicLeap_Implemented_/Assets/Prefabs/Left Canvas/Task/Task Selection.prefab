@@ -981,8 +981,8 @@ GameObject:
   - component: {fileID: 3889808598177194324}
   - component: {fileID: 8917316975276205701}
   m_Layer: 5
-  m_Name: Panel Task View
-  m_TagString: TaskView
+  m_Name: Task Selection
+  m_TagString: TaskSelection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
