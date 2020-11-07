@@ -18,7 +18,7 @@ public class TaskInputControl : MonoBehaviour
         _taskScreen = GameObject.FindWithTag("NotesUI").GetComponent<TaskScreenManager>();
         taskImage = GameObject.FindWithTag("TaskView").GetComponent<Image>();
         instructImage = GameObject.FindWithTag("InstructionView").GetComponent<Image>();
-        taskTopImage = GameObject.FindWithTag("TaskTopView").GetComponent<Image>();
+        taskTopImage = GameObject.FindWithTag("TopLCanvas").GetComponent<Image>();
 
         //Focus Indicators
         userCollider.notifyTaskHit += isOnTaskCheck;

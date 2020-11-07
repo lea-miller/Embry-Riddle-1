@@ -18,9 +18,6 @@ TagManager:
   - MainLeftTrigger
   - MLController
   - batteryVitalDispValue
-  - Recording Selection
-  - Recording Save Timer
-  - Recording Save Background
   - InstructText
   - PageCounter
   - TaskCounter
@@ -29,8 +26,10 @@ TagManager:
   - TaskView
   - InstructionView
   - VitalView
-  - TaskTopView
   - VitalTopView
+  - MainLCanvas
+  - CanvasLGroup
+  - TopLCanvas
   layers:
   - Default
   - TransparentFX

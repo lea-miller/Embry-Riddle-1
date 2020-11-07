@@ -42,7 +42,7 @@ public class userCollider : MonoBehaviour
           //Debug.DrawRay(transform.position, hit.transform.TransformDirection(Vector3.forward) * 2, Color.green);
           if(hit.collider != null)
           {
-            if (hit.transform.gameObject.tag == "TaskTopView")
+            if (hit.transform.gameObject.tag == "TopLCanvas")
             {
                 if(isOnMainTask)
                 {
