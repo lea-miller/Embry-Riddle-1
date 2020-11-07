@@ -6,7 +6,6 @@ TagManager:
   tags:
   - VitalsUI
   - Torso
-  - NotesUI
   - Main Screen
   - heartMainDispValue
   - co2MainDispValue
@@ -18,19 +17,18 @@ TagManager:
   - MainLeftTrigger
   - MLController
   - batteryVitalDispValue
-  - InstructText
   - PageCounter
   - TaskCounter
-  - Task Selected
   - Task Image
-  - TaskView
-  - InstructionView
   - VitalView
   - VitalTopView
   - MainLCanvas
   - CanvasLGroup
   - TopLCanvas
   - TaskSelection
+  - TaskInstruction
+  - TaskInstructionText
+  - TaskScreen
   layers:
   - Default
   - TransparentFX

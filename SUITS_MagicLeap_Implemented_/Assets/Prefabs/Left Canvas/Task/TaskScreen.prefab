@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6280489087882462927}
   m_Layer: 5
   m_Name: TaskScreen
-  m_TagString: NotesUI
+  m_TagString: TaskScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -19,7 +19,7 @@ public class TaskScreenDisplay
    public TaskScreenDisplay(TaskScreenManager manager)
    {
         this.manager = manager;
-        textInstruction = GameObject.FindGameObjectWithTag("InstructText").GetComponent<TextMeshProUGUI>();
+        textInstruction = GameObject.FindGameObjectWithTag("TaskInstructionText").GetComponent<TextMeshProUGUI>();
         textPage = GameObject.FindGameObjectWithTag("PageCounter").GetComponent<TextMeshProUGUI>();
         textTaskLength = GameObject.FindGameObjectWithTag("TaskCounter").GetComponent<TextMeshProUGUI>();
         mat = Resources.Load<Material>("Materials/Transparent");

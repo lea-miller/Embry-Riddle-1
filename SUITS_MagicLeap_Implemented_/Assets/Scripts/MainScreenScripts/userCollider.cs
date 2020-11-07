@@ -64,7 +64,7 @@ public class userCollider : MonoBehaviour
                     isOnVital = true;
                 }
             } 
-            else if (hit.transform.gameObject.tag == "InstructionView")
+            else if (hit.transform.gameObject.tag == "TaskInstruction")
             {
                 if(isOnInst)
                 {
