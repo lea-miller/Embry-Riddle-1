@@ -44,63 +44,28 @@ public class userCollider : MonoBehaviour
           {
             if (hit.transform.gameObject.tag == "TopLCanvas")
             {
-                if(isOnMainTask)
-                {
-                    notifyMainTaskHit();
-                    isOnMainTask = false;
-                    isOnInst = true;
-                    isOnTask = true;
-                    isOnVital = true;
-                }
+                notifyMainTaskHit();
             }
             else if (hit.transform.gameObject.tag == "TaskSelection") 
             {
-                if(isOnTask)
-                {
-                    notifyTaskHit();
-                    isOnMainTask = true;
-                    isOnInst = true;
-                    isOnTask = false;
-                    isOnVital = true;
-                }
+                notifyTaskHit();
             } 
             else if (hit.transform.gameObject.tag == "TaskInstruction")
             {
-                if(isOnInst)
-                {
-                    notifyInstHit();
-                    isOnMainTask = true;
-                    isOnInst = false;
-                    isOnTask = true;
-                    isOnVital = true;
-                }
+                notifyInstHit();
             }
             else if (hit.transform.gameObject.tag == "VitalsUI")
             {
-                if(isOnVital)
-                {
-                    notifyVitalHit();
-                    isOnMainVital = true;
-                    isOnVital = false;
-                }
+                notifyVitalHit();
             }
             else if (hit.transform.gameObject.tag == "VitalTopView")
             {
-                if(isOnMainVital)
-                {
-                    notifyVitalTopViewHit();
-                    isOnMainVital = false;
-                    isOnVital = true;
-                }
+                notifyVitalTopViewHit();
             }
           }
         else
         {
              notifyScreenHit();
-                isOnMainTask = true;
-                isOnInst = true;
-                isOnTask = true;
-                isOnVital = true;
         }
     }
 }
