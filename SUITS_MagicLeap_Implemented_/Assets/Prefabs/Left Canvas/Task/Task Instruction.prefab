@@ -169,6 +169,9 @@ GameObject:
   - component: {fileID: 9163963787095409184}
   - component: {fileID: 1453858492978120594}
   - component: {fileID: 6589697200545494412}
+  - component: {fileID: 6253349751215103044}
+  - component: {fileID: 2232881047974775226}
+  - component: {fileID: 2882970298775404199}
   m_Layer: 5
   m_Name: Task Instruction
   m_TagString: TaskInstruction
@@ -246,6 +249,144 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6253349751215103044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178485931384582341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec72954c6c6a354685dd0a54f36a8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2232881047974775226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178485931384582341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540ea08b73b903a4cb3fe419ab2caf7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2882970298775404199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178485931384582341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30755e2e602720443aed01c47e4fb5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handedness: 0
+  followControl: 0
+  OnControlConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnControlDisconnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerPressBegan:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2232881047974775226}
+        m_MethodName: nextSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDoubleTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerPressEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerHold:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerMove:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHomeButtonTap:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDoubleHome:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumperDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2232881047974775226}
+        m_MethodName: prevSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDoubleBumper:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumperUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumperHold:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchDown:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDoubleTap:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchMove:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchRadialMove:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchHold:
+    m_PersistentCalls:
+      m_Calls: []
+  OnForceTouchDown:
+    m_PersistentCalls:
+      m_Calls: []
+  OnForceTouchUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchBeganMoving:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSwipe:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTapped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1333880861910961340
 GameObject:
   m_ObjectHideFlags: 0

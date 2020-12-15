@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2268525077816525380}
   - component: {fileID: 604343870460979136}
-  - component: {fileID: 5444378750584315539}
   m_Layer: 0
   m_Name: Task Screen Input
   m_TagString: Untagged
@@ -58,7 +57,7 @@ MonoBehaviour:
   OnTriggerDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5444378750584315539}
+      - m_Target: {fileID: 0}
         m_MethodName: nextSelection
         m_Mode: 1
         m_Arguments:
@@ -75,7 +74,7 @@ MonoBehaviour:
   OnTriggerUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5444378750584315539}
+      - m_Target: {fileID: 0}
         m_MethodName: prevSelection
         m_Mode: 1
         m_Arguments:
@@ -146,20 +145,6 @@ MonoBehaviour:
   OnTapped:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5444378750584315539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2268525077816525435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9300d83d985a7a544a23394bd79e6113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  topPanel: {fileID: 0}
-  mainScreen: {fileID: 0}
 --- !u!1 &2268525078226664496
 GameObject:
   m_ObjectHideFlags: 0

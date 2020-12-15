@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5894702029616285719}
   - component: {fileID: 6029950475195184765}
   - component: {fileID: 6338749593968376620}
+  - component: {fileID: 7028019016956861614}
   m_Layer: 5
   m_Name: MainScreen
   m_TagString: Main Screen
@@ -261,6 +262,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ea0a67854ce984f9b9770cd3ca92a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7028019016956861614
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782393846615823221}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 455.0018, y: 391.41077, z: 0}
+  m_Center: {x: 3.5614407, y: 6.6442757, z: -0.5000065}
 --- !u!1001 &5523094897157076640
 PrefabInstance:
   m_ObjectHideFlags: 0

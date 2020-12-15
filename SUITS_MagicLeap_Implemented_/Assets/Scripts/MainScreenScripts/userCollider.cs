@@ -46,8 +46,8 @@ public class userCollider : MonoBehaviour
             {
                 notifyMainTaskHit();
             }
-            else if (hit.transform.gameObject.tag == "TaskSelection") 
-            {
+            else if (hit.transform.gameObject.tag == "TaskSelection")
+            { 
                 notifyTaskHit();
             } 
             else if (hit.transform.gameObject.tag == "TaskInstruction")
@@ -65,7 +65,7 @@ public class userCollider : MonoBehaviour
           }
         else
         {
-             notifyScreenHit();
+            notifyScreenHit();
         }
     }
 }

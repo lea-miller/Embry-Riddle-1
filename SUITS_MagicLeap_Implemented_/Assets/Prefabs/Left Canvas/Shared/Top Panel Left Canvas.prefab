@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 3336444349945320102}
   - component: {fileID: 263800325793807915}
   - component: {fileID: 3611601756879373479}
+  - component: {fileID: 2065111179128642471}
   m_Layer: 5
   m_Name: Top Panel Left Canvas
   m_TagString: TopLCanvas
@@ -753,3 +754,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.6
+--- !u!114 &2065111179128642471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713354781451915948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8595ffd73cdae14d81743b17f45310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

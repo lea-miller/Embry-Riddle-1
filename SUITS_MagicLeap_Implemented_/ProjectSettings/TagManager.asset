@@ -29,6 +29,7 @@ TagManager:
   - TaskInstruction
   - TaskInstructionText
   - TaskScreen
+  - MainScreenTopPanel
   layers:
   - Default
   - TransparentFX
