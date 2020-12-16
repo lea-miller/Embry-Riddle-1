@@ -5,7 +5,7 @@ using UnityEngine;
 public class userCollider : MonoBehaviour
 {
     RaycastHit hit;
-    private CollisionManager collide;
+    private GenericCollision collide;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -21,12 +21,12 @@ public class userCollider : MonoBehaviour
            
             //Checks the gameObject if it has a componenet that extends Collision Manager, 
             //if found it will then call the subclass and use the proper function call
-            if (hit.transform.gameObject.TryGetComponent(typeof(CollisionManager), out Component component))
+            if (hit.transform.gameObject.TryGetComponent(typeof(GenericCollision), out Component component))
             {
                 //Avoids repeating function calls
-                if (collide != (CollisionManager)hit.transform.gameObject.GetComponent(typeof(CollisionManager)))
+                if (collide != (GenericCollision)hit.transform.gameObject.GetComponent(typeof(GenericCollision)))
                 {
-                    collide = (CollisionManager)hit.transform.gameObject.GetComponent(typeof(CollisionManager));
+                    collide = (GenericCollision)hit.transform.gameObject.GetComponent(typeof(GenericCollision));
                     collide.isOn();
                 }
             }

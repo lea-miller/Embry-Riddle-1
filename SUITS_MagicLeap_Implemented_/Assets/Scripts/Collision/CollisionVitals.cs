@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CollisionVitals : CollisionManager
+public class CollisionVitals : GenericCollision, ICollisionVital
 {
     public Image vitalImage { set; get; }
     public Image vitalMainScreen { set; get; }

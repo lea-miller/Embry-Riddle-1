@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CollisionTask : CollisionManager, ICollisionTask
+public class CollisionTask : GenericCollision, ICollisionTask
 {
     public Image taskTopImage { get; set; }
     public Image taskImage { get; set; }

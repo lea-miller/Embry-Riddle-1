@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CollisionVitalManager : MonoBehaviour
+public class CollisionVitalManager : MonoBehaviour, ICollisionVital
 {
     public Image vitalImage { set; get; }
     public Image vitalMainScreen { set; get; }
