@@ -3,24 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class CollisionManager : MonoBehaviour, ICollisionTask
+public abstract class CollisionManager : MonoBehaviour
 {
-
-    public Image taskTopImage { get; set; }
-    public Image taskImage { get; set; }
-    public Image instructImage { get; set; }
-    public GameObject topPanel { get; set; }
-    public GameObject mainScreen { get; set; }
-
-    protected virtual void Awake()
-    {
-        CollisionTaskManager manager = GameObject.FindWithTag("TaskScreen").GetComponent<CollisionTaskManager>();
-        taskImage = manager.taskImage;
-        instructImage = manager.instructImage;
-        topPanel = manager.topPanel;
-        taskTopImage = manager.taskTopImage;
-        mainScreen = manager.mainScreen;
-    }
-
-    protected abstract void isOn();
+    public abstract void isOn();
 }

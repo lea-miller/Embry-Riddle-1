@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CollisionTaskTopPanel : CollisionManager
+public class CollisionTaskTopPanel : CollisionTask
 { 
 
     protected override void Awake()
     {
         base.Awake();
-        userCollider.notifyMainTaskHit += isOn;
     }
 
-    protected override void isOn()
+    public override void isOn()
     {
         taskImage.enabled = false;
         taskTopImage.enabled = true;

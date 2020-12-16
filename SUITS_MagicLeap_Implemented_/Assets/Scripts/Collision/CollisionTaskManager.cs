@@ -22,7 +22,7 @@ public class CollisionTaskManager : MonoBehaviour, ICollisionTask
         mainScreen = GameObject.FindWithTag("MainScreenTopPanel");
     }
 
-    protected void isOn()
+    public void isOn()
     {
         taskImage.enabled = false;
         instructImage.enabled = false;

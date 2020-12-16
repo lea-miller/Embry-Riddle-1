@@ -5,67 +5,36 @@ using UnityEngine;
 public class userCollider : MonoBehaviour
 {
     RaycastHit hit;
-    public delegate void TaskHitNotify();
-    public static event TaskHitNotify notifyTaskHit;
-
-    public delegate void InstHitNotify();
-    public static event InstHitNotify notifyInstHit;
-
-    public delegate void VitalHitNotify();
-    public static event VitalHitNotify notifyVitalHit;  
-
-    public delegate void VitalTopViewHitNotify();
-    public static event VitalTopViewHitNotify notifyVitalTopViewHit; 
-  
+    private int counter = 1;
     public delegate void ScreenHitNotify();
     public static event ScreenHitNotify notifyScreenHit;
-
-    public delegate void MainTaskHitNotify();
-    public static event MainTaskHitNotify notifyMainTaskHit;
-
-    private bool isOnScreen; //check if neither
-    private bool isOnMainTask;
-    private bool isOnTask;
-    private bool isOnInst;
-    private bool isOnVital;
-    private bool isOnMainVital;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        checkCollision();
+        check();
     }
 
-    private void checkCollision()
+    private void check()
     {
-          Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,2);
-          //Debug.DrawRay(transform.position, hit.transform.TransformDirection(Vector3.forward) * 2, Color.green);
-          if(hit.collider != null)
-          {
-            if (hit.transform.gameObject.tag == "TopLCanvas")
+        Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2);
+        if (hit.collider != null)
+        {
+            //Checks the gameObject if it has a componenet that extends Collision Manager, if found it will then call the subclass and use the proper function call
+            if (hit.transform.gameObject.TryGetComponent(typeof(CollisionManager), out Component component))
             {
-                notifyMainTaskHit();
+                CollisionManager collide = (CollisionManager)hit.transform.gameObject.GetComponent(typeof(CollisionManager));
+                collide.isOn();
+                counter = 1;
             }
-            else if (hit.transform.gameObject.tag == "TaskSelection")
-            { 
-                notifyTaskHit();
-            } 
-            else if (hit.transform.gameObject.tag == "TaskInstruction")
-            {
-                notifyInstHit();
-            }
-            else if (hit.transform.gameObject.tag == "VitalsUI")
-            {
-                notifyVitalHit();
-            }
-            else if (hit.transform.gameObject.tag == "VitalTopView")
-            {
-                notifyVitalTopViewHit();
-            }
-          }
+        }
         else
         {
-            notifyScreenHit();
+            if(counter == 1) //Avoids unneeded callings
+            {
+                notifyScreenHit();
+                counter = 0;
+            }
         }
     }
 }
