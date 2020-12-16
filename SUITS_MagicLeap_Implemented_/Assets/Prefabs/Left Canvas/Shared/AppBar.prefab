@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3643952164827540973}
   - component: {fileID: 5473203067833637544}
   - component: {fileID: 223206764178243785}
-  - component: {fileID: 9095939247253032997}
+  - component: {fileID: 428228442105757437}
   m_Layer: 0
   m_Name: AppBar
   m_TagString: Untagged
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &9095939247253032997
+--- !u!114 &428228442105757437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,10 +322,10 @@ RectTransform:
   m_Father: {fileID: 6128459000210606430}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -50.988, y: -23.29}
-  m_SizeDelta: {x: 21.008, y: 6.081}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 21.007996, y: 6.0810013}
   m_Pivot: {x: 0.50000024, y: 0.5}
 --- !u!223 &5417259670190819032
 Canvas:

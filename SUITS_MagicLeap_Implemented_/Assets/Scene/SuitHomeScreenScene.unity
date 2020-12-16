@@ -434,12 +434,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2112530160}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1951059808 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5490911834880909251, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5260886002943486643}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2112530160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1210,7 +1204,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentScreen
       value: 
-      objectReference: {fileID: 1951059808}
+      objectReference: {fileID: 0}
     - target: {fileID: 2246668253806726712, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.characterCount
