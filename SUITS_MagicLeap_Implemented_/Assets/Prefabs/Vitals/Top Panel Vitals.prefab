@@ -92,8 +92,9 @@ GameObject:
   - component: {fileID: 7876242643067781779}
   - component: {fileID: 4659627465807572510}
   - component: {fileID: 8150840397325112466}
+  - component: {fileID: 5783949415044069169}
   m_Layer: 5
-  m_Name: Top Panel
+  m_Name: Top Panel Vitals
   m_TagString: VitalTopView
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,6 +224,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.6
+--- !u!114 &5783949415044069169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173486116531061401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e95eb93dcdaf344920f5c0464431a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5837663368120328167
 GameObject:
   m_ObjectHideFlags: 0

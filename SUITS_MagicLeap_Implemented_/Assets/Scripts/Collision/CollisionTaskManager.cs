@@ -26,7 +26,7 @@ public class CollisionTaskManager : MonoBehaviour, ICollisionTask
     }
 
     //Default setup
-    public void isOn()
+    private void isOn()
     {
         taskImage.enabled = false;
         instructImage.enabled = false;
