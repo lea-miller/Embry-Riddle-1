@@ -6,4 +6,5 @@ using UnityEngine.UI;
 public abstract class CollisionManager : MonoBehaviour
 {
     public abstract void isOn();
+    public abstract void isOff();
 }

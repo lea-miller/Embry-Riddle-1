@@ -5,9 +5,7 @@ using UnityEngine;
 public class userCollider : MonoBehaviour
 {
     RaycastHit hit;
-    private int counter = 1;
-    public delegate void ScreenHitNotify();
-    public static event ScreenHitNotify notifyScreenHit;
+    private CollisionManager collide;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -20,20 +18,26 @@ public class userCollider : MonoBehaviour
         Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2);
         if (hit.collider != null)
         {
-            //Checks the gameObject if it has a componenet that extends Collision Manager, if found it will then call the subclass and use the proper function call
+           
+            //Checks the gameObject if it has a componenet that extends Collision Manager, 
+            //if found it will then call the subclass and use the proper function call
             if (hit.transform.gameObject.TryGetComponent(typeof(CollisionManager), out Component component))
             {
-                CollisionManager collide = (CollisionManager)hit.transform.gameObject.GetComponent(typeof(CollisionManager));
-                collide.isOn();
-                counter = 1;
+                //Avoids repeating function calls
+                if (collide != (CollisionManager)hit.transform.gameObject.GetComponent(typeof(CollisionManager)))
+                {
+                    collide = (CollisionManager)hit.transform.gameObject.GetComponent(typeof(CollisionManager));
+                    collide.isOn();
+                }
             }
         }
         else
         {
-            if(counter == 1) //Avoids unneeded callings
+            //if it is no longer on a gameobject, call the prev gameobject and disable it
+            if(collide != null)
             {
-                notifyScreenHit();
-                counter = 0;
+                collide.isOff();
+                collide = null; //so it doesn't repeat again if not on anything
             }
         }
     }

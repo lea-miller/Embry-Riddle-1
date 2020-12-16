@@ -13,8 +13,6 @@ public class CollisionTaskManager : MonoBehaviour, ICollisionTask
 
     protected void Awake()
     {
-        userCollider.notifyScreenHit += isOn;
-
         taskImage = GameObject.FindWithTag("TaskSelection").GetComponent<Image>();
         instructImage = GameObject.FindWithTag("TaskInstruction").GetComponent<Image>();
         topPanel = GameObject.FindWithTag("TopLCanvas");
@@ -22,6 +20,12 @@ public class CollisionTaskManager : MonoBehaviour, ICollisionTask
         mainScreen = GameObject.FindWithTag("MainScreenTopPanel");
     }
 
+    public void Start()
+    {
+        isOn();
+    }
+
+    //Default setup
     public void isOn()
     {
         taskImage.enabled = false;

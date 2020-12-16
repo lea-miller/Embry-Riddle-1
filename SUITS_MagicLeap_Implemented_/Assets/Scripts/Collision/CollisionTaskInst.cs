@@ -19,5 +19,4 @@ public class CollisionTaskInst : CollisionTask
         topPanel.SetActive(true);
         mainScreen.SetActive(false);
     }
-
 }

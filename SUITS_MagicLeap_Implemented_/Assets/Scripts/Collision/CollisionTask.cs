@@ -22,4 +22,13 @@ public class CollisionTask : CollisionManager, ICollisionTask
     }
 
     public override void isOn() { }
+    public override void isOff()
+    {
+        taskImage.enabled = false;
+        instructImage.enabled = false;
+        taskTopImage.enabled = false;
+
+        topPanel.SetActive(false);
+        mainScreen.SetActive(true);
+    }
 }
