@@ -7,10 +7,6 @@ using UnityEngine.XR.MagicLeap;
 
 public abstract class ControlCommands : MonoBehaviour
 {
-    protected Image border;
-    
-    protected TaskScreenManager taskScreen;
-
     public abstract void nextSelection();
     public abstract void prevSelection();
 
@@ -18,7 +14,6 @@ public abstract class ControlCommands : MonoBehaviour
 
     protected virtual void Awake()
     {
-        taskScreen = GameObject.FindWithTag("TaskScreen").GetComponent<TaskScreenManager>();
         //The Joystick
         _controllerJoyStick = new PlayerController();
         _controllerJoyStick.Selection.MoveUp.performed += ctx => prevSelection();

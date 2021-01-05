@@ -30,6 +30,8 @@ TagManager:
   - TaskInstructionText
   - TaskScreen
   - MainScreenTopPanel
+  - AppBar
+  - AppBarBtns
   layers:
   - Default
   - TransparentFX

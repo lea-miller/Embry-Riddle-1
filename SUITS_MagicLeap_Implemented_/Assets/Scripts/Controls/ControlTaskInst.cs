@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class ControlTaskInst : ControlCommands
 {
+    private TaskScreenManager taskScreen;
+    private Image border;
 
     protected override void Awake()
     {
         base.Awake();
+        taskScreen = GameObject.FindWithTag("TaskScreen").GetComponent<TaskScreenManager>();
         border = GameObject.FindWithTag("TaskInstruction").GetComponent<Image>();
     }
 

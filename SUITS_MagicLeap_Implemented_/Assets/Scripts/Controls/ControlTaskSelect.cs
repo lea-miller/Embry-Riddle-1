@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class ControlTaskSelect : ControlCommands
 {
+    private TaskScreenManager taskScreen;
+    private Image border;
+
     protected override void Awake()
     {
         base.Awake();
+        taskScreen = GameObject.FindWithTag("TaskScreen").GetComponent<TaskScreenManager>();
         Image taskImage = GameObject.FindWithTag("TaskSelection").GetComponent<Image>();
         border = taskImage;
     }
-
 
     public override void nextSelection()
     {
