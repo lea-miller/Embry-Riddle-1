@@ -26,7 +26,10 @@ public class userCollider : MonoBehaviour
                 //Avoids repeating function calls
                 if (collide != (GenericCollision)hit.transform.gameObject.GetComponent(typeof(GenericCollision)))
                 {
-
+                   if(collide != null)
+                   {
+                        collide.isOff();
+                   } 
                     collide = (GenericCollision)hit.transform.gameObject.GetComponent(typeof(GenericCollision));
                     collide.isOn();
                     //Debug.Log("Hit, calling is on! " + collide);

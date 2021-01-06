@@ -1205,6 +1205,11 @@ PrefabInstance:
       propertyPath: currentScreen
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1700453309132282969, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2246668253806726712, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.characterCount

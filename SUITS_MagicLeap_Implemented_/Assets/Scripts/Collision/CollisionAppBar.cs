@@ -11,13 +11,16 @@ public class CollisionAppBar : GenericCollision
     void Awake()
     {
         appBorder = GameObject.FindWithTag("AppBar").GetComponent<Image>();
-        colTask = GameObject.FindWithTag("TaskInstruction").GetComponent<CollisionTaskInst>();
+    }
+
+    void Start()
+    {
+        isOff();
     }
 
     public override void isOn()
     {
         appBorder.enabled = true;
-        //colTask.isOff();
     }
 
     public override void isOff()
