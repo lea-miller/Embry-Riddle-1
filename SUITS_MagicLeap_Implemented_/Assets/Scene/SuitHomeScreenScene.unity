@@ -416,6 +416,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc0fed5e0df4414a8053cc655e67c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1052114203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6709602436727486248, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5260886002943486643}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc5504e89f231248be7dc25b9742e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1108163690 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20294507499185110, guid: 24158fb1437dc8e418d893939758764d,
@@ -1115,6 +1127,16 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 740632012906046043, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: followControl
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 740632012906046043, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 755659210881131413, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1234,6 +1256,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.26377842
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853904545122370091, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: OnTriggerPressBegan.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853904545122370091, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: OnTriggerPressBegan.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853904545122370091, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: OnTriggerPressBegan.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1052114203}
+    - target: {fileID: 2853904545122370091, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: OnTriggerPressBegan.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: nextSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853904545122370091, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: OnTriggerPressBegan.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3002815982069894574, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}

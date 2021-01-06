@@ -32,6 +32,9 @@ TagManager:
   - MainScreenTopPanel
   - AppBar
   - AppBarBtns
+  - ScienceScreen
+  - MediaScreen
+  - NavigationScreen
   layers:
   - Default
   - TransparentFX

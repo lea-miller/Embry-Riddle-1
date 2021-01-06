@@ -15,17 +15,20 @@ public class ControlAppBar : ControlCommands
         Image appImage = GameObject.FindWithTag("AppBar").GetComponent<Image>();
         border = appImage;
         gameObjectList = new List<GameObject>();
-        //Add the gamebojects to the list
+        gameObjectList.Add(GameObject.FindWithTag("TaskScreen"));
+        gameObjectList.Add(GameObject.FindWithTag("ScienceScreen"));
+        gameObjectList.Add(GameObject.FindWithTag("NavigationScreen"));
     }
 
     public override void nextSelection()
     {   
        if(border.enabled)
        {
-           if(counter < gameObjectList.Count)
+           if(counter <= gameObjectList.Count-1)
            {
+                Debug.Log(counter);
                 gameObjectList[counter].SetActive(false);
-                counter++;    
+                counter = counter + 1;     
                 gameObjectList[counter].SetActive(true);  
            } 
        }
@@ -33,12 +36,13 @@ public class ControlAppBar : ControlCommands
 
     public override void prevSelection()
     {
-         if(border.enabled)
+        if(border.enabled)
        {
             if(counter > 0)
            {
+                Debug.Log(counter);
                 gameObjectList[counter].SetActive(false);
-                counter--;   
+                counter = counter - 1;   
                 gameObjectList[counter].SetActive(true);   
            }
        }
