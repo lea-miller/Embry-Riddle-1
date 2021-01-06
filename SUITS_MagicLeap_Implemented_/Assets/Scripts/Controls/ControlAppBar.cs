@@ -26,11 +26,11 @@ public class ControlAppBar : ControlCommands
        {
            if(counter <= gameObjectList.Count-1)
            {
-                disableControls();
+               // disableControls();
                 gameObjectList[counter].SetActive(false);
                 counter = counter + 1;     
                 gameObjectList[counter].SetActive(true);  
-                enableControls();
+               // enableControls();
            } 
        }
     }
@@ -41,11 +41,11 @@ public class ControlAppBar : ControlCommands
        {
             if(counter > 0)
            {
-                disableControls();
+                //disableControls();
                 gameObjectList[counter].SetActive(false);
                 counter = counter - 1;   
                 gameObjectList[counter].SetActive(true);   
-                enableControls();
+               // enableControls();
            }
        }
     }
