@@ -1,0 +1,14 @@
+{
+  "taskNames":
+  [
+    {
+       "task" : "PRE-SAMPLE"
+    },
+    {
+      "task" : "SAMPLE-SURVEY"
+    },
+    {
+      "task" : "STOW-SAMPLE"
+    }
+  ]
+}
