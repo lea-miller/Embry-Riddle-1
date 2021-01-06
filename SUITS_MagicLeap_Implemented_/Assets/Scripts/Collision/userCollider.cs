@@ -28,7 +28,7 @@ public class userCollider : MonoBehaviour
                 {
                    if(collide != null)
                    {
-                        collide.isOff();
+                        collide.isOff(); //closes previous component
                    } 
                     collide = (GenericCollision)hit.transform.gameObject.GetComponent(typeof(GenericCollision));
                     collide.isOn();

@@ -12,10 +12,7 @@ public class CollisionTaskSelect : CollisionTask
 
     public override void isOn()
     {
-        instructImage.enabled = false;
         taskImage.enabled = true;
-        taskTopImage.enabled = false;
-
         topPanel.SetActive(true);
         mainScreen.SetActive(false);
     }
