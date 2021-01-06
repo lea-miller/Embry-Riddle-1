@@ -11,7 +11,7 @@ public class CollisionTask : GenericCollision, ICollisionTask
     public GameObject topPanel { get; set; }
     public GameObject mainScreen { get; set; }
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         CollisionTaskManager manager = GameObject.FindWithTag("TaskScreen").GetComponent<CollisionTaskManager>();
         taskImage = manager.taskImage;

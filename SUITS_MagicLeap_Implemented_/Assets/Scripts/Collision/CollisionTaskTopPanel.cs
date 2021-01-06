@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class CollisionTaskTopPanel : CollisionTask
 { 
-
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
     }
 
     public override void isOn()

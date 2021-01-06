@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CollisionTaskInst : CollisionTask
-{ 
-    protected override void Awake()
+{
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
     }
 
     public override void isOn()

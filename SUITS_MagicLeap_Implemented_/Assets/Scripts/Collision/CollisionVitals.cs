@@ -10,7 +10,7 @@ public class CollisionVitals : GenericCollision, ICollisionVital
     public GameObject mainScreen { set; get; }
     public GameObject topView { set; get; }
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         CollisionVitalManager manager = GameObject.FindWithTag("VitalsUI").GetComponent<CollisionVitalManager>();
         vitalImage = manager.vitalImage;
