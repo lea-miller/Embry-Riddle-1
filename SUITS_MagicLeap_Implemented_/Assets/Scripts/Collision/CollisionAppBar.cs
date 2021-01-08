@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CollisionAppBar : GenericCollision
 {
-    private CollisionTask colTask;
     private Image appBorder;
 
     void Awake()

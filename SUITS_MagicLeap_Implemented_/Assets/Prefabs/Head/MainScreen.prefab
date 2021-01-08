@@ -304,7 +304,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4615283589948923928}
-        m_MethodName: nextSelection
+        m_MethodName: triggerDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -339,7 +339,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4615283589948923928}
-        m_MethodName: prevSelection
+        m_MethodName: bumperDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

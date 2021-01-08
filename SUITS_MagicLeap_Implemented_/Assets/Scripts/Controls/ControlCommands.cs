@@ -7,8 +7,8 @@ using UnityEngine.XR.MagicLeap;
 
 public abstract class ControlCommands : MonoBehaviour
 {
-    public abstract void nextSelection();
-    public abstract void prevSelection();
+    public abstract void triggerDown();
+    public abstract void bumperDown();
 
     private PlayerController _controllerJoyStick;
 
@@ -16,9 +16,9 @@ public abstract class ControlCommands : MonoBehaviour
     {
         //The Joystick
         _controllerJoyStick = new PlayerController();
-        _controllerJoyStick.Selection.MoveUp.performed += ctx => prevSelection();
+        _controllerJoyStick.Selection.MoveUp.performed += ctx => bumperDown();
         _controllerJoyStick.Selection.MoveUp.canceled += ctx => nothing();
-        _controllerJoyStick.Selection.MoveDown.performed += ctx => nextSelection();
+        _controllerJoyStick.Selection.MoveDown.performed += ctx => triggerDown();
         _controllerJoyStick.Selection.MoveDown.canceled += ctx => nothing();
     }
 

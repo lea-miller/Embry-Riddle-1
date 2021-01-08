@@ -12,11 +12,10 @@ public class ControlTaskSelect : ControlCommands
     {
         base.Awake();
         taskScreen = GameObject.FindWithTag("TaskScreen").GetComponent<TaskScreenManager>();
-        Image taskImage = GameObject.FindWithTag("TaskSelection").GetComponent<Image>();
-        border = taskImage;
+        border = GameObject.FindWithTag("TaskSelection").GetComponent<Image>();
     }
 
-    public override void nextSelection()
+    public override void triggerDown()
     {
         //Task is open
         if (border.enabled)
@@ -26,7 +25,7 @@ public class ControlTaskSelect : ControlCommands
         }
     }
 
-    public override void prevSelection()
+    public override void bumperDown()
     {
         //Task is open
         if (border.enabled)

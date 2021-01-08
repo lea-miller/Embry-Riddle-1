@@ -18,7 +18,7 @@ public class userCollider : MonoBehaviour
         Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2);
         if (hit.collider != null)
         {
-           //Debug.Log("Hit! " + hit.collider);
+            //Debug.Log("Hit! " + hit.collider);
             //Checks the gameObject if it has a componenet that extends Collision Manager, 
             //if found it will then call the subclass and use the proper function call
             if (hit.transform.gameObject.TryGetComponent(typeof(GenericCollision), out Component component))

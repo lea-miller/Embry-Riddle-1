@@ -13,20 +13,19 @@ public class userControl : MonoBehaviour
         check();
     }
 
-    public void nextSelection()
+    public void triggerDown()
     {
         if(collide != null)
         {
-            collide.nextSelection();
-        }
-       
+            collide.triggerDown();
+        } 
     }
 
-    public void prevSelection()
+    public void bumperDown()
     {
         if(collide !=null)
         {
-            collide.prevSelection();
+            collide.bumperDown();
         }
     }
 

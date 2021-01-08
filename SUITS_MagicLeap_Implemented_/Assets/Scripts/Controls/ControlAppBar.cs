@@ -20,60 +20,29 @@ public class ControlAppBar : ControlCommands
         gameObjectList.Add(GameObject.FindWithTag("NavigationScreen"));
     }
 
-    public override void nextSelection()
+    public override void triggerDown()
     {   
        if(border.enabled)
        {
            if(counter <= gameObjectList.Count-1)
            {
-               // disableControls();
                 gameObjectList[counter].SetActive(false);
                 counter = counter + 1;     
                 gameObjectList[counter].SetActive(true);  
-               // enableControls();
            } 
        }
     }
 
-    public override void prevSelection()
+    public override void bumperDown()
     {
         if(border.enabled)
        {
             if(counter > 0)
            {
-                //disableControls();
                 gameObjectList[counter].SetActive(false);
                 counter = counter - 1;   
                 gameObjectList[counter].SetActive(true);   
-               // enableControls();
            }
        }
     }
-
-    //Must re-enable what was shut off
-    private void enableControls()
-    {
-        for (int i = 0; i <  gameObjectList[counter].transform.childCount; i++)
-        {
-            GameObject child = gameObjectList[counter].transform.GetChild(i).gameObject;
-            if(child.TryGetComponent<MagicLeapTools.ControlInput>(out var control))
-            {
-                control.enabled = true;
-            }
-        }
-    }
-
-    //Must shut off controls script from the other components or else an error will happen, regardless if the component is disabled
-    private void disableControls()
-    {
-        for (int i = 0; i <  gameObjectList[counter].transform.childCount; i++)
-        {
-            GameObject child = gameObjectList[counter].transform.GetChild(i).gameObject;
-            if(child.TryGetComponent<MagicLeapTools.ControlInput>(out var control))
-            {
-                control.enabled = false;
-            }
-        }
-    }
-
 }

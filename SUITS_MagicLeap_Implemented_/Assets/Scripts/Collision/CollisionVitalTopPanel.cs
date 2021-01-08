@@ -1,12 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CollisionVitalTopPanel : CollisionVitals
+public class CollisionVitalTopPanel : GenericCollision, ICollisionVital
 {
-    protected override void Start()
+    public Image vitalImage { set; get; }
+    public Image vitalMainScreen { set; get; }
+    public GameObject mainScreen { set; get; }
+    public GameObject topView { set; get; }
+
+    protected void Start()
     {
-        base.Start();
+        CollisionVitalManager manager = GameObject.FindWithTag("VitalsUI").GetComponent<CollisionVitalManager>();
+        vitalImage = manager.vitalImage;
+        vitalMainScreen = manager.vitalMainScreen;
+        mainScreen = manager.mainScreen;
+        topView = manager.topView;
     }
 
     public override void isOn()
@@ -14,6 +24,14 @@ public class CollisionVitalTopPanel : CollisionVitals
         mainScreen.SetActive(false);
         topView.SetActive(true);
         vitalMainScreen.enabled = true;
+        vitalImage.enabled = false;
+    }
+
+    public override void isOff()
+    {
+        mainScreen.SetActive(true);
+        topView.SetActive(false);
+        vitalMainScreen.enabled = false;
         vitalImage.enabled = false;
     }
 }
