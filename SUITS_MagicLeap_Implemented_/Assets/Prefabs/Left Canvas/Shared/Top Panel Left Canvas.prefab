@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 3611601756879373479}
   m_Layer: 5
   m_Name: Top Panel Left Canvas
-  m_TagString: TopLCanvas
+  m_TagString: MainScreenTopPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
