@@ -660,36 +660,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 397472695}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1886403279 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6248438672253272651, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5260886002943486643}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1886403281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886403279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8595ffd73cdae14d81743b17f45310d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1886403284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886403279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fded01d7a68b04c8a0329fbbc516fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2055916561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1169,6 +1139,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.lineCount
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347498059271059616, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: m_Name
+      value: Main Screen Panel
       objectReference: {fileID: 0}
     - target: {fileID: 5530284993489119519, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
@@ -2442,6 +2417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334456363045079204, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Name
+      value: Top Panel Left Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7468230807789601408, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
