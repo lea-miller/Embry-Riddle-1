@@ -11,10 +11,6 @@ public class VitalsInputControl: MonoBehaviour
     
     void Awake()
     {
-        userCollider.notifyVitalHit += isOnVitalCheck;
-        userCollider.notifyScreenHit += isOnScreenCheck;
-        userCollider.notifyVitalTopViewHit += isOnViewTopPanelCheck;
-
         vitalImage = GameObject.FindWithTag("VitalsUI").GetComponent<Image>();
         vitalMainScreen = GameObject.FindWithTag("VitalTopView").GetComponent<Image>();
     }
