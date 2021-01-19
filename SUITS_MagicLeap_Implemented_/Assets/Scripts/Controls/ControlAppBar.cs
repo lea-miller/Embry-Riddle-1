@@ -18,6 +18,9 @@ public class ControlAppBar : ControlCommands
         gameObjectList.Add(GameObject.FindWithTag("TaskScreen"));
         gameObjectList.Add(GameObject.FindWithTag("ScienceScreen"));
         gameObjectList.Add(GameObject.FindWithTag("NavigationScreen"));
+        gameObjectList[0].SetActive(true);
+        gameObjectList[1].SetActive(false);
+        gameObjectList[2].SetActive(false);
     }
 
     public override void triggerDown()

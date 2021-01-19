@@ -34,7 +34,7 @@ public class timer : MonoBehaviour
             hours = Mathf.Floor((theTime % 216000) / 3600).ToString("00");
             minutes = Mathf.Floor((theTime % 3600) / 60).ToString("00");
             seconds = Mathf.Floor(theTime % 60).ToString("00");
-            text.text = hours + ":" + minutes + ":" + seconds;
+            text.text = "T+" + hours + ":" + minutes + ":" + seconds;
     }
 
 }
