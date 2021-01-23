@@ -37,6 +37,7 @@ TagManager:
   - NavIcon
   - ScienceIcon
   - TaskIcon
+  - MediaIcon
   layers:
   - Default
   - TransparentFX

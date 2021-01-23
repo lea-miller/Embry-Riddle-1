@@ -8,6 +8,7 @@ public class ControlAppBar : ControlCommands
     private Image border;
     private List <GameObject> gameObjectList;
     private int counter = 0;
+    public bool moveFirstToLast, moveSecondToFirst, moveThirdToSecond, moveFourthToThird = false;
     
     void Awake()
     {
@@ -31,7 +32,7 @@ public class ControlAppBar : ControlCommands
            {
                 gameObjectList[counter].SetActive(false);
                 counter = counter + 1;     
-                gameObjectList[counter].SetActive(true);  
+                gameObjectList[counter].SetActive(true); 
            } 
        }
     }
