@@ -12,6 +12,7 @@ public class PageSync : RealtimeComponent<TaskModel>
     {
         // Get a reference to the mesh renderer
         _taskScreen = GetComponent<TaskScreenManager>();
+        Debug.Log("Got Task manager");
     }
 
     protected override void OnRealtimeModelReplaced(TaskModel previousModel,TaskModel currentModel)
@@ -21,12 +22,15 @@ public class PageSync : RealtimeComponent<TaskModel>
             // Unregister from events
             previousModel.taskPageDidChange -= PageDidChange;
         }
-
+        
         if (currentModel != null)
         {
             // If this is a model that has no data set on it, populate it with the current mesh renderer color.
             if (currentModel.isFreshModel)
-                currentModel.taskPage = _taskScreen.getPageCounter();
+            {
+                currentModel.taskPage = _taskScreen.taskCounter;
+                Debug.Log("Model set to page:" + _taskScreen.pageCounter);
+            }
 
             // Update the mesh render to match the new model
             UpdateMeshRendererColor();
@@ -45,8 +49,9 @@ public class PageSync : RealtimeComponent<TaskModel>
     private void UpdateMeshRendererColor()
     {
         // Get the color from the model and set it on the mesh renderer.
-        _taskScreen.setPageCounter(model.taskPage);
-        _taskScreen.getDisplay().refreshTaskScreen();
+        _taskScreen.pageCounter = model.taskPage;
+        //_taskScreen.getDisplay().refreshTaskScreen();
+        Debug.Log("ScreenRefresh");
     }
 
     public void SetPage(int page)

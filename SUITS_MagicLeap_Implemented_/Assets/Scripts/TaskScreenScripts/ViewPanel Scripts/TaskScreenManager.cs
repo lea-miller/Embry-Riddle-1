@@ -9,7 +9,7 @@ public class TaskScreenManager : MonoBehaviour
     private TaskScreenDisplay _taskDisplay;
     private CSVReader _reader;
     private bool isOnTask, isSelectedNext;
-    private int pageCounter, taskCounter;
+    public int pageCounter, taskCounter;
     private List<List<List<string>>> tasks;
     private List<int> taskTracker;
     
