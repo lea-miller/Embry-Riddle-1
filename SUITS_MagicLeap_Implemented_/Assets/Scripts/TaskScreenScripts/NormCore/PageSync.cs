@@ -19,7 +19,7 @@ public class PageSync : RealtimeComponent<TaskModel>
         if (previousModel != null)
         {
             // Unregister from events
-            //previousModel.taskPageDidChange -= taskPageDidChange;
+            previousModel.taskPageDidChange -= PageDidChange;
         }
 
         if (currentModel != null)
@@ -32,7 +32,7 @@ public class PageSync : RealtimeComponent<TaskModel>
             UpdateMeshRendererColor();
 
             // Register for events so we'll know if the color changes later
-            //currentModel.taskPageDidChange += taskPageDidChange;
+            currentModel.taskPageDidChange += PageDidChange;
         }
     }
 
