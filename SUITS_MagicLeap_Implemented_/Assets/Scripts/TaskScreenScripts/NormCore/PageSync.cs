@@ -17,6 +17,7 @@ public class PageSync : RealtimeComponent<TaskModel>
 
     protected override void OnRealtimeModelReplaced(TaskModel previousModel,TaskModel currentModel)
     {
+        Debug.Log("RealtimeReplaced");
         if (previousModel != null)
         {
             // Unregister from events
@@ -50,7 +51,7 @@ public class PageSync : RealtimeComponent<TaskModel>
     {
         // Get the color from the model and set it on the mesh renderer.
         _taskScreen.pageCounter = model.taskPage;
-        //_taskScreen.getDisplay().refreshTaskScreen();
+        _taskScreen.getDisplay().refreshTaskScreen();
         Debug.Log("ScreenRefresh");
     }
 

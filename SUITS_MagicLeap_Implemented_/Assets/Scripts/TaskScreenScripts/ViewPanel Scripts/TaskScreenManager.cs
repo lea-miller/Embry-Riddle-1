@@ -12,8 +12,10 @@ public class TaskScreenManager : MonoBehaviour
     public int pageCounter, taskCounter;
     private List<List<List<string>>> tasks;
     private List<int> taskTracker;
-    
-   void Awake()
+
+    private PageSync _pageSync;
+
+    void Awake()
    {
         _reader = GetComponent<CSVReader>();
         _taskView = new TaskView(this);
@@ -24,6 +26,8 @@ public class TaskScreenManager : MonoBehaviour
         taskCounter = 0;
         pageCounter = 1;
         taskTracker.Add(taskCounter);
+
+        _pageSync = GetComponent<PageSync>();
    }
 
    void Start()
@@ -57,6 +61,7 @@ public class TaskScreenManager : MonoBehaviour
     public void setPageCounter(int pageCounter)
     {
         this.pageCounter = pageCounter;
+        _pageSync.SetPage(pageCounter);
     }
 
     public void setTaskCounter(int taskCounter)
