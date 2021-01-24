@@ -28,13 +28,17 @@ public partial class TaskModel : RealtimeModel {
     public delegate void PropertyChangedHandler<in T>(TaskModel model, T value);
     public event PropertyChangedHandler<int> taskPageDidChange;
     
+    
     private struct LocalCacheEntry {
         public bool taskPageSet;
         public int taskPage;
     }
     
     private LocalChangeCache<LocalCacheEntry> _cache = new LocalChangeCache<LocalCacheEntry>();
+
     
+
+
     public enum PropertyID : uint {
         TaskPage = 1,
     }
@@ -52,8 +56,12 @@ public partial class TaskModel : RealtimeModel {
     private void FireTaskPageDidChange(int value) {
         try {
             taskPageDidChange?.Invoke(this, value);
+          
+
         } catch (System.Exception exception) {
             UnityEngine.Debug.LogException(exception);
+
+
         }
     }
     

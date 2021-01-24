@@ -88,7 +88,7 @@ public class TaskScreenDisplay
 
     }
 
-    private void refreshTaskScreen()
+    public void refreshTaskScreen()
     {
         string instructionString = manager.getReader().getInstruction(manager.getPageCounter(),manager.getTaskCounter());
         displayInstructionPanel(instructionString, manager.getPageCounter(), manager.getTaskCounter());
