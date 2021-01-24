@@ -62,6 +62,7 @@ public class TaskScreenManager : MonoBehaviour
     {
         this.pageCounter = pageCounter;
         _pageSync.SetPage(pageCounter);
+        Debug.Log("SetPage");
     }
 
     public void setTaskCounter(int taskCounter)

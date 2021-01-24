@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Normal.Realtime;
+using System;
 
 public class PageSync : RealtimeComponent<TaskModel>
 {
@@ -50,8 +51,15 @@ public class PageSync : RealtimeComponent<TaskModel>
     private void UpdateMeshRendererColor()
     {
         // Get the color from the model and set it on the mesh renderer.
-        _taskScreen.pageCounter = model.taskPage;
-        _taskScreen.getDisplay().refreshTaskScreen();
+        try
+        {
+            _taskScreen.pageCounter = model.taskPage;
+            _taskScreen.getDisplay().refreshTaskScreen();
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e);
+        }
         Debug.Log("ScreenRefresh");
     }
 
