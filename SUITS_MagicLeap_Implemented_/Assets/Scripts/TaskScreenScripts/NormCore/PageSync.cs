@@ -46,6 +46,7 @@ public class PageSync : RealtimeComponent<TaskModel>
     {
         // Get the color from the model and set it on the mesh renderer.
         _taskScreen.setPageCounter(model.taskPage);
+        _taskScreen.getDisplay().refreshTaskScreen();
     }
 
     public void SetPage(int page)
@@ -53,5 +54,6 @@ public class PageSync : RealtimeComponent<TaskModel>
         // Set the color on the model
         // This will fire the colorChanged event on the model, which will update the renderer for both the local player and all remote players.
         model.taskPage = page;
+        
     }
 }
