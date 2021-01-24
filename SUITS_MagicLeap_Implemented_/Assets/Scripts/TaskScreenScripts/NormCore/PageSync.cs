@@ -17,6 +17,7 @@ public class PageSync : RealtimeComponent<TaskModel>
 
     protected override void OnRealtimeModelReplaced(TaskModel previousModel,TaskModel currentModel)
     {
+        Debug.Log("RealtimeReplaced");
         if (previousModel != null)
         {
             // Unregister from events
