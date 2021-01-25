@@ -8,7 +8,7 @@ using TMPro;
 public class TaskScreenDisplay
 {
     private CreateTaskBtn _createBtns;
-    private TextMeshProUGUI textInstruction, textPage, textTaskLength;
+    public TextMeshProUGUI textInstruction, textPage, textTaskLength;
     private Material mat;
     private Image instImage;
     private List<string> taskNames;
