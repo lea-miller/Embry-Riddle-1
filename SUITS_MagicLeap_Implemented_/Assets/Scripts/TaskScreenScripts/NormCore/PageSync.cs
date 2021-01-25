@@ -7,12 +7,12 @@ using System;
 public class PageSync : RealtimeComponent<TaskModel>
 {
     private MeshRenderer _meshRenderer;
-    private TaskScreenManager _taskScreen;
+    private TaskScreenManager _taskScreenManager;
 
     private void Awake()
     {
-        // Get a reference to the mesh renderer
-        _taskScreen = GetComponent<TaskScreenManager>();
+        // Get a reference to the manager
+        _taskScreenManager = GetComponent<TaskScreenManager>();
         Debug.Log("Got Task manager");
     }
 
@@ -30,12 +30,12 @@ public class PageSync : RealtimeComponent<TaskModel>
             // If this is a model that has no data set on it, populate it with the current mesh renderer color.
             if (currentModel.isFreshModel)
             {
-                currentModel.taskPage = _taskScreen.taskCounter;
-                Debug.Log("Model set to page:" + _taskScreen.pageCounter);
+                currentModel.taskPage = _taskScreenManager.taskCounter;
+                Debug.Log("Model set to page:" + _taskScreenManager.pageCounter);
             }
 
             // Update the mesh render to match the new model
-            UpdateMeshRendererColor();
+            UpdatePageCount();
 
             // Register for events so we'll know if the color changes later
             currentModel.taskPageDidChange += PageDidChange;
@@ -45,16 +45,16 @@ public class PageSync : RealtimeComponent<TaskModel>
     private void PageDidChange(TaskModel model, int value)
     {
         // Update the mesh renderer
-        UpdateMeshRendererColor();
+        UpdatePageCount();
     }
 
-    private void UpdateMeshRendererColor()
+    private void UpdatePageCount()
     {
-        // Get the color from the model and set it on the mesh renderer.
+        // Get the page from the model and set it on the manager.
         try
         {
-            _taskScreen.pageCounter = model.taskPage;
-            _taskScreen.getDisplay().refreshTaskScreen();
+            _taskScreenManager.pageCounter = model.taskPage;
+            _taskScreenManager.getDisplay().refreshTaskScreen();  //auto refreshes the task screen
         }
         catch(Exception e)
         {

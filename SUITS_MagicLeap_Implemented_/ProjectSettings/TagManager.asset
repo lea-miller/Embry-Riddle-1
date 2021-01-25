@@ -37,6 +37,11 @@ TagManager:
   - NavIcon
   - ScienceIcon
   - TaskIcon
+  - TaskTitleText
+  - TaskDurationText
+  - ElapsedDuration
+  - NextTastTitleText
+  - NextTaskDurationText
   layers:
   - Default
   - TransparentFX
