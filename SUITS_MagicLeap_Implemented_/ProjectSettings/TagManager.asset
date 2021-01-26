@@ -38,6 +38,7 @@ TagManager:
   - ScienceIcon
   - TaskIcon
   - MediaIcon
+  - MediaScreen
   layers:
   - Default
   - TransparentFX
