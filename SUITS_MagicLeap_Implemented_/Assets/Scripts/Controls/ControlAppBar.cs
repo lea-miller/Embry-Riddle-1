@@ -10,8 +10,10 @@ public class ControlAppBar : ControlCommands
     List<System.Action> iconTriggerDict;
     List<System.Action> iconBumperDict;
     private int triggerCount = 0;
+    //sadly this is globalized in the code, not sure how to pass parameters in system actions
     private GameObject tempScreen; 
-    private GameObject tempIconAnimation; //sadly this is globalized in the code, not sure how to pass parameters in system actions
+    private GameObject currIconAnimation;
+    private GameObject prevIconAnimation; 
     public bool isTrigger = false;
 
     
@@ -35,7 +37,6 @@ public class ControlAppBar : ControlCommands
         iconObjectList.AddLast(GameObject.FindWithTag("ScienceIcon"));
         iconObjectList.AddLast(GameObject.FindWithTag("NavIcon"));
         iconObjectList.AddLast(GameObject.FindWithTag("MediaIcon"));
-        //handleIconDisplay();
 
         //Trigger States
         iconTriggerDict = new List<System.Action>();
@@ -92,73 +93,72 @@ public class ControlAppBar : ControlCommands
         var  icon = iconObjectList.First;
         iconTriggerDict.ForEach(delegate(System.Action currAnimation)
         {
-            tempIconAnimation = icon.Value;
+            currIconAnimation = icon.Value;
             currAnimation.Invoke();
             icon = icon.Next;  
         }); 
     }
 
-    //Handles the enable and disable of each icon
-    private void handleIconDisplay()
-    {
-        var innerIcon =  iconObjectList.First;
-        for(int i = 0; i<iconObjectList.Count-1;i++)
-        {
-            innerIcon.Value.SetActive(false);
-            innerIcon = innerIcon.Next;
-        }
-        iconObjectList.First.Value.SetActive(true);
-    }
+    // //Handles the enable and disable of each icon
+    // private void handleIconDisplay()
+    // {
+    //     var innerIcon =  iconObjectList.First;
+    //     for(int i = 0; i<iconObjectList.Count-1;i++)
+    //     {
+    //         innerIcon.Value.SetActive(false);
+    //         innerIcon = innerIcon.Next;
+    //     }
+    //     iconObjectList.First.Value.SetActive(true);
+    // }
 
+    /*
+        Below are the methods that act like event handlers for the animation of that particular gameobject
+    */
     public void MoveFirstToLast()
     {
-        var  m_Animator = tempIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveFirstToLast(); 
-        Debug.Log("Object is: " + tempIconAnimation);                                                                                                
+        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+        m_Animator.MoveFirstToLast();                                                                                            
     }
     
     public void MoveSecondToFirst()
     {
-        var  m_Animator = tempIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveSecondToFirst();
-        Debug.Log("Object is: " + tempIconAnimation);                                                             
+        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+        m_Animator.MoveSecondToFirst();                                                        
     }
     
     public void MoveThirdToSecond()
     {
-        var  m_Animator = tempIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveThirdToSecond();       
-        Debug.Log("Object is: " + tempIconAnimation);                                                                                                                    
+        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+        m_Animator.MoveThirdToSecond();                                                                                                                       
     }
 
     public void MoveFourthToThird()
     {
-        var  m_Animator = tempIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveFourthToThird();
-        Debug.Log("Object is: " + tempIconAnimation);                                                                                                                   
+        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+        m_Animator.MoveFourthToThird();                                                                                                                
     }
     
     public void MoveFirstToSecond()
     {
-        var  m_Animator = tempIconAnimation.GetComponent<AppBarAnimationEvent>();
+        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
         m_Animator.MoveFirstToSecond();                                                                                                                             
     }
     
     public void MoveSecondToThird()
     {
-        var  m_Animator = tempIconAnimation.GetComponent<AppBarAnimationEvent>();
+        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
         m_Animator.MoveSecondToThird();                                                                                                                              
     }
 
     public void MoveThirdToFourth()
     {
-        var  m_Animator = tempIconAnimation.GetComponent<AppBarAnimationEvent>();
+        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
         m_Animator.MoveThirdToFourth();                                                                                                                              
     }
 
     public void MoveLastToFirst()
     {
-        var  m_Animator = tempIconAnimation.GetComponent<AppBarAnimationEvent>();
+        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
         m_Animator.MoveLastToFirst();                                                                                                                          
     }
 

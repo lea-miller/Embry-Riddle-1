@@ -25,22 +25,26 @@ public class AppBarAnimationEvent : MonoBehaviour
     
     public void MoveFirstToLast()
     {
-        Debug.Log("Hello! I am in AnimationEvent! 1");                                                                                                               
+        idleResetTrigger();
+        animateControl.SetTrigger("MoveFirstToLast");                                                                                                         
     }
     
     public void MoveSecondToFirst()
     {
-        Debug.Log("Hello! I am in AnimationEvent! 2");                                                                                        
+        idleResetTrigger();
+        animateControl.SetTrigger("MoveSecondToFirst");                                                                               
     }
     
     public void MoveThirdToSecond()
     {
-        Debug.Log("Hello! I am in AnimationEvent! 3");                                                                                                                              
+        idleResetTrigger();
+        animateControl.SetTrigger("MoveThirdToSecond");                                                                                                                              
     }
 
     public void MoveFourthToThird()
     {
-       Debug.Log("Hello! I am in AnimationEvent! 4");                                                                                                                       
+        idleResetTrigger();
+        animateControl.SetTrigger("MoveFourthToThird");                                                                                                                    
     }
     
     public void MoveFirstToSecond()
@@ -61,5 +65,19 @@ public class AppBarAnimationEvent : MonoBehaviour
     public void MoveLastToFirst()
     {
                                                                                                                                     
+    }
+
+    public void resetTriggers()
+    {
+        animateControl.ResetTrigger("MoveFirstToLast");
+        animateControl.ResetTrigger("MoveSecondToFirst");
+        animateControl.ResetTrigger("MoveThirdToSecond");
+        animateControl.ResetTrigger("MoveFourthToThird");
+        animateControl.SetTrigger("Idle"); 
+    }
+
+    private void idleResetTrigger()
+    {
+        animateControl.ResetTrigger("Idle");
     }
 }
