@@ -79,7 +79,7 @@ public class ControlAppBar : ControlCommands
         tempScreen = screen.Value;
         tempScreen.SetActive(true);
         
-        for(int i = 0; i<screenObjectList.Count-2;i++)
+        for(int i = 0; i<screenObjectList.Count-1;i++)
         {
             screen = screen.Next;  
             tempScreen = screen.Value;
