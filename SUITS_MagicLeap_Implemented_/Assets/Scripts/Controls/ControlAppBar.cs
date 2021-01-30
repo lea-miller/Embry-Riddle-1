@@ -9,15 +9,11 @@ public class ControlAppBar : ControlCommands
     LinkedList<GameObject> screenObjectList,iconObjectList;
     List<System.Action> iconTriggerDict;
     List<System.Action> iconBumperDict;
-    private int triggerCount = 0;
+    private float seconds = 1f;
     //sadly this is globalized in the code, not sure how to pass parameters in system actions
     private GameObject tempScreen; 
     private GameObject currIconAnimation;
-    private GameObject prevIconAnimation; 
-    private float seconds = 1f;
-    public bool isTrigger = false;
 
-    
     void Awake()
     {
         base.Awake();
@@ -122,11 +118,11 @@ public class ControlAppBar : ControlCommands
 
     IEnumerator MoveFirstToLastRoutine()
     {
-        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        Debug.Log("Curr icon is = " + currIconAnimation + " Animaiton is MoveFirstLast");
-        m_Animator.MoveFirstToLast();
+        var  animateControl = currIconAnimation.GetComponent<Animator>();
+        idleResetTrigger(animateControl);
+        animateControl.SetTrigger("MoveFirstToLast");  
         yield return new WaitForSeconds(seconds);
-        m_Animator.resetTriggers();   
+        resetTriggers(animateControl);  
     }
     
     public void MoveSecondToFirst()
@@ -136,39 +132,39 @@ public class ControlAppBar : ControlCommands
 
     IEnumerator MoveSecondToFirstRoutine()
     {
-        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        Debug.Log("Curr icon is = " + currIconAnimation + " Animaiton is MoveSecondFirst");
-        m_Animator.MoveSecondToFirst();      
+        var  animateControl = currIconAnimation.GetComponent<Animator>();
+        idleResetTrigger(animateControl);
+        animateControl.SetTrigger("MoveSecondToFirst");       
         yield return new WaitForSeconds(seconds);
-        m_Animator.resetTriggers();   
+        resetTriggers(animateControl);    
     }
     
     public void MoveThirdToSecond()
     {
-         StartCoroutine(MoveThirdToSecondRoutine());                                                                                                                   
+        StartCoroutine(MoveThirdToSecondRoutine());                                                                                                                   
     }
 
     IEnumerator MoveThirdToSecondRoutine()
     {
-        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        Debug.Log("Curr icon is = " + currIconAnimation + " Animaiton is MoveThirdSecond");
-        m_Animator.MoveThirdToSecond();       
+        var  animateControl = currIconAnimation.GetComponent<Animator>();
+        idleResetTrigger(animateControl);
+        animateControl.SetTrigger("MoveThirdToSecond");         
         yield return new WaitForSeconds(seconds);
-        m_Animator.resetTriggers();
+        resetTriggers(animateControl);  
     }
 
     public void MoveFourthToThird()
     {
-         StartCoroutine(MoveFourthToThirdRoutine());                                                                                                    
+        StartCoroutine(MoveFourthToThirdRoutine());                                                                                                    
     }
 
     IEnumerator MoveFourthToThirdRoutine()
     {
-        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        Debug.Log("Curr icon is = " + currIconAnimation + " Animaiton is MoveFourthThird");
-        m_Animator.MoveFourthToThird();
+        var  animateControl = currIconAnimation.GetComponent<Animator>();
+        idleResetTrigger(animateControl);
+        animateControl.SetTrigger("MoveFourthToThird"); 
         yield return new WaitForSeconds(seconds);
-        m_Animator.resetTriggers(); 
+        resetTriggers(animateControl);  
     }
     
     // public void MoveFirstToSecond()
@@ -204,6 +200,20 @@ public class ControlAppBar : ControlCommands
             Debug.Log(innerNode.Value);
             innerNode = innerNode.Next;
         }
+    }
+
+    private void resetTriggers(Animator animateControl)
+    {
+        animateControl.ResetTrigger("MoveFirstToLast");
+        animateControl.ResetTrigger("MoveSecondToFirst");
+        animateControl.ResetTrigger("MoveThirdToSecond");
+        animateControl.ResetTrigger("MoveFourthToThird");
+        animateControl.SetTrigger("Idle"); 
+    }
+
+    private void idleResetTrigger(Animator animateControl)
+    {
+        animateControl.ResetTrigger("Idle");
     }
 
 }
