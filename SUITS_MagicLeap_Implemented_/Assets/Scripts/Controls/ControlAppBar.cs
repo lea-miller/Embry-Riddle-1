@@ -14,6 +14,7 @@ public class ControlAppBar : ControlCommands
     private GameObject tempScreen; 
     private GameObject currIconAnimation;
     private GameObject prevIconAnimation; 
+    private float seconds = 1f;
     public bool isTrigger = false;
 
     
@@ -45,11 +46,11 @@ public class ControlAppBar : ControlCommands
         iconTriggerDict.Add(MoveThirdToSecond);
         iconTriggerDict.Add(MoveFourthToThird);
         //Bumper States
-        iconBumperDict = new List<System.Action>();
-        iconBumperDict.Add(MoveFirstToSecond);
-        iconBumperDict.Add(MoveSecondToThird);
-        iconBumperDict.Add(MoveThirdToFourth);
-        iconBumperDict.Add(MoveLastToFirst);
+        // iconBumperDict = new List<System.Action>();
+        // iconBumperDict.Add(MoveFirstToSecond);
+        // iconBumperDict.Add(MoveSecondToThird);
+        // iconBumperDict.Add(MoveThirdToFourth);
+        // iconBumperDict.Add(MoveLastToFirst);
     }
 
     public override void triggerDown()
@@ -87,24 +88,22 @@ public class ControlAppBar : ControlCommands
         };  
     }
 
-/*
 
-    StartCoroutine (AttackOne(timer));
-    IEnumerator AttackOne (float timer)
-    {
-         anim.SetBool ("attacking", true);
-         yield return new WaitForSeconds (1);
-         anim.SetBool ("attacking", false);
-         Debug.Log ("this is running");
-         yield break;
- 
-     }
-
-*/
-  //Moves the orders of the icons by having the first one go to the last one
+    //Moves the orders of the icons by having the first one go to the last one
     private void moveIconsForward()
     {
+        handleIconDisplay();
+        var oldFirst = iconObjectList.First.Value;
+        iconObjectList.RemoveFirst();
+        iconObjectList.AddLast(oldFirst);
+    }
+
+
+    //Moves the orders of the icons by having the first one go to the last one
+    private void handleIconDisplay()
+    {
         var  icon = iconObjectList.First;
+        int i = 0;
         iconTriggerDict.ForEach(delegate(System.Action currAnimation)
         {
             currIconAnimation = icon.Value;
@@ -124,8 +123,9 @@ public class ControlAppBar : ControlCommands
     IEnumerator MoveFirstToLastRoutine()
     {
         var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+        Debug.Log("Curr icon is = " + currIconAnimation + " Animaiton is MoveFirstLast");
         m_Animator.MoveFirstToLast();
-        yield return new WaitForSeconds (1);
+        yield return new WaitForSeconds(seconds);
         m_Animator.resetTriggers();   
     }
     
@@ -137,46 +137,63 @@ public class ControlAppBar : ControlCommands
     IEnumerator MoveSecondToFirstRoutine()
     {
         var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+        Debug.Log("Curr icon is = " + currIconAnimation + " Animaiton is MoveSecondFirst");
         m_Animator.MoveSecondToFirst();      
-        yield return new WaitForSeconds (1);
+        yield return new WaitForSeconds(seconds);
         m_Animator.resetTriggers();   
     }
     
     public void MoveThirdToSecond()
     {
+         StartCoroutine(MoveThirdToSecondRoutine());                                                                                                                   
+    }
+
+    IEnumerator MoveThirdToSecondRoutine()
+    {
         var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveThirdToSecond();                                                                                                                       
+        Debug.Log("Curr icon is = " + currIconAnimation + " Animaiton is MoveThirdSecond");
+        m_Animator.MoveThirdToSecond();       
+        yield return new WaitForSeconds(seconds);
+        m_Animator.resetTriggers();
     }
 
     public void MoveFourthToThird()
     {
-        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveFourthToThird();                                                                                                                
-    }
-    
-    public void MoveFirstToSecond()
-    {
-        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveFirstToSecond();                                                                                                                             
-    }
-    
-    public void MoveSecondToThird()
-    {
-        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveSecondToThird();                                                                                                                              
+         StartCoroutine(MoveFourthToThirdRoutine());                                                                                                    
     }
 
-    public void MoveThirdToFourth()
+    IEnumerator MoveFourthToThirdRoutine()
     {
         var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveThirdToFourth();                                                                                                                              
+        Debug.Log("Curr icon is = " + currIconAnimation + " Animaiton is MoveFourthThird");
+        m_Animator.MoveFourthToThird();
+        yield return new WaitForSeconds(seconds);
+        m_Animator.resetTriggers(); 
     }
+    
+    // public void MoveFirstToSecond()
+    // {
+    //     var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+    //     m_Animator.MoveFirstToSecond();                                                                                                                             
+    // }
+    
+    // public void MoveSecondToThird()
+    // {
+    //     var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+    //     m_Animator.MoveSecondToThird();                                                                                                                              
+    // }
 
-    public void MoveLastToFirst()
-    {
-        var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveLastToFirst();                                                                                                                          
-    }
+    // public void MoveThirdToFourth()
+    // {
+    //     var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+    //     m_Animator.MoveThirdToFourth();                                                                                                                              
+    // }
+
+    // public void MoveLastToFirst()
+    // {
+    //     var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
+    //     m_Animator.MoveLastToFirst();                                                                                                                          
+    // }
 
     //For testing purposes
     private void display()
