@@ -71,8 +71,8 @@ public class AppBarAnimationEvent : MonoBehaviour
     {
         animateControl.ResetTrigger("MoveFirstToLast");
         animateControl.ResetTrigger("MoveSecondToFirst");
-        animateControl.ResetTrigger("MoveThirdToSecond");
-        animateControl.ResetTrigger("MoveFourthToThird");
+        // animateControl.ResetTrigger("MoveThirdToSecond");
+        // animateControl.ResetTrigger("MoveFourthToThird");
         animateControl.SetTrigger("Idle"); 
     }
 

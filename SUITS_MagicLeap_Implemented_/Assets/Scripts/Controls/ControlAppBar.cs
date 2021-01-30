@@ -87,7 +87,21 @@ public class ControlAppBar : ControlCommands
         };  
     }
 
-    //Moves the orders of the icons by having the first one go to the last one
+/*
+
+    StartCoroutine (AttackOne(timer));
+    IEnumerator AttackOne (float timer)
+    {
+         anim.SetBool ("attacking", true);
+         yield return new WaitForSeconds (1);
+         anim.SetBool ("attacking", false);
+         Debug.Log ("this is running");
+         yield break;
+ 
+     }
+
+*/
+  //Moves the orders of the icons by having the first one go to the last one
     private void moveIconsForward()
     {
         var  icon = iconObjectList.First;
@@ -99,31 +113,33 @@ public class ControlAppBar : ControlCommands
         }); 
     }
 
-    // //Handles the enable and disable of each icon
-    // private void handleIconDisplay()
-    // {
-    //     var innerIcon =  iconObjectList.First;
-    //     for(int i = 0; i<iconObjectList.Count-1;i++)
-    //     {
-    //         innerIcon.Value.SetActive(false);
-    //         innerIcon = innerIcon.Next;
-    //     }
-    //     iconObjectList.First.Value.SetActive(true);
-    // }
-
     /*
         Below are the methods that act like event handlers for the animation of that particular gameobject
     */
     public void MoveFirstToLast()
     {
+        StartCoroutine(MoveFirstToLastRoutine());                                                                                       
+    }
+
+    IEnumerator MoveFirstToLastRoutine()
+    {
         var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveFirstToLast();                                                                                            
+        m_Animator.MoveFirstToLast();
+        yield return new WaitForSeconds (1);
+        m_Animator.resetTriggers();   
     }
     
     public void MoveSecondToFirst()
     {
+       StartCoroutine(MoveSecondToFirstRoutine());                                                     
+    }
+
+    IEnumerator MoveSecondToFirstRoutine()
+    {
         var  m_Animator = currIconAnimation.GetComponent<AppBarAnimationEvent>();
-        m_Animator.MoveSecondToFirst();                                                        
+        m_Animator.MoveSecondToFirst();      
+        yield return new WaitForSeconds (1);
+        m_Animator.resetTriggers();   
     }
     
     public void MoveThirdToSecond()

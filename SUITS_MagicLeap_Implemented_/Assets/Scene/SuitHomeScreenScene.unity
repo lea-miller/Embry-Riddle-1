@@ -2226,6 +2226,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TaskInstructionText
       objectReference: {fileID: 0}
+    - target: {fileID: 4578363261406273314, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4600723397904257315, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.characterCount
