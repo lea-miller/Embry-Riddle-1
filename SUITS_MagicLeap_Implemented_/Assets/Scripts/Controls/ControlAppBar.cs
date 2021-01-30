@@ -13,6 +13,7 @@ public class ControlAppBar : ControlCommands
     //sadly this is globalized in the code, not sure how to pass parameters in system actions
     private GameObject tempScreen; 
     private GameObject currIconAnimation;
+    private bool animationIsActive = false;
 
     void Awake()
     {
@@ -53,14 +54,26 @@ public class ControlAppBar : ControlCommands
 
     public override void triggerDown()
     {   
-        moveIconsForward();
-        moveScreensForward();
+        if(!animationIsActive)
+        {
+            animationIsActive = true;
+            moveIconsForward();
+            moveScreensForward();
+            animationIsActive = false;
+        }
+
     }
     
      public override void bumperDown()
     {
-       moveIconsBackward();
-       moveScreensBackward();
+        if(!animationIsActive)
+        {
+            animationIsActive = true;
+            moveIconsBackward();
+            moveScreensBackward();
+            animationIsActive = false;
+        }
+
     }
 
     //Moves the order of the screens by having the first one go to the last one
@@ -120,7 +133,6 @@ public class ControlAppBar : ControlCommands
         var  icon = iconObjectList.First;
         animList.ForEach(delegate(System.Action currAnimation)
         {
-            Debug.Log("Icon Order: " + icon.Value);
             currIconAnimation = icon.Value;
             currAnimation.Invoke();
             icon = icon.Next;  
@@ -188,7 +200,6 @@ public class ControlAppBar : ControlCommands
     private void MoveFirstToSecond()
     {
         StartCoroutine(MoveFirstToSecondRoutine());
-                Debug.Log("Method - Move First To Second");  
     }
 
     IEnumerator MoveFirstToSecondRoutine()
@@ -203,7 +214,6 @@ public class ControlAppBar : ControlCommands
     private void MoveSecondToThird()
     {
         StartCoroutine(MoveSecondToThirdRoutine());
-                Debug.Log("Method - Move Second To Third");  
     }
 
     IEnumerator MoveSecondToThirdRoutine()
@@ -218,7 +228,6 @@ public class ControlAppBar : ControlCommands
     private void MoveThirdToFourth()
     {
         StartCoroutine(MoveThirdToFourthRoutine());
-                Debug.Log("Method - Move Third To Fourth");  
     }
 
     IEnumerator MoveThirdToFourthRoutine()
@@ -233,7 +242,6 @@ public class ControlAppBar : ControlCommands
     private void MoveLastToFirst()
     {
         StartCoroutine(MoveLastToFirstRoutine());
-                Debug.Log("Method - Move Last To First");  
     }
 
     IEnumerator MoveLastToFirstRoutine()
