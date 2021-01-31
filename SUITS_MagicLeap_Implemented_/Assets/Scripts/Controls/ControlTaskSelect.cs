@@ -20,8 +20,8 @@ public class ControlTaskSelect : ControlCommands
         //Task is open
         if (border.enabled)
         {
-            taskScreen.getTask().nextTask();
-            taskScreen.getDisplay().changeTask();
+            //taskScreen.getTask().nextTask();
+            //taskScreen.getDisplay().changeTask();
         }
     }
 
@@ -30,8 +30,8 @@ public class ControlTaskSelect : ControlCommands
         //Task is open
         if (border.enabled)
         {
-            taskScreen.getTask().prevTask();
-            taskScreen.getDisplay().changeTask();
+            //taskScreen.getTask().prevTask();
+            //taskScreen.getDisplay().changeTask();
         }
     }
 }

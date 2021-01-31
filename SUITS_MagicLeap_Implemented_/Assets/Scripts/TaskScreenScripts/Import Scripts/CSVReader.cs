@@ -7,17 +7,11 @@ using UnityEngine;
 
 public class CSVReader : MonoBehaviour
 {
-    private List<List<string>> groupList;
-    private List<string> taskListPage;
-    private List<string> taskListInstruction;
-    private List<string> taskListImage;
-    private List<List<List<string>>> tasks;
-    private List<List<string>> jsonList;
-    private int maxPages, instructLength;
+  
+    private List<List<string>> tasks;
+   
     private TextAsset fileData;
-    public TextAsset jsonFile;
-    private List<string> jsonNameList;
-    private TaskValues tasksInJson;
+  
 
     /*
   * groupList[task index] [list index] [element in the list];
@@ -27,115 +21,77 @@ public class CSVReader : MonoBehaviour
 
     void Awake()
     {
-        tasks = new List<List<List<string>>>();
-        jsonList = new List<List<string>>();
-        jsonNameList = jsonNameList = new List<string>();
-        tasksInJson = JsonUtility.FromJson<TaskValues>(jsonFile.text);
-        loadJson();
-        loadTaskName(0);
+        tasks = new List<List<string>>();
+    
+       
+        loadTasks();
         importTaskList();
     }
 
-    private void loadJson()
-    {
-        foreach (TaskValue taskValue in tasksInJson.taskNames)
-        {
-            jsonNameList.Add(taskValue.task);
-        }
-        jsonList.Add(jsonNameList);
-    }
+  
 
-    public void loadTaskName(int taskNumber)
+    public void loadTasks()
     {
-        fileData = Resources.Load<TextAsset>("Tasks/"+jsonList[0][taskNumber]);
+        fileData = Resources.Load<TextAsset>("Tasks/MissionTasks");
     }
 
     public void importTaskList()
     {
-        taskListPage = new List<string>();
-        taskListInstruction = new List<string>();
-        taskListImage = new List<string>();
-        groupList = new List<List<string>>();
-
+        
         string[] data = fileData.text.Split(new char[] { '\n' });
+        
 
-        for (int i = 1; i < data.Length - 1; i++)
+        for (int i = 0; i < data.Length - 1; i++)
         {
             string[] row = data[i].Split(new char[] { ',' });
+            //Debug.Log("row 1 L = " + row.Length);
+            //Debug.Log("row 1 = " + row[0] );
 
-            if (row[1] != "")
+            for (int j = 1; j < row.Length - 1; j++)
             {
-                TaskValuePair q = new TaskValuePair();
-                q.pages = row[0];
-                q.instructions = row[1];
-                q.images = row[2];
-                taskListPage.Add(q.pages);
-                taskListInstruction.Add(q.instructions);
-                taskListImage.Add(q.images);
+                //tasks[j-1][i] = row[j];   
+                Debug.Log(row[j]);
+                tasks[j].Add(row[j]);
+                Debug.Log(tasks[0][0]);
             }
         }
-        groupList.Add(taskListPage);
-        groupList.Add(taskListInstruction);
-        groupList.Add(taskListImage);
-        tasks.Add(groupList);
-    }
-
-    //Returns the max number of pages
-    public int getMaxPages(int taskNumber)
-    { 
-        int length = tasks[taskNumber][0].Count;
-        string maxInt = tasks[taskNumber][0][length-1];
-        maxPages = Int32.Parse(maxInt);
-        return maxPages;
-    }
-
-    //Returns the instruction index's per the page
-    public List<int> getInstructionIndex(int pageNumber, int taskNumber)
-    {
-        string pageNum = Convert.ToString(pageNumber);
-        List<int> indexList = new List<int>();
         
-        for(int i = 0; i<tasks[taskNumber][1].Count; i++)
-        {
-            if (string.Equals(tasks[taskNumber][0][i],pageNum))
-            {
-                indexList.Add(i);
-            }
-        }
-        return indexList;
+
     }
 
-    //Builds the string for the TextMeshPro
-    public string getInstruction(int pageCounter, int taskNumber)
-    {
-        List<int> list = getInstructionIndex(pageCounter,taskNumber);
-        int startIndex = list[0];
-        int endIndex = list.Last();
-        string joinString = "";
-
-        //displays the instruction per the indexs related to that page
-        for (int i=endIndex; i>=startIndex; i--)
-        {
-            string tempInstruct = tasks[taskNumber][1][i];
-            joinString = tempInstruct + "\n" + "\n" + joinString;
-        }
-        return joinString;
-    }
-
-    //Returns the list length
     public int getTaskLength()
     {
-        return jsonList[0].Count;
+        return tasks[0].Count;
     }
+
+
+
+
+    //Builds the string for the TextMeshPro
+
+    public string getInstruction(int taskNumber)
+    {
+        //List<int> list = getInstructionIndex(pageCounter,taskNumber);
+        int startIndex = 6;
+        int endIndex = tasks[taskNumber].Count;
+         string joinString = "";
+
+        //displays the instruction per the indexs related to that page
+        for (int j = endIndex; j >= startIndex; j--)
+         {
+             string tempInstruct = tasks[taskNumber][j];
+             joinString = tempInstruct + "\n" + "\n" + joinString;
+         }
+         return joinString;
+     }
+    
+
 
     //Returns the entire list
-    public List<List<List<string>>> getTask()
-    {
-        return tasks;
-    }
+    public List<List<string>> getTask()
+ {
+     return tasks;
+ }
 
-    public List<string> getTaskNames()
-    {
-        return jsonNameList;
-    }
+
 }

@@ -21,23 +21,23 @@ MonoBehaviour:
   - m_ElementType: 2
     m_Unicode: 0
     m_GlyphIndex: 0
-    m_Scale: 1
+    m_Scale: 0.95
     m_Name: Task2_Page2
     m_HashCode: -1315768223
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
-      m_Width: 1093
+      m_Width: 1091.23
       m_Height: 586
-      m_HorizontalBearingX: -546.5
-      m_HorizontalBearingY: 293
-      m_HorizontalAdvance: 1093
+      m_HorizontalBearingX: -0.88
+      m_HorizontalBearingY: 492.5
+      m_HorizontalAdvance: 2341.5
     m_GlyphRect:
-      m_X: 0
-      m_Y: 0
-      m_Width: 1093
-      m_Height: 586
-    m_Scale: 1
+      m_X: -10
+      m_Y: -24
+      m_Width: 1105
+      m_Height: 565
+    m_Scale: 1.2
     m_AtlasIndex: 0
     sprite: {fileID: 21300000, guid: f777ffdad7b55e54c9339f3367007c13, type: 3}
   spriteInfoList: []
@@ -62,7 +62,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f777ffdad7b55e54c9339f3367007c13, type: 3}
+        m_Texture: {fileID: 2800000, guid: cb6561fccc0c5f2428fc47007d160a75, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:

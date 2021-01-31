@@ -16,6 +16,7 @@ public class ControlTaskInst : ControlCommands
         base.Awake();
         taskScreen = GameObject.FindWithTag("TaskScreen").GetComponent<TaskScreenManager>();
         border = GameObject.FindWithTag("TaskInstruction").GetComponent<Image>();
+        textInstruction = taskScreen.getDisplay().textInstruction;
     }
 
     public override void triggerDown()
@@ -25,7 +26,7 @@ public class ControlTaskInst : ControlCommands
         {
             //taskScreen.getInstruct().nextInst();
             //taskScreen.getDisplay().changePage();
-            textInstruction = taskScreen.getDisplay().textInstruction;
+            
             
 
             if (textInstruction.pageToDisplay < textInstruction.textInfo.pageCount) 

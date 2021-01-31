@@ -5,13 +5,15 @@ using UnityEngine;
 public class TaskScreenManager : MonoBehaviour
 {
     private TaskView _taskView;
-    private InstructView _instrView;
+    //private InstructView _instrView;
     private TaskScreenDisplay _taskDisplay;
-    private CSVReader _reader;
     private bool isOnTask, isSelectedNext;
     public int pageCounter, taskCounter;
-    private List<List<List<string>>> tasks;
+    
     private List<int> taskTracker;
+
+    private List<List<string>> tasks;
+    private CSVReader _reader;
 
     private PageSync _pageSync;
 
@@ -19,7 +21,7 @@ public class TaskScreenManager : MonoBehaviour
    {
         _reader = GetComponent<CSVReader>();
         _taskView = new TaskView(this);
-        _instrView = new InstructView(this);
+        //_instrView = new InstructView(this);
         isOnTask = true;
         taskTracker = new List<int>();
         isOnTask = false;
@@ -85,10 +87,12 @@ public class TaskScreenManager : MonoBehaviour
         return _taskView;
     }
     
+    /*
     public InstructView getInstruct()
     {
         return _instrView;
     }
+    */
 
     public CSVReader getReader()
     {
@@ -100,12 +104,12 @@ public class TaskScreenManager : MonoBehaviour
         return _taskDisplay;
     }
 
-    public List<List<List<string>>> getTaskList()
+    public List<List<string>> getTaskList()
     {
         return _reader.getTask();
     }
 
-    public void setTaskList(List<List<List<string>>> tasks)
+    public void setTaskList(List<List<string>> tasks)
     {
         this.tasks = tasks;
     } 
