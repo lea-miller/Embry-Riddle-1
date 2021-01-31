@@ -26,13 +26,12 @@ public class LocationPointer : MonoBehaviour
     private void Update()
     {
         torso = GameObject.FindWithTag("Torso");
-        target = GameObject.Find("Target").transform.position;;
-        targetPosition = new Vector3(target.x,target.y,target.z);
+        target = GameObject.Find("Target").transform.rotation.eulerAngles;
+        //targetPosition = new Vector3(target.x,target.y,target.z);
        
-        rotationSync();
         
-        Vector3 toTarget = targetPosition;
-        Vector3 currPosition = torso.GetComponent<Transform>().position;
+        Vector3 toTarget = target;//targetPosition;
+        Vector3 currPosition = this.transform.rotation.eulerAngles;
         Vector3 dir = (toTarget - currPosition).normalized;
         float angle =  (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) % 360;
         pointerTransform.localEulerAngles = new Vector3(0,0,angle);
@@ -42,13 +41,6 @@ public class LocationPointer : MonoBehaviour
     {
         Vector3 canvasDistance = new Vector3(transform.position.x, -50f/100, -20f/100);
         transform.position = canvasDistance;
-    }
-
-    //The roation of the camera causes the current canvas to rotate without changing its position
-    void rotationSync()
-    {
-        Vector3 currentScreenForward = Camera.main.transform.forward * rotation;
-        currentScreen.transform.forward = currentScreenForward;
     }
 
 }
