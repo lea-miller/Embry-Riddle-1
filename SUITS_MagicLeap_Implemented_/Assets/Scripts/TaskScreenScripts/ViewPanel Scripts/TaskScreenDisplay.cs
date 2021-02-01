@@ -27,7 +27,12 @@ public class TaskScreenDisplay
 
         //displayTaskNames();
         string instructionString = manager.getReader().getInstruction(0);
+        manager.setPageCounter(textInstruction.pageToDisplay);
+        Debug.Log(" page Display =" + textInstruction.pageToDisplay);
         displayInstructionPanel(instructionString,1,0);
+        manager.setMaxPages(textInstruction.textInfo.pageCount);
+        Debug.Log("Max Pages =" + textInstruction.textInfo.pageCount);
+        //manager.setMaxPages(3);
         displayTaskPanel(0);
         highlightSelected();
    }
@@ -51,8 +56,7 @@ public class TaskScreenDisplay
      //Displays Current Task out of the Total Task
     private void displayTaskPanel(int taskCounter)
     {
-        textTaskLength.text = "T. " +  (( taskCounter <= manager.getReader().getTaskLength()-1) ? taskCounter + 1 : taskCounter) 
-            + "/" + manager.getReader().getTaskLength();
+        //textTaskLength.text = "T. " +  (( taskCounter <= manager.getReader().getTaskLength()-1) ? taskCounter + 1 : taskCounter) + "/" + manager.getReader().getTaskLength();
     }
 
     //Displays the page information to the GUI
@@ -60,6 +64,7 @@ public class TaskScreenDisplay
     {
         //The task counter text starts at 1, not 0 like the data
         textInstruction.text = joinString;
+        textInstruction.pageToDisplay = pageCounter;
         textPage.text = "P. " + textInstruction.pageToDisplay + "/" + textInstruction.textInfo.pageCount;
     }
 
@@ -88,12 +93,13 @@ public void changeTask()
 private void highlightSelected()
 {  
     EventSystem.current.SetSelectedGameObject(null);
-    EventSystem.current.SetSelectedGameObject(btns[manager.getTaskCounter()]);
+    //EventSystem.current.SetSelectedGameObject(btns[manager.getTaskCounter()]);
 
 }
 
 public void refreshTaskScreen()
 {
+    
     string instructionString = manager.getReader().getInstruction(manager.getTaskCounter());
     displayInstructionPanel(instructionString, manager.getPageCounter(), manager.getTaskCounter());
     displayTaskPanel(manager.getTaskCounter());
@@ -126,11 +132,18 @@ public void updateImage(List<List<string>> tasks, int taskCounter, int pageCount
     */
 }
 
-public void changePage()
+public void changePage(int page = 0)
 {
+    if(page != 0)
+        {
+            manager.setPageCounter(manager.getPageCounter() + page);
+        }
     string instructionString = manager.getReader().getInstruction(manager.getTaskCounter());
     displayInstructionPanel(instructionString, manager.getPageCounter(), manager.getTaskCounter());
     updateImage(manager.getTaskList(),manager.getTaskCounter(),manager.getPageCounter());
+
+
+
 }
 
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class TaskScreenManager : MonoBehaviour
 {
     private TaskView _taskView;
-    //private InstructView _instrView;
+   // private InstructView _instrView;
     private TaskScreenDisplay _taskDisplay;
     private bool isOnTask, isSelectedNext;
-    public int pageCounter, taskCounter;
+    public int pageCounter, maxPages, taskCounter;
     
     private List<int> taskTracker;
 
@@ -21,7 +21,7 @@ public class TaskScreenManager : MonoBehaviour
    {
         _reader = GetComponent<CSVReader>();
         _taskView = new TaskView(this);
-        //_instrView = new InstructView(this);
+       // _instrView = new InstructView(this);
         isOnTask = true;
         taskTracker = new List<int>();
         isOnTask = false;
@@ -50,6 +50,11 @@ public class TaskScreenManager : MonoBehaviour
         return pageCounter;
     }
 
+    public int getMaxPages()
+    {
+        return maxPages;
+    }
+
     public int getTaskCounter()
     {
         return taskCounter;
@@ -65,6 +70,11 @@ public class TaskScreenManager : MonoBehaviour
         this.pageCounter = pageCounter;
         _pageSync.SetPage(pageCounter);
         Debug.Log("SetPage");
+    }
+
+    public void setMaxPages(int maxPages)
+    {
+        this.maxPages = maxPages;
     }
 
     public void setTaskCounter(int taskCounter)
@@ -87,12 +97,12 @@ public class TaskScreenManager : MonoBehaviour
         return _taskView;
     }
     
-    /*
-    public InstructView getInstruct()
+    
+    /*public InstructView getInstruct()
     {
         return _instrView;
-    }
-    */
+    }*/
+    
 
     public CSVReader getReader()
     {

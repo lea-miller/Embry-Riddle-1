@@ -16,7 +16,7 @@ public class ControlTaskInst : ControlCommands
         base.Awake();
         taskScreen = GameObject.FindWithTag("TaskScreen").GetComponent<TaskScreenManager>();
         border = GameObject.FindWithTag("TaskInstruction").GetComponent<Image>();
-        textInstruction = taskScreen.getDisplay().textInstruction;
+        
     }
 
     public override void triggerDown()
@@ -29,9 +29,10 @@ public class ControlTaskInst : ControlCommands
             
             
 
-            if (textInstruction.pageToDisplay < textInstruction.textInfo.pageCount) 
-            { 
-                textInstruction.pageToDisplay = (textInstruction.pageToDisplay + 1);
+            if (taskScreen.getPageCounter() < taskScreen.getMaxPages()) 
+            {
+                taskScreen.getDisplay().changePage(1);
+                Debug.Log("Trigger Down, coutner approved");
             }
 
         }
@@ -44,9 +45,9 @@ public class ControlTaskInst : ControlCommands
         {
             //taskScreen.getInstruct().prevInst();
             //taskScreen.getDisplay().changePage();
-            if (textInstruction.pageToDisplay > 1)
+            if (taskScreen.getPageCounter() > 1)
             {
-                textInstruction.pageToDisplay = (textInstruction.pageToDisplay - 1);
+                taskScreen.getDisplay().changePage(-1);
             }
         }
     }

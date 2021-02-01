@@ -1,21 +1,38 @@
-﻿Task Title,Contingency Sample,Pack Rover,,
-Category,Science,Set-Up,,
-Expected Duration,0:03,0:20,0:25,
-Start Time,0:00,0:03,0:23,
-End Time,0:03,0:23,0:48,
-Picture,,,,
-Instructions,Unstow sampling device ,Configure Rover for driving,,
-,Locate nearby area of interest,Pack Science eq. into Bay 1,,
-,Initiate ,Pack Consumables into Bay 2,,
-,Collect a portion of sample,Pack Comms into Bay 3,,
-,Repeat steps 2-3 until full,Secure all Bays,,
-,Contain samples and stow,,,
-,,,,
-,Default Instruction Text,,,
-,<size=1500%><sprite=0> <size=100%>,,,
-,Picture Caption: STAR Attached to 3 ISS Positions,,,
-,Second line,,,
-,,Third Line,,
-,More Testing of line spacing,,,
-,There is a picture next but it does not fit so it wraps to the next page automatically,,,
-,<size=1500%><sprite=0> <size=100%>,,,
+Task Title,Contingency Sample,Pack Rover
+Category,Science,Set-Up
+Expected Duration,0:03,0:20
+Start Time,0:00,0:03
+End Time,0:03,0:23
+,,
+Instructions,Unstow sampling device ,Configure Rover for driving
+,Locate nearby area of interest,Pack Science eq. into Bay 1
+,Initiate ,Pack Consumables into Bay 2
+,Collect a portion of sample,Pack Comms into Bay 3
+,Repeat steps 2-3 until full,Secure all Bays
+,Contain samples and stow,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,Third Line
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,
+,text,

@@ -49,14 +49,24 @@ public class CSVReader : MonoBehaviour
 
             for (int j = 1; j < row.Length - 1; j++)
             {
-                //tasks[j-1][i] = row[j];   
-                Debug.Log(row[j]);
-                tasks[j].Add(row[j]);
-                Debug.Log(tasks[0][0]);
+                if (i == 0)
+                {
+                    List<string> temp = new List<string>();
+                    tasks.Add(temp);
+                    //Debug.Log(tasks[0]);
+                    tasks[j - 1].Add(row[j]);
+
+                }
+                else
+                {
+                    tasks[j - 1].Add(row[j]);
+
+                }
+                
             }
         }
-        
 
+        Debug.Log(tasks[0][0] + " " + tasks[0][1]);
     }
 
     public int getTaskLength()
@@ -73,14 +83,14 @@ public class CSVReader : MonoBehaviour
     {
         //List<int> list = getInstructionIndex(pageCounter,taskNumber);
         int startIndex = 6;
-        int endIndex = tasks[taskNumber].Count;
-         string joinString = "";
+        int endIndex = tasks[taskNumber].Count -1;
+        string joinString = "";
 
         //displays the instruction per the indexs related to that page
         for (int j = endIndex; j >= startIndex; j--)
          {
              string tempInstruct = tasks[taskNumber][j];
-             joinString = tempInstruct + "\n" + "\n" + joinString;
+             joinString = tempInstruct + "\n" + joinString;
          }
          return joinString;
      }
