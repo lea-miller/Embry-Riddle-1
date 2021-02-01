@@ -30,11 +30,11 @@ public class TaskScreenDisplay
         manager.setPageCounter(textInstruction.pageToDisplay);
         Debug.Log(" page Display =" + textInstruction.pageToDisplay);
         displayInstructionPanel(instructionString,1,0);
-        manager.setMaxPages(textInstruction.textInfo.pageCount);
-        Debug.Log("Max Pages =" + textInstruction.textInfo.pageCount);
+        
         //manager.setMaxPages(3);
         displayTaskPanel(0);
         highlightSelected();
+        //refreshTaskScreen();
    }
 
     /*
@@ -65,6 +65,8 @@ public class TaskScreenDisplay
         //The task counter text starts at 1, not 0 like the data
         textInstruction.text = joinString;
         textInstruction.pageToDisplay = pageCounter;
+        manager.setMaxPages(textInstruction.textInfo.pageCount);
+        Debug.Log("Max Pages =" + textInstruction.textInfo.pageCount);
         textPage.text = "P. " + textInstruction.pageToDisplay + "/" + textInstruction.textInfo.pageCount;
     }
 
@@ -138,9 +140,9 @@ public void changePage(int page = 0)
         {
             manager.setPageCounter(manager.getPageCounter() + page);
         }
-    string instructionString = manager.getReader().getInstruction(manager.getTaskCounter());
+/*    string instructionString = manager.getReader().getInstruction(manager.getTaskCounter());
     displayInstructionPanel(instructionString, manager.getPageCounter(), manager.getTaskCounter());
-    updateImage(manager.getTaskList(),manager.getTaskCounter(),manager.getPageCounter());
+    updateImage(manager.getTaskList(),manager.getTaskCounter(),manager.getPageCounter());*/
 
 
 

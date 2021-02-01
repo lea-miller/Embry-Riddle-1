@@ -26,11 +26,12 @@ public class ControlTaskInst : ControlCommands
         {
             //taskScreen.getInstruct().nextInst();
             //taskScreen.getDisplay().changePage();
-            
-            
+
+            //taskScreen.refreshTaskScreen();
 
             if (taskScreen.getPageCounter() < taskScreen.getMaxPages()) 
             {
+                
                 taskScreen.getDisplay().changePage(1);
                 Debug.Log("Trigger Down, coutner approved");
             }

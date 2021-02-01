@@ -90,7 +90,7 @@ public class CSVReader : MonoBehaviour
         for (int j = endIndex; j >= startIndex; j--)
          {
              string tempInstruct = tasks[taskNumber][j];
-             joinString = tempInstruct + "\n" + joinString;
+             joinString = j-5 + "." + "<indent=8%>" + tempInstruct + "</indent>" + "\n" + joinString;
          }
          return joinString;
      }

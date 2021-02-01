@@ -28,17 +28,22 @@ public class TaskScreenManager : MonoBehaviour
         taskCounter = 0;
         pageCounter = 1;
         taskTracker.Add(taskCounter);
-
         _pageSync = GetComponent<PageSync>();
-   }
+
+    }
 
    void Start()
    {
         tasks = _reader.getTask();
         taskTracker.Add(taskCounter);
         _taskDisplay = new TaskScreenDisplay(this);
-        _taskDisplay.updateImage(tasks,taskCounter,pageCounter);
-   }
+        
+    }
+
+    void Update()
+    {
+        _taskDisplay.refreshTaskScreen();
+    }
 
     public bool getIsOnTask()
     {
