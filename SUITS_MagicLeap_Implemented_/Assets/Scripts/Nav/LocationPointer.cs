@@ -13,11 +13,13 @@ public class LocationPointer : MonoBehaviour
     private float rotation = 0.4f;
     private Quaternion currentScreenRotation, torsoRot;
     private GameObject torso, controller;
-    Vector3 target;
 
     private void Awake()
     {
-        pointerTransform = this.transform;
+        // targetPosition = new Vector3(destinationX,destinationY,destinationZ);
+        // pointerTransform = transform.Find("TragetPointer").GetComponent<Transform>();
+        // controller = GameObject.FindWithTag("MLController");
+        // torso = GameObject.FindWithTag("Torso");
     }
     void Start()
     {
@@ -25,17 +27,12 @@ public class LocationPointer : MonoBehaviour
     }
     private void Update()
     {
-        torso = GameObject.FindWithTag("Torso");
-        target = GameObject.Find("Target").transform.position;;
-        targetPosition = new Vector3(target.x,target.y,target.z);
-       
         rotationSync();
-        
-        Vector3 toTarget = targetPosition;
-        Vector3 currPosition = torso.GetComponent<Transform>().position;
-        Vector3 dir = (toTarget - currPosition).normalized;
-        float angle =  (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) % 360;
-        pointerTransform.localEulerAngles = new Vector3(0,0,angle);
+        // Vector3 toTarget = targetPosition;
+        // Vector3 currPosition = transform.Find("Torso").position;
+        // Vector3 dir = (toTarget - currPosition).normalized;
+        // float angle =  (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) % 360;
+        //pointerTransform.localEulerAngles = new Vector3(currPosition.x,currPosition.y,angle);
     }
 
     private void distanceFromHead()
