@@ -41,13 +41,13 @@ public class CSVReader : MonoBehaviour
         string[] data = fileData.text.Split(new char[] { '\n' });
         
 
-        for (int i = 0; i < data.Length - 1; i++)
+        for (int i = 0; i < data.Length ; i++)
         {
             string[] row = data[i].Split(new char[] { ',' });
             //Debug.Log("row 1 L = " + row.Length);
             //Debug.Log("row 1 = " + row[0] );
 
-            for (int j = 1; j < row.Length - 1; j++)
+            for (int j = 1; j < row.Length; j++)
             {
                 if (i == 0)
                 {
@@ -55,12 +55,13 @@ public class CSVReader : MonoBehaviour
                     tasks.Add(temp);
                     //Debug.Log(tasks[0]);
                     tasks[j - 1].Add(row[j]);
+                    
 
                 }
                 else
                 {
                     tasks[j - 1].Add(row[j]);
-
+                    Debug.Log(row[j]);
                 }
                 
             }

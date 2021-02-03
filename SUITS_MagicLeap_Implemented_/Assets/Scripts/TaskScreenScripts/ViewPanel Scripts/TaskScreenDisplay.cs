@@ -8,7 +8,7 @@ using TMPro;
 public class TaskScreenDisplay
 {
     private CreateTaskBtn _createBtns;
-    public TextMeshProUGUI textInstruction, textPage, textTaskLength;
+    public TextMeshProUGUI textInstruction, textPage, textTaskLength, textTitle, textDuration, textNextTitle, textNextDuration;
     private Material mat;
     private Image instImage;
     private List<string> taskNames;
@@ -21,6 +21,10 @@ public class TaskScreenDisplay
         this.manager = manager;
         textInstruction = GameObject.FindGameObjectWithTag("TaskInstructionText").GetComponent<TextMeshProUGUI>();
         textPage = GameObject.FindGameObjectWithTag("PageCounter").GetComponent<TextMeshProUGUI>();
+        textTitle = GameObject.FindGameObjectWithTag("TaskTitleText").GetComponent<TextMeshProUGUI>();
+        textDuration = GameObject.FindGameObjectWithTag("TaskDurationText").GetComponent<TextMeshProUGUI>();
+        textNextTitle = GameObject.FindGameObjectWithTag("NextTaskTitleText").GetComponent<TextMeshProUGUI>();
+        textNextDuration = GameObject.FindGameObjectWithTag("NextTaskDurationText").GetComponent<TextMeshProUGUI>();
         //textTaskLength = GameObject.FindGameObjectWithTag("TaskCounter").GetComponent<TextMeshProUGUI>();
         mat = Resources.Load<Material>("Materials/Transparent");
         //instImage = GameObject.FindGameObjectWithTag("Task Image").GetComponent<Image>();
@@ -28,7 +32,6 @@ public class TaskScreenDisplay
         //displayTaskNames();
         string instructionString = manager.getReader().getInstruction(0);
         manager.setPageCounter(textInstruction.pageToDisplay);
-        Debug.Log(" page Display =" + textInstruction.pageToDisplay);
         displayInstructionPanel(instructionString,1,0);
         
         //manager.setMaxPages(3);
@@ -59,40 +62,66 @@ public class TaskScreenDisplay
         //textTaskLength.text = "T. " +  (( taskCounter <= manager.getReader().getTaskLength()-1) ? taskCounter + 1 : taskCounter) + "/" + manager.getReader().getTaskLength();
     }
 
-    //Displays the page information to the GUI
+    //Displays the instruction information to the GUI
     private void displayInstructionPanel(string joinString,int pageCounter, int taskCounter)
     {
         //The task counter text starts at 1, not 0 like the data
         textInstruction.text = joinString;
         textInstruction.pageToDisplay = pageCounter;
         manager.setMaxPages(textInstruction.textInfo.pageCount);
-        Debug.Log("Max Pages =" + textInstruction.textInfo.pageCount);
         textPage.text = "P. " + textInstruction.pageToDisplay + "/" + textInstruction.textInfo.pageCount;
     }
 
-    //If the user selects a new task
-/*
-public void changeTask()
-{
-    //check the counter and list : import if it hasn't already
-    List<int> taskTracker = manager.getTaskTracker();
-    if (!taskTracker.Contains(manager.getTaskCounter()))
+    //Displays the page information to the GUI
+    private void displayTitlePanel()
     {
-        taskTracker.Add(manager.getTaskCounter());
-        manager.setTaskTracker(taskTracker);
-        manager.getReader().loadTaskName(manager.getTaskCounter());
-        manager.getReader().importTaskList();
-        manager.setTaskList(manager.getReader().getTask());
+        
+        textTitle.text = manager.getTaskList()[manager.getTaskCounter()][0];
+        string dur = manager.getTaskList()[manager.getTaskCounter()][2];
+        string start = manager.getTaskList()[manager.getTaskCounter()][3];
+        string end = manager.getTaskList()[manager.getTaskCounter()][4];
+        textDuration.text = "Duration: " + dur + "                    "
+            + "Start:" + start + " End: " + end; 
     }
-    //Display newly update information
-    manager.setPageCounter(1);
-    highlightSelected();
-    refreshTaskScreen();
-}
-*/
 
-//Feedback to the user : the selected task is highlighted
-private void highlightSelected()
+    private void displayNextTitlePanel()
+    {
+        int counter = manager.getTaskCounter();
+        List < List<string>> list = manager.getTaskList();
+        //if (counter < list.Count)
+        //{        
+            textNextTitle.text = "Next: " + list[counter+1][0];
+            string dur = list[counter+1][2];
+            string start = list[counter+1][3];
+            string end = list[counter+1][4];
+            string durText = "Duration: " + dur + "                    "+ "Start:" + start + " End: " + end;
+        textNextDuration.text = durText;
+        //}
+    }
+
+    //If the user selects a new task
+    /*
+    public void changeTask()
+    {
+        //check the counter and list : import if it hasn't already
+        List<int> taskTracker = manager.getTaskTracker();
+        if (!taskTracker.Contains(manager.getTaskCounter()))
+        {
+            taskTracker.Add(manager.getTaskCounter());
+            manager.setTaskTracker(taskTracker);
+            manager.getReader().loadTaskName(manager.getTaskCounter());
+            manager.getReader().importTaskList();
+            manager.setTaskList(manager.getReader().getTask());
+        }
+        //Display newly update information
+        manager.setPageCounter(1);
+        highlightSelected();
+        refreshTaskScreen();
+    }
+    */
+
+    //Feedback to the user : the selected task is highlighted
+    private void highlightSelected()
 {  
     EventSystem.current.SetSelectedGameObject(null);
     //EventSystem.current.SetSelectedGameObject(btns[manager.getTaskCounter()]);
@@ -105,6 +134,8 @@ public void refreshTaskScreen()
     string instructionString = manager.getReader().getInstruction(manager.getTaskCounter());
     displayInstructionPanel(instructionString, manager.getPageCounter(), manager.getTaskCounter());
     displayTaskPanel(manager.getTaskCounter());
+    displayTitlePanel();
+    displayNextTitlePanel();
     updateImage(manager.getTaskList(),manager.getTaskCounter(),manager.getPageCounter());
 }
 
