@@ -93,8 +93,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StereoConvergencePoint: {fileID: 0}
   m_FrameTimingHint: 0
-  m_StabilizationMode: 3
-  m_StabilizationDistance: 1
+  m_StabilizationMode: 0
+  m_StabilizationDistance: 0
   m_ProtectedSurface: 0
   m_SurfaceScale: 1
 --- !u!114 &8599575387109836598

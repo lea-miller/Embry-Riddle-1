@@ -125,7 +125,12 @@ PlayerSettings:
     Others: 1
   bundleVersion: v3.2
   preloadedAssets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: -6602195166426926598, guid: 2ba4dbd235ed941bb8fdb5a40ab00f22, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -620,7 +625,7 @@ PlayerSettings:
     25: UNITY_POST_PROCESSING_STACK_V2
     26: UNITY_POST_PROCESSING_STACK_V2
     27: UNITY_POST_PROCESSING_STACK_V2
-    28: UNITY_POST_PROCESSING_STACK_V2
+    28: UNITY_POST_PROCESSING_STACK_V2;NORMCORE
     29: UNITY_POST_PROCESSING_STACK_V2
   platformArchitecture: {}
   scriptingBackend: {}
@@ -700,7 +705,7 @@ PlayerSettings:
     m_ModelFolderPath: 
     m_PortalFolderPath: 
   luminCert:
-    m_CertPath: D:/MagicLeap/MLCert/privatekey/deverausuits.cert
+    m_CertPath: C:/Users/yojo1/Desktop/2021 Challenges/SUITS/deverausuits.cert
     m_SignPackage: 1
   luminIsChannelApp: 0
   luminVersion:

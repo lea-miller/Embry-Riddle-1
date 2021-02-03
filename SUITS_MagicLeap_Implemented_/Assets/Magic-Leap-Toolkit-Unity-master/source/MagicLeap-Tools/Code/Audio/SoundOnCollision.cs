@@ -12,7 +12,7 @@ namespace MagicLeapTools
 {
     [RequireComponent(typeof(AudioSource))]
     [RequireComponent(typeof(Collider))]
-    [RequireComponent(typeof(Rigidbody))]
+    
     public class SoundOnCollision : MonoBehaviour
     {
         //Public Variables:
