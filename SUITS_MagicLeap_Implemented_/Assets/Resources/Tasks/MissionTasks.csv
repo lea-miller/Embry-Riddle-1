@@ -1,8 +1,8 @@
 Task Title,Contingency Sample,Pack Rover
 Category,Science,Set-Up
-Expected Duration,0:03,0:20
-Start Time,0:00,0:03
-End Time,0:03,0:23
+Expected Duration,0:02,0:03
+Start Time,0:00,0:02
+End Time,0:02,0:05
 ,,
 Instructions,Unstow sampling device ,Configure Rover for driving
 ,Locate nearby area of interest,Pack Science eq. into Bay 1

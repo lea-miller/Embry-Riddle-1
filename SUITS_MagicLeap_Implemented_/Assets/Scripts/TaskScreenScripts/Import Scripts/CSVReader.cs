@@ -60,8 +60,7 @@ public class CSVReader : MonoBehaviour
                 }
                 else
                 {
-                    tasks[j - 1].Add(row[j]);
-                    Debug.Log(row[j]);
+                    tasks[j - 1].Add(row[j].Replace("\n", ""));
                 }
                 
             }

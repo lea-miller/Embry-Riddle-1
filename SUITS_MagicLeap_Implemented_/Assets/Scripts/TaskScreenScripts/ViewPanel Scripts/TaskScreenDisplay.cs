@@ -75,13 +75,18 @@ public class TaskScreenDisplay
     //Displays the page information to the GUI
     private void displayTitlePanel()
     {
-        
-        textTitle.text = manager.getTaskList()[manager.getTaskCounter()][0];
-        string dur = manager.getTaskList()[manager.getTaskCounter()][2];
-        string start = manager.getTaskList()[manager.getTaskCounter()][3];
-        string end = manager.getTaskList()[manager.getTaskCounter()][4];
-        textDuration.text = "Duration: " + dur + "                    "
-            + "Start:" + start + " End: " + end; 
+
+        int counter = manager.getTaskCounter();
+        List<List<string>> list = manager.getTaskList();    
+        textTitle.text = "Next: " + list[counter][0] ;
+        string dur = list[counter][2];
+        dur = dur.Remove(dur.Length-1);
+        string start = list[counter][3] ;
+        start = start.Remove(start.Length-1);
+        string end = list[counter][4];
+        end = end.Remove(end.Length-1);
+        string durText = "Duration: " + dur + "                    " + "Start:" + start + " End: " + end;
+        textDuration.text = durText;
     }
 
     private void displayNextTitlePanel()
@@ -90,12 +95,16 @@ public class TaskScreenDisplay
         List < List<string>> list = manager.getTaskList();
         //if (counter < list.Count)
         //{        
-            textNextTitle.text = "Next: " + list[counter+1][0];
-            string dur = list[counter+1][2];
-            string start = list[counter+1][3];
-            string end = list[counter+1][4];
-            string durText = "Duration: " + dur + "                    "+ "Start:" + start + " End: " + end;
-        textNextDuration.text = durText;
+            textNextTitle.text = "Next: " + list[counter+1][0] + "TEST STRING";
+            string dur = list[counter + 1][2];
+            dur = dur.Remove(dur.Length-1);
+            string start = list[counter + 1][3];
+            start = start.Remove(start.Length-1);
+            string end = list[counter + 1][4];
+            end = end.Remove(end.Length-1);
+            string durText = "Duration: " + dur  + "                    " + "Start:"  + start  + " End: "  + end;
+            textNextDuration.text = durText;  
+            
         //}
     }
 

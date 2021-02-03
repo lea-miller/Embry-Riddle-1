@@ -17,6 +17,8 @@ public class TaskScreenManager : MonoBehaviour
 
     private PageSync _pageSync;
 
+    private bool upCalled = false;
+
     void Awake()
    {
         _reader = GetComponent<CSVReader>();
@@ -42,7 +44,15 @@ public class TaskScreenManager : MonoBehaviour
 
     void Update()
     {
-        _taskDisplay.refreshTaskScreen();
+        //_taskDisplay.refreshTaskScreen();
+        if (upCalled==false)
+        {
+            _taskDisplay.refreshTaskScreen();
+            upCalled = true;
+            Debug.Log("Update single run");
+        }
+    
+    
     }
 
     public bool getIsOnTask()
