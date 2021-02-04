@@ -41,26 +41,31 @@ public class CSVReader : MonoBehaviour
         string[] data = fileData.text.Split(new char[] { '\n' });
         
 
-        for (int i = 0; i < data.Length ; i++)
+        for (int i = 0; i < data.Length -1 ; i++)
         {
             string[] row = data[i].Split(new char[] { ',' });
             //Debug.Log("row 1 L = " + row.Length);
             //Debug.Log("row 1 = " + row[0] );
 
-            for (int j = 1; j < row.Length; j++)
+            for (int j = 1; j < row.Length-1; j++)
             {
                 if (i == 0)
                 {
                     List<string> temp = new List<string>();
                     tasks.Add(temp);
                     //Debug.Log(tasks[0]);
+
                     tasks[j - 1].Add(row[j]);
                     
 
                 }
                 else
                 {
-                    tasks[j - 1].Add(row[j].Replace("\n", ""));
+                    if (row[j] != "")
+                    {
+                        tasks[j - 1].Add(row[j].Replace("\n", ""));
+                    }
+                    
                 }
                 
             }
@@ -82,7 +87,7 @@ public class CSVReader : MonoBehaviour
     public string getInstruction(int taskNumber)
     {
         //List<int> list = getInstructionIndex(pageCounter,taskNumber);
-        int startIndex = 6;
+        int startIndex = 5;
         int endIndex = tasks[taskNumber].Count -1;
         string joinString = "";
 
@@ -90,8 +95,11 @@ public class CSVReader : MonoBehaviour
         for (int j = endIndex; j >= startIndex; j--)
          {
              string tempInstruct = tasks[taskNumber][j];
-             joinString = j-5 + "." + "<indent=8%>" + tempInstruct + "</indent>" + "\n" + joinString;
-         }
+            if (tempInstruct != "")
+            { 
+             joinString = j-4 + "." + "<indent=8%>" + tempInstruct + "</indent>" + "\n" + joinString;
+            }
+        }
          return joinString;
      }
     

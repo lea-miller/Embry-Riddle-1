@@ -11,7 +11,7 @@ public class TaskScreenDisplay
     public TextMeshProUGUI textInstruction, textPage, textTaskLength, textTitle, textDuration, textNextTitle, textNextDuration;
     private Material mat;
     private Image instImage;
-    private List<string> taskNames;
+    List<List<string>> list;
     private GameObject[] btns;
 
     TaskScreenManager manager;
@@ -19,6 +19,7 @@ public class TaskScreenDisplay
    public TaskScreenDisplay(TaskScreenManager manager)
    {
         this.manager = manager;
+        list = manager.getTaskList();
         textInstruction = GameObject.FindGameObjectWithTag("TaskInstructionText").GetComponent<TextMeshProUGUI>();
         textPage = GameObject.FindGameObjectWithTag("PageCounter").GetComponent<TextMeshProUGUI>();
         textTitle = GameObject.FindGameObjectWithTag("TaskTitleText").GetComponent<TextMeshProUGUI>();
@@ -76,15 +77,14 @@ public class TaskScreenDisplay
     private void displayTitlePanel()
     {
 
-        int counter = manager.getTaskCounter();
-        List<List<string>> list = manager.getTaskList();    
-        textTitle.text = "Next: " + list[counter][0] ;
+        int counter = manager.getTaskCounter();  
+        textTitle.text = list[counter][0] ;
         string dur = list[counter][2];
-        dur = dur.Remove(dur.Length-1);
+        //dur = dur.Remove(dur.Length-1);
         string start = list[counter][3] ;
-        start = start.Remove(start.Length-1);
+        //start = start.Remove(start.Length-1);
         string end = list[counter][4];
-        end = end.Remove(end.Length-1);
+        //end = end.Remove(end.Length-1);
         string durText = "Duration: " + dur + "                    " + "Start:" + start + " End: " + end;
         textDuration.text = durText;
     }
@@ -92,42 +92,38 @@ public class TaskScreenDisplay
     private void displayNextTitlePanel()
     {
         int counter = manager.getTaskCounter();
-        List < List<string>> list = manager.getTaskList();
-        //if (counter < list.Count)
-        //{        
-            textNextTitle.text = "Next: " + list[counter+1][0] + "TEST STRING";
+        
+        if (counter + 1  <= manager.getMaxTasks())
+        {        
+            textNextTitle.text = "Next: " + list[counter+1][0];
             string dur = list[counter + 1][2];
-            dur = dur.Remove(dur.Length-1);
+            //dur = dur.Remove(dur.Length-1);
             string start = list[counter + 1][3];
-            start = start.Remove(start.Length-1);
+            //start = start.Remove(start.Length-1);
             string end = list[counter + 1][4];
-            end = end.Remove(end.Length-1);
+            //end = end.Remove(end.Length-1);
             string durText = "Duration: " + dur  + "                    " + "Start:"  + start  + " End: "  + end;
             textNextDuration.text = durText;  
             
-        //}
+        }
+
+        else
+        {
+            textNextTitle.text = "";
+        }
     }
 
-    //If the user selects a new task
-    /*
-    public void changeTask()
+
+
+    public void changeTask(int task = 0)
     {
-        //check the counter and list : import if it hasn't already
-        List<int> taskTracker = manager.getTaskTracker();
-        if (!taskTracker.Contains(manager.getTaskCounter()))
+        if (task != 0)
         {
-            taskTracker.Add(manager.getTaskCounter());
-            manager.setTaskTracker(taskTracker);
-            manager.getReader().loadTaskName(manager.getTaskCounter());
-            manager.getReader().importTaskList();
-            manager.setTaskList(manager.getReader().getTask());
+            manager.setTaskCounter(manager.getTaskCounter() + task);
         }
-        //Display newly update information
-        manager.setPageCounter(1);
-        highlightSelected();
-        refreshTaskScreen();
+    
     }
-    */
+
 
     //Feedback to the user : the selected task is highlighted
     private void highlightSelected()

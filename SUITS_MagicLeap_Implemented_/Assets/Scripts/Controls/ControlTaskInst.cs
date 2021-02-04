@@ -27,7 +27,7 @@ public class ControlTaskInst : ControlCommands
             //taskScreen.getInstruct().nextInst();
             //taskScreen.getDisplay().changePage();
 
-            //taskScreen.refreshTaskScreen();
+            
 
             if (taskScreen.getPageCounter() < taskScreen.getMaxPages()) 
             {

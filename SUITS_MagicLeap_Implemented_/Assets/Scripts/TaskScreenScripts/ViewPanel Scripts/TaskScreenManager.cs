@@ -8,7 +8,7 @@ public class TaskScreenManager : MonoBehaviour
    // private InstructView _instrView;
     private TaskScreenDisplay _taskDisplay;
     private bool isOnTask, isSelectedNext;
-    public int pageCounter, maxPages, taskCounter;
+    public int pageCounter, maxPages, taskCounter, maxTasks;
     
     private List<int> taskTracker;
 
@@ -39,13 +39,13 @@ public class TaskScreenManager : MonoBehaviour
         tasks = _reader.getTask();
         taskTracker.Add(taskCounter);
         _taskDisplay = new TaskScreenDisplay(this);
-        
+        setMaxTasks();
     }
 
     void Update()
     {
-        //_taskDisplay.refreshTaskScreen();
-        if (upCalled==false)
+        _taskDisplay.refreshTaskScreen();
+        if (!upCalled)
         {
             _taskDisplay.refreshTaskScreen();
             upCalled = true;
@@ -70,6 +70,11 @@ public class TaskScreenManager : MonoBehaviour
         return maxPages;
     }
 
+    public int getMaxTasks()
+    {
+        return maxTasks;
+    }
+
     public int getTaskCounter()
     {
         return taskCounter;
@@ -92,9 +97,15 @@ public class TaskScreenManager : MonoBehaviour
         this.maxPages = maxPages;
     }
 
+    public void setMaxTasks()
+    {
+        maxTasks = tasks.Count - 1;
+    }
+
     public void setTaskCounter(int taskCounter)
     {
         this.taskCounter = taskCounter;
+        Debug.Log("Task set to: " + taskCounter);
     }
     
     public void setSelectedTask(bool isSelectedNext)
