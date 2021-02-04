@@ -120,6 +120,7 @@ public class TaskScreenDisplay
         if (task != 0)
         {
             manager.setTaskCounter(manager.getTaskCounter() + task);
+            manager.setPageCounter(1);
         }
     
     }
