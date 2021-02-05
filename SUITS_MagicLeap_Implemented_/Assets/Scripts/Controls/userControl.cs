@@ -18,7 +18,8 @@ public class userControl : MonoBehaviour
         if(collide != null)
         {
             collide.triggerDown();
-        } 
+            
+        }
     }
 
     public void bumperDown()

@@ -4312,7 +4312,7 @@ MonoBehaviour:
   _workspace: {fileID: 9144045080156020529}
   _lockButton: {fileID: 9144045081669234672}
   _useLocalization: 1
-  _sideMenu: {fileID: 9144045080677732271}
+  _sideMenu: {fileID: 0}
   _title: {fileID: 9144045080785508818}
   _overviewTab: {fileID: 9144045080755800268}
   _overviewText: {fileID: 9144045080993300993}
