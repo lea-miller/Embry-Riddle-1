@@ -443,12 +443,12 @@ PrefabInstance:
     - target: {fileID: 6128459000210606430, guid: a294a7c554512d743807c48343adc2be,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1733
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 6128459000210606430, guid: a294a7c554512d743807c48343adc2be,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1920
+      value: 1665
       objectReference: {fileID: 0}
     - target: {fileID: 6128459000210606430, guid: a294a7c554512d743807c48343adc2be,
         type: 3}
