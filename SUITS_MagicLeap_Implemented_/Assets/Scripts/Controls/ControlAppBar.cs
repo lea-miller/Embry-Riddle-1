@@ -34,7 +34,7 @@ public class ControlAppBar : ControlCommands
         iconObjectList.Add(GameObject.FindWithTag("MediaIcon").GetComponent<Lerp>());      
     }
 
-    public override void triggerDown()
+    public override void triggerUp()
     {   
         if(!animationIsActive)
         {
@@ -45,7 +45,7 @@ public class ControlAppBar : ControlCommands
         }
     }
     
-     public override void bumperDown()
+     public override void bumperUp()
     {
         if(!animationIsActive)
         {
@@ -55,6 +55,9 @@ public class ControlAppBar : ControlCommands
             animationIsActive = false;
         }
     }
+
+    public override void triggerHold(){}
+    public override void bumperHold(){}
 
     //Moves the order of the screens by having the first one go to the last one
     private void moveScreensForward()

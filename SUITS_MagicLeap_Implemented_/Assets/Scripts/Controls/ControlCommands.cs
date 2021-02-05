@@ -7,8 +7,10 @@ using UnityEngine.XR.MagicLeap;
 
 public abstract class ControlCommands : MonoBehaviour
 {
-    public abstract void triggerDown();
-    public abstract void bumperDown();
+    public abstract void triggerUp();
+    public abstract void triggerHold();
+    public abstract void bumperUp();
+    public abstract void bumperHold();
 
     private PlayerController _controllerJoyStick;
 
@@ -16,10 +18,12 @@ public abstract class ControlCommands : MonoBehaviour
     {
         //The Joystick
         _controllerJoyStick = new PlayerController();
-        _controllerJoyStick.Selection.MoveUp.performed += ctx => bumperDown();
+        _controllerJoyStick.Selection.MoveUp.performed += ctx => bumperUp();
         _controllerJoyStick.Selection.MoveUp.canceled += ctx => nothing();
-        _controllerJoyStick.Selection.MoveDown.performed += ctx => triggerDown();
+        _controllerJoyStick.Selection.MoveUp.performed += ctx => triggerUp();
         _controllerJoyStick.Selection.MoveDown.canceled += ctx => nothing();
+        _controllerJoyStick.Selection.MoveDown.performed += ctx => bumperHold();
+        _controllerJoyStick.Selection.MoveDown.performed += ctx => triggerHold();
     }
 
     void onEnable()

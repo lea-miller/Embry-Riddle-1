@@ -15,7 +15,7 @@ public class ControlTaskSelect : ControlCommands
         border = GameObject.FindWithTag("TaskSelection").GetComponent<Image>();
     }
 
-    public override void triggerDown()
+    public override void triggerUp()
     {
         //Task is open
         if (border.enabled)
@@ -30,7 +30,7 @@ public class ControlTaskSelect : ControlCommands
         }
     }
 
-    public override void bumperDown()
+    public override void bumperUp()
     {
         //Task is open
         if (border.enabled)
@@ -43,4 +43,7 @@ public class ControlTaskSelect : ControlCommands
             }
         }
     }
+    
+    public override void triggerHold(){}
+    public override void bumperHold(){}
 }
