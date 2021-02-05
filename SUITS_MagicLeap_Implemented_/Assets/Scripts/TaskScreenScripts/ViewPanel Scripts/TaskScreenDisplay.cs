@@ -11,6 +11,7 @@ public class TaskScreenDisplay
     public TextMeshProUGUI textInstruction, textPage, textTaskLength, textTitle, textDuration, textNextTitle, textNextDuration;
     private Material mat;
     private Image instImage;
+    private TaskTimer timer;
     List<List<string>> list;
     private GameObject[] btns;
 
@@ -26,6 +27,7 @@ public class TaskScreenDisplay
         textDuration = GameObject.FindGameObjectWithTag("TaskDurationText").GetComponent<TextMeshProUGUI>();
         textNextTitle = GameObject.FindGameObjectWithTag("NextTaskTitleText").GetComponent<TextMeshProUGUI>();
         textNextDuration = GameObject.FindGameObjectWithTag("NextTaskDurationText").GetComponent<TextMeshProUGUI>();
+        timer = GameObject.FindGameObjectWithTag("ElapsedDuration").GetComponent<TaskTimer>();
         //textTaskLength = GameObject.FindGameObjectWithTag("TaskCounter").GetComponent<TextMeshProUGUI>();
         mat = Resources.Load<Material>("Materials/Transparent");
         //instImage = GameObject.FindGameObjectWithTag("Task Image").GetComponent<Image>();
@@ -80,12 +82,9 @@ public class TaskScreenDisplay
         int counter = manager.getTaskCounter();  
         textTitle.text = list[counter][0] ;
         string dur = list[counter][2];
-        //dur = dur.Remove(dur.Length-1);
         string start = list[counter][3] ;
-        //start = start.Remove(start.Length-1);
         string end = list[counter][4];
-        //end = end.Remove(end.Length-1);
-        string durText = "Duration: " + dur + "                    " + "Start:" + start + " End: " + end;
+        string durText = "Duration: " + dur + "                    " + "Start:" + start + "   End: " + end;
         textDuration.text = durText;
     }
 
@@ -97,12 +96,9 @@ public class TaskScreenDisplay
         {        
             textNextTitle.text = "Next: " + list[counter+1][0];
             string dur = list[counter + 1][2];
-            //dur = dur.Remove(dur.Length-1);
             string start = list[counter + 1][3];
-            //start = start.Remove(start.Length-1);
             string end = list[counter + 1][4];
-            //end = end.Remove(end.Length-1);
-            string durText = "Duration: " + dur  + "                    " + "Start:"  + start  + " End: "  + end;
+            string durText = "Duration: " + dur  + "                    " + "Start:"  + start  + "   End: "  + end;
             textNextDuration.text = durText;  
             
         }
@@ -121,6 +117,7 @@ public class TaskScreenDisplay
         {
             manager.setTaskCounter(manager.getTaskCounter() + task);
             manager.setPageCounter(1);
+            timer.resetTimer();
         }
     
     }

@@ -97,7 +97,16 @@ public class CSVReader : MonoBehaviour
              string tempInstruct = tasks[taskNumber][j];
             if (tempInstruct != "")
             { 
-             joinString = j-4 + "." + "<indent=8%>" + tempInstruct + "</indent>" + "\n" + joinString;
+                if (tempInstruct.Contains("$"))
+                {
+                    string pictureName = tempInstruct.Replace("$", "");
+                    joinString = "<indent=8%>" + "<size=1400%><sprite=\"" + pictureName + "\" index= 0 > <size=100%> </indent>" + "\n" + joinString;
+                }
+                else
+                {
+                    joinString = j - 4 + "." + "<indent=8%>" + tempInstruct + "</indent>" + "\n" + joinString;
+                }
+                
             }
         }
          return joinString;

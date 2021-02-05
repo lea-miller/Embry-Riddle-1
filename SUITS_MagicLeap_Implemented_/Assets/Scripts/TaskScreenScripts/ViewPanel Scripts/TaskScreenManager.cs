@@ -118,9 +118,9 @@ public class TaskScreenManager : MonoBehaviour
         return isSelectedNext;
     }
     
-    public TaskView getTask()
+    public List<string> getCurrentTask()
     {
-        return _taskView;
+        return tasks[taskCounter];
     }
     
     
