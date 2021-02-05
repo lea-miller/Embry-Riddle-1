@@ -29,6 +29,9 @@ TagManager:
   - TaskInstruction
   - TaskInstructionText
   - TaskScreen
+  - Compass
+  - Head
+  - Navigation Screen
   layers:
   - Default
   - TransparentFX
