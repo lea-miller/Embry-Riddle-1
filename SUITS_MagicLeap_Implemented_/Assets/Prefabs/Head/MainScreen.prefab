@@ -303,9 +303,15 @@ MonoBehaviour:
       m_Calls: []
   OnTriggerDown:
     m_PersistentCalls:
+      m_Calls: []
+  OnDoubleTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerUp:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4615283589948923928}
-        m_MethodName: triggerDown
+        m_MethodName: triggerUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -315,18 +321,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnDoubleTrigger:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTriggerUp:
-    m_PersistentCalls:
-      m_Calls: []
   OnTriggerPressEnded:
     m_PersistentCalls:
       m_Calls: []
   OnTriggerHold:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4615283589948923928}
+        m_MethodName: triggerHold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerMove:
     m_PersistentCalls:
       m_Calls: []
@@ -338,9 +349,15 @@ MonoBehaviour:
       m_Calls: []
   OnBumperDown:
     m_PersistentCalls:
+      m_Calls: []
+  OnDoubleBumper:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBumperUp:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4615283589948923928}
-        m_MethodName: bumperDown
+        m_MethodName: bumperUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -350,15 +367,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnDoubleBumper:
-    m_PersistentCalls:
-      m_Calls: []
-  OnBumperUp:
-    m_PersistentCalls:
-      m_Calls: []
   OnBumperHold:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4615283589948923928}
+        m_MethodName: bumperHold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTouchDown:
     m_PersistentCalls:
       m_Calls: []
