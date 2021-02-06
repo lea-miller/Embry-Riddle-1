@@ -32,7 +32,7 @@ public class ControlTaskInst : ControlCommands
             if (taskScreen.getPageCounter() < taskScreen.getMaxPages()) 
             {
                 taskScreen.getDisplay().changePage(1);
-                Debug.Log("Trigger Up, approved");
+                //Debug.Log("Trigger Up, approved");
             }
 
         }
@@ -55,7 +55,7 @@ public class ControlTaskInst : ControlCommands
     public override void triggerHold()
     {
         loadingBar.changeColorToComplete();
-        Debug.Log("Trigger Hold, approved");
+        //Debug.Log("Trigger Hold, approved");
     }
 
     public override void bumperHold()

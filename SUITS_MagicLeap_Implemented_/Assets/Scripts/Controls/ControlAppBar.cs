@@ -36,7 +36,7 @@ public class ControlAppBar : ControlCommands
 
     public override void triggerUp()
     {   
-        if(!animationIsActive)
+        if(!animationIsActive && border.enabled)
         {
             animationIsActive = true;
             moveIconsForward();
@@ -47,7 +47,7 @@ public class ControlAppBar : ControlCommands
     
      public override void bumperUp()
     {
-        if(!animationIsActive)
+        if(!animationIsActive && border.enabled)
         {
             animationIsActive = true;
             moveIconsBackward();
