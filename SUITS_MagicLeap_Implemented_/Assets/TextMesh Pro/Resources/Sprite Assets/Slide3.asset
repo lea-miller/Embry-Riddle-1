@@ -10,39 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
-  m_Name: Task2_Page2
+  m_Name: Slide3
   m_EditorClassIdentifier: 
-  hashCode: -1315768223
-  material: {fileID: 3690761958642578942}
+  hashCode: -993621244
+  material: {fileID: 8440926254462632041}
   materialHashCode: 0
   m_Version: 1.1.0
-  spriteSheet: {fileID: 2800000, guid: f777ffdad7b55e54c9339f3367007c13, type: 3}
+  spriteSheet: {fileID: 2800000, guid: f708c6be6529c4548b357f3fd628002e, type: 3}
   m_SpriteCharacterTable:
   - m_ElementType: 2
     m_Unicode: 0
     m_GlyphIndex: 0
-    m_Scale: 0.95
-    m_Name: Task2_Page2
-    m_HashCode: -1315768223
+    m_Scale: 1
+    m_Name: Slide3
+    m_HashCode: -993621244
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
-      m_Width: 1091.23
-      m_Height: 586
-      m_HorizontalBearingX: -0.88
-      m_HorizontalBearingY: 492.5
-      m_HorizontalAdvance: 2341.5
+      m_Width: 1280
+      m_Height: 720
+      m_HorizontalBearingX: -640
+      m_HorizontalBearingY: 360
+      m_HorizontalAdvance: 1280
     m_GlyphRect:
-      m_X: -10
-      m_Y: -24
-      m_Width: 1105
-      m_Height: 565
-    m_Scale: 1.2
+      m_X: 0
+      m_Y: 0
+      m_Width: 1280
+      m_Height: 720
+    m_Scale: 1
     m_AtlasIndex: 0
-    sprite: {fileID: 21300000, guid: f777ffdad7b55e54c9339f3367007c13, type: 3}
+    sprite: {fileID: 21300000, guid: f708c6be6529c4548b357f3fd628002e, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
---- !u!21 &3690761958642578942
+--- !u!21 &8440926254462632041
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -62,7 +62,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cb6561fccc0c5f2428fc47007d160a75, type: 3}
+        m_Texture: {fileID: 2800000, guid: f708c6be6529c4548b357f3fd628002e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:

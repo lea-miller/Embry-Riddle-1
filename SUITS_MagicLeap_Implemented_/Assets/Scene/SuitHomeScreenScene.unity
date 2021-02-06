@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 3690761958642578942, guid: 913e8f2c1a3222740898e23d1ef6dc92,
+  m_Material: {fileID: 1144693299859902478, guid: 99dcdaf052aec38418aa7b0b3008fc68,
     type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -271,9 +271,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 11400000, guid: 913e8f2c1a3222740898e23d1ef6dc92, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 99dcdaf052aec38418aa7b0b3008fc68, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 3690761958642578942, guid: 913e8f2c1a3222740898e23d1ef6dc92,
+  m_sharedMaterial: {fileID: 1144693299859902478, guid: 99dcdaf052aec38418aa7b0b3008fc68,
     type: 2}
   m_isDefaultMaterial: 1
   m_padding: 0
@@ -2618,44 +2618,43 @@ PrefabInstance:
         a picture next but it does not fit so it wraps to the next page automatically\n2.1:<indent=20%>Substep
         number 1 There is a picture next but it does not fit so it wraps to the next
         page automatically </indent>\n2.2:<indent=20%>Substep number 2 </indent></indent>
-        \n3.0:<indent=10%>Start Step 3 collect basaltic rock sample\n<size=1400%><sprite=0
-        ><size=100%> </indent>\n<page> Text\n<size=1400%><sprite=0> <size=100%> </indent>\n<page>\n<size=1400%><sprite=0>
-        <size=100%> </indent>\n<size=1400%><sprite=0> <size=100%> </indent>\n<page>Text\n\n"
+        \n3.0:<indent=10%>Start Step 3 collect basaltic rock sample\n<size=1400%><sprite=\"Combo\"
+        index=0 ><size=100%> </indent>\n\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 400
+      value: 401
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 450
+      value: 402
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 83
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 27
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 91
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.spriteCount
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
@@ -2665,7 +2664,7 @@ PrefabInstance:
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.materialCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}

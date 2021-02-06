@@ -97,10 +97,11 @@ public class CSVReader : MonoBehaviour
              string tempInstruct = tasks[taskNumber][j];
             if (tempInstruct != "")
             { 
-                if (tempInstruct.Contains("$"))
+                if (tempInstruct.Contains("~"))
                 {
-                    string pictureName = tempInstruct.Replace("$", "");
-                    joinString = "<indent=8%>" + "<size=1400%><sprite=\"" + pictureName + "\" index= 0 > <size=100%> </indent>" + "\n" + joinString;
+                    string pictureName = tempInstruct.Replace("~", "");
+                    joinString = "<indent=8%>" + "<size=1400%><sprite=\"Combo\" " + "index=" + pictureName + "> <size=100%> </indent>" + "\n" + joinString;
+                    //joinString = "<indent=8%>" + "<size=1400%><sprite=\"" + pictureName + "\" index= 0 > <size=100%> </indent>" + "\n" + joinString;
                 }
                 else
                 {
