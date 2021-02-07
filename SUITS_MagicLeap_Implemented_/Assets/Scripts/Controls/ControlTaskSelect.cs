@@ -15,23 +15,35 @@ public class ControlTaskSelect : ControlCommands
         border = GameObject.FindWithTag("TaskSelection").GetComponent<Image>();
     }
 
-    public override void triggerDown()
+    public override void triggerUp()
     {
         //Task is open
         if (border.enabled)
+        //taskScreen.getDisplay().refreshTaskScreen();
         {
-            taskScreen.getTask().nextTask();
-            taskScreen.getDisplay().changeTask();
+            if (taskScreen.getTaskCounter() < taskScreen.getMaxTasks())
+            {
+
+                taskScreen.getDisplay().changeTask(1);
+                Debug.Log("Trigger Down, coutner approved");
+            }
         }
     }
 
-    public override void bumperDown()
+    public override void bumperUp()
     {
         //Task is open
         if (border.enabled)
         {
-            taskScreen.getTask().prevTask();
-            taskScreen.getDisplay().changeTask();
+            if (taskScreen.getTaskCounter() > 0)
+            {
+
+                taskScreen.getDisplay().changeTask(-1);
+                Debug.Log("Trigger Down, coutner approved");
+            }
         }
     }
+    
+    public override void triggerHold(){}
+    public override void bumperHold(){}
 }

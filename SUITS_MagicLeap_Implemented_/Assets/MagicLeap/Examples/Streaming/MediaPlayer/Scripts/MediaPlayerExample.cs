@@ -248,7 +248,8 @@ namespace MagicLeap
             }
             #endif
 
-            EnableUI(false);
+            EnableUI(true);
+            PlayPause();
             _timelineSlider.Value = 0;
         }
 

@@ -2,24 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class ModifyScreenForDevs : MonoBehaviour
 {
   
   public GameObject TaskScreen, NavScreen, SciScreen, MediaScreen, AppBar;
-  public bool taskCondition,navCondition,sciCondition,mediaCondition;
-
-  void Start()
-  {
-    //   TaskScreen = GameObject.FindWithTag("TaskScreen");
-    //  NavScreen = GameObject.FindWithTag("NavigationScreen");
-    //   SciScreen = GameObject.FindWithTag("ScienceScreen");
-    //   MediaScreen = GameObject.FindWithTag("MediaScreen");
-    //   AppBar = GameObject.FindWithTag("AppBar");
-  }
+  public bool taskCondition,navCondition,sciCondition,mediaCondition,appCondition;
 
   void  FixedUpdate()
   {
-      AppBar.SetActive(false);
+      AppBar.SetActive(appCondition);
       TaskScreen.SetActive(taskCondition);
       NavScreen.SetActive(navCondition);
       SciScreen.SetActive(sciCondition);

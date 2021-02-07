@@ -5,34 +5,55 @@ using UnityEngine;
 public class TaskScreenManager : MonoBehaviour
 {
     private TaskView _taskView;
-    private InstructView _instrView;
+   // private InstructView _instrView;
     private TaskScreenDisplay _taskDisplay;
-    private CSVReader _reader;
     private bool isOnTask, isSelectedNext;
-    private int pageCounter, taskCounter;
-    private List<List<List<string>>> tasks;
-    private List<int> taskTracker;
+    public int pageCounter, maxPages, taskCounter, maxTasks;
     
-   void Awake()
+    private List<int> taskTracker;
+
+    private List<List<string>> tasks;
+    private CSVReader _reader;
+
+    private PageSync _pageSync;
+
+    private bool upCalled = false;
+
+    void Awake()
    {
         _reader = GetComponent<CSVReader>();
         _taskView = new TaskView(this);
-        _instrView = new InstructView(this);
+       // _instrView = new InstructView(this);
         isOnTask = true;
         taskTracker = new List<int>();
         isOnTask = false;
         taskCounter = 0;
         pageCounter = 1;
         taskTracker.Add(taskCounter);
-   }
+        _pageSync = GetComponent<PageSync>();
+
+    }
 
    void Start()
    {
         tasks = _reader.getTask();
         taskTracker.Add(taskCounter);
         _taskDisplay = new TaskScreenDisplay(this);
-        _taskDisplay.updateImage(tasks,taskCounter,pageCounter);
-   }
+        setMaxTasks();
+    }
+
+    void Update()
+    {
+        _taskDisplay.refreshTaskScreen();
+        if (!upCalled)
+        {
+            _taskDisplay.refreshTaskScreen();
+            upCalled = true;
+            //Debug.Log("Update single run");
+        }
+    
+    
+    }
 
     public bool getIsOnTask()
     {
@@ -42,6 +63,16 @@ public class TaskScreenManager : MonoBehaviour
       public int getPageCounter()
     {
         return pageCounter;
+    }
+
+    public int getMaxPages()
+    {
+        return maxPages;
+    }
+
+    public int getMaxTasks()
+    {
+        return maxTasks;
     }
 
     public int getTaskCounter()
@@ -57,11 +88,24 @@ public class TaskScreenManager : MonoBehaviour
     public void setPageCounter(int pageCounter)
     {
         this.pageCounter = pageCounter;
+        _pageSync.SetPage(pageCounter);
+        //Debug.Log("SetPage");
+    }
+
+    public void setMaxPages(int maxPages)
+    {
+        this.maxPages = maxPages;
+    }
+
+    public void setMaxTasks()
+    {
+        maxTasks = tasks.Count - 1;
     }
 
     public void setTaskCounter(int taskCounter)
     {
         this.taskCounter = taskCounter;
+        //Debug.Log("Task set to: " + taskCounter);
     }
     
     public void setSelectedTask(bool isSelectedNext)
@@ -74,15 +118,17 @@ public class TaskScreenManager : MonoBehaviour
         return isSelectedNext;
     }
     
-    public TaskView getTask()
+    public List<string> getCurrentTask()
     {
-        return _taskView;
+        return tasks[taskCounter];
     }
     
-    public InstructView getInstruct()
+    
+    /*public InstructView getInstruct()
     {
         return _instrView;
-    }
+    }*/
+    
 
     public CSVReader getReader()
     {
@@ -94,12 +140,12 @@ public class TaskScreenManager : MonoBehaviour
         return _taskDisplay;
     }
 
-    public List<List<List<string>>> getTaskList()
+    public List<List<string>> getTaskList()
     {
         return _reader.getTask();
     }
 
-    public void setTaskList(List<List<List<string>>> tasks)
+    public void setTaskList(List<List<string>> tasks)
     {
         this.tasks = tasks;
     } 

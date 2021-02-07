@@ -29,9 +29,22 @@ TagManager:
   - TaskInstruction
   - TaskInstructionText
   - TaskScreen
-  - Compass
-  - Head
-  - Navigation Screen
+  - MainScreenTopPanel
+  - ScienceScreen
+  - NavigationScreen
+  - AppBar
+  - AppBarBtns
+  - NavIcon
+  - ScienceIcon
+  - TaskIcon
+  - TaskTitleText
+  - TaskDurationText
+  - ElapsedDuration
+  - NextTaskDurationText
+  - NextTaskTitleText
+  - NextTastTitleText
+  - MediaIcon
+  - MediaScreen
   layers:
   - Default
   - TransparentFX
@@ -41,7 +54,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - AppBar Layout1
   - 
   - 
   - 

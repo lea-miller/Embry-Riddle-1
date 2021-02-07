@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
+/*
 public class InstructView : ViewManager
 {
 
@@ -10,6 +12,7 @@ public class InstructView : ViewManager
         this.manager = manager;
     }
 
+    
     public void nextInst()
     {
         nextSelected();
@@ -22,14 +25,15 @@ public class InstructView : ViewManager
         counterCheck();  
     }
 
+    
     //Ensures that the user doesn't exceed the task limits
     protected override void counterCheck()
     {
-        if (counter > manager.getReader().getMaxPages(manager.getTaskCounter()))
+        if (counter > manager.getMaxPages)
         {
            counter = counter - 1;
         }
-        else if (counter <= 0)
+        else if (this.counter <= 0)
         {
             counter = counter + 1;
         }
@@ -45,6 +49,7 @@ public class InstructView : ViewManager
     {
         manager.setPageCounter(counter);
     }
+  
 
 }
-
+  */

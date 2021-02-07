@@ -13,19 +13,35 @@ public class userControl : MonoBehaviour
         check();
     }
 
-    public void triggerDown()
+    public void triggerUp()
     {
         if(collide != null)
         {
-            collide.triggerDown();
-        } 
+            collide.triggerUp();
+        }
     }
 
-    public void bumperDown()
+    public void triggerHold()
+    {
+        if(collide != null)
+        {
+            collide.triggerHold();
+        }
+    }
+
+     public void bumperHold()
+    {
+        if(collide != null)
+        {
+            collide.bumperHold();
+        }
+    }
+
+    public void bumperUp()
     {
         if(collide !=null)
         {
-            collide.bumperDown();
+            collide.bumperUp();
         }
     }
 

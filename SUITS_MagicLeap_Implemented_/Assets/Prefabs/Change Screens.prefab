@@ -43,3 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df63acbe858560c45a1808f39aeeb065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TaskScreen: {fileID: 0}
+  NavScreen: {fileID: 0}
+  SciScreen: {fileID: 0}
+  MediaScreen: {fileID: 0}
+  AppBar: {fileID: 0}
+  taskCondition: 0
+  navCondition: 0
+  sciCondition: 0
+  mediaCondition: 0
