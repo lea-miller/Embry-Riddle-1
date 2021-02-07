@@ -49,7 +49,7 @@ public class TaskScreenManager : MonoBehaviour
         {
             _taskDisplay.refreshTaskScreen();
             upCalled = true;
-            //Debug.Log("Update single run");
+            Debug.Log("Update single run");
         }
     
     
@@ -89,7 +89,7 @@ public class TaskScreenManager : MonoBehaviour
     {
         this.pageCounter = pageCounter;
         _pageSync.SetPage(pageCounter);
-        //Debug.Log("SetPage");
+        Debug.Log("SetPage");
     }
 
     public void setMaxPages(int maxPages)
@@ -105,7 +105,7 @@ public class TaskScreenManager : MonoBehaviour
     public void setTaskCounter(int taskCounter)
     {
         this.taskCounter = taskCounter;
-        //Debug.Log("Task set to: " + taskCounter);
+        Debug.Log("Task set to: " + taskCounter);
     }
     
     public void setSelectedTask(bool isSelectedNext)
