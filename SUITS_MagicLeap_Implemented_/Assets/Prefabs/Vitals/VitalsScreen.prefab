@@ -3693,23 +3693,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5e6b8a346d5074faa4f886ed3c5b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 4700170653580081950}
+  slider: {fileID: 0}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.8679245, g: 0, b: 0, a: 1}
-    key1: {r: 0.9056604, g: 0.5395347, b: 0.11534355, a: 1}
-    key2: {r: 0.8666667, g: 0.729638, b: 0, a: 0}
-    key3: {r: 0.7924528, g: 0.7853828, b: 0.011213934, a: 0}
-    key4: {r: 0.58379763, g: 0.7924528, b: 0.018689923, a: 0}
-    key5: {r: 0.09990628, g: 0.745283, b: 0.010546438, a: 0}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 7132
-    ctime1: 16384
-    ctime2: 26021
-    ctime3: 39321
-    ctime4: 52428
-    ctime5: 65342
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -3721,9 +3721,9 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 6
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  vitalStatusBar: {fileID: 5747450018258026365}
+  vitalStatusBar: {fileID: 0}
 --- !u!1 &3390269723660497033
 GameObject:
   m_ObjectHideFlags: 0
@@ -8011,7 +8011,6 @@ GameObject:
   - component: {fileID: 7513309473976138997}
   - component: {fileID: 7632504786406368472}
   - component: {fileID: 7533512211104995462}
-  - component: {fileID: 8453279289137199721}
   m_Layer: 5
   m_Name: VitalsScreen
   m_TagString: VitalsUI
@@ -8075,7 +8074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 51.029053, y: -0.032958984}
+  m_AnchoredPosition: {x: 51.02899, y: -0.032989502}
   m_SizeDelta: {x: 2873.848, y: 1433.335}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6763523968128746590
@@ -8236,47 +8235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517bd8e08801f0b4ca258f47b4e22584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8453279289137199721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6763523968128746576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d0fe82b9876e1428c42a66a6c0c6c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPO2: 0
-  currentPO2Rate: 0
-  currentBattery: 0
-  currentBPM: 0
-  currentTSUB: 0
-  currentPSOP: 0
-  currentPSOPRate: 0
-  currentPSUB: 0
-  currentPSUIT: 0
-  currentPH2Og: 0
-  currentPH2OL: 0
-  currentVFan: 0
-  batteryPercentage: 0
-  oxPrimaryPercentage: 0
-  oxSecondaryPercentage: 0
-  currentEMU1O2Value: 0
-  currentEMU2O2Value: 0
-  vitalsList: []
-  vitalsListString: 
-  batteryStatusBar: {fileID: 6763523967577446052}
-  PO2StatusBar: {fileID: 3817548725322803516}
-  PSOPStatusBar: {fileID: 8087918370878070198}
-  PSUBStatusBar: {fileID: 5468629296362581604}
-  PSUITStatusBar: {fileID: 1622636168537161769}
-  VFanStatusBar: {fileID: 2603657201326602579}
-  getValues: {fileID: 2189390450674261292}
-  homeScreen: {fileID: 0}
-  panelScreen: {fileID: 0}
-  lowestCase: 0
 --- !u!1 &6763523968571114105
 GameObject:
   m_ObjectHideFlags: 0

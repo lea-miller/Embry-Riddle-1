@@ -6,9 +6,10 @@ using TMPro;
 
 public class MainScreenVitalManager : MonoBehaviour
 {
-    private GameObject BPMMainDispNum, missionTime, vitalsListText;
+    private Transform BPMMainDispNum, missionTime, lowestTime, vitalsListText;
 
-    void OnEnable()
+
+    void Awake()
     {
         assignVariables();
         vitalsListText.GetComponent<TextMeshProUGUI>().color = Color.red;
@@ -17,13 +18,14 @@ public class MainScreenVitalManager : MonoBehaviour
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
-        BPMMainDispNum = GameObject.Find("Main Screen Panel/Vitals/HeartRate/Heart-Rate Numerical Value");
-        missionTime = GameObject.Find("Main Screen Panel/Vital Timers/EVA StartupTime");
-        vitalsListText = GameObject.Find("Main Screen Panel/Vitals/VitalsList");
+        BPMMainDispNum = gameObject.transform.Find("Vitals/HeartRate/Heart-Rate Numerical Value");
+        missionTime = gameObject.transform.Find("Vitals/Vital Timers/MissionTime");
+        lowestTime = gameObject.transform.Find("Vitals/Vital Timers/LowestTime");
+        vitalsListText = gameObject.transform.Find("Vitals/VitalsList");
     }
 
     //Is called from Vitals Manager, every update
-    public void updateMainScreen(float currentBPM, string missionTimeString, string vitalsListString)
+    public void updateMainScreen(float currentBPM, string missionTimeString, int lowestCase, string o2Time, string batteryTime, string h2OTime, string vitalsListString)
     {
         BPMMainDispNum.GetComponent<Text>().text = currentBPM.ToString();
 
@@ -36,7 +38,20 @@ public class MainScreenVitalManager : MonoBehaviour
             BPMMainDispNum.GetComponent<Text>().color = Color.white;
         }
         //show mission time
-        missionTime.GetComponent<Text>().text = "T+" + missionTimeString;
+        missionTime.GetComponent<Text>().text = missionTimeString;
+        //show the lowest resource time from vitalsmanager
+        switch (lowestCase)
+        {
+            case 1:
+                lowestTime.GetComponent<Text>().text = o2Time + " (O2)";
+                break;
+            case 2:
+                lowestTime.GetComponent<Text>().text = batteryTime + " (BATTERY)";
+                break;
+            case 3:
+                lowestTime.GetComponent<Text>().text = h2OTime + " (H2O)";
+                break;
+        }
         // Display vitals list string
         vitalsListText.GetComponent<TextMeshProUGUI>().text = vitalsListString;
     }

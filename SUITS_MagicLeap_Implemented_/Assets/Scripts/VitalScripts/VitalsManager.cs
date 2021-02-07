@@ -19,8 +19,6 @@ public class VitalsManager : MonoBehaviour
     [SerializeField] private SuitVitalBar batteryStatusBar, PO2StatusBar, PSOPStatusBar, PSUBStatusBar, PSUITStatusBar, VFanStatusBar;
     [SerializeField] private TelemetryStream getValues;
     [SerializeField] private MainScreenVitalManager homeScreen;
-    [SerializeField] private leftMainVitalManager leftPanelScreen;
-    [SerializeField] private vitalsMainVitalManager vitalPanelScreen;
     [SerializeField] private int lowestCase;
 
     void Awake()
@@ -111,19 +109,8 @@ public class VitalsManager : MonoBehaviour
         changeUIA();
         //writes new values to vitals screen
         updateVitalScreen();
-        //writes new values to each main screen panel if it exists
-        if (GameObject.FindWithTag("MainScreenTopPanel") != null) 
-        {
-            homeScreen.updateMainScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
-        }
-        if (GameObject.FindWithTag("TopLCanvas") != null)
-        {
-            leftPanelScreen.updatePanelScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
-        }
-        if (GameObject.FindWithTag("VitalTopView") != null)
-        {
-            vitalPanelScreen.updatePanelScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
-        }
+        //writes new values to main screen
+        homeScreen.updateMainScreen(currentBPM, getValues.jsnData.timer, lowestCase, getValues.jsnData.t_oxygen, getValues.jsnData.t_battery, getValues.jsnData.t_water, vitalsListString);
     }
 
     private void changeTimes()
