@@ -13,12 +13,12 @@ public class PageSync : RealtimeComponent<TaskModel>
     {
         // Get a reference to the manager
         _taskScreenManager = GetComponent<TaskScreenManager>();
-        Debug.Log("Got Task manager");
+        //Debug.Log("Got Task manager");
     }
 
     protected override void OnRealtimeModelReplaced(TaskModel previousModel,TaskModel currentModel)
     {
-        Debug.Log("RealtimeReplaced");
+        //Debug.Log("RealtimeReplaced");
         if (previousModel != null)
         {
             // Unregister from events
@@ -31,7 +31,7 @@ public class PageSync : RealtimeComponent<TaskModel>
             if (currentModel.isFreshModel)
             {
                 currentModel.taskPage = _taskScreenManager.taskCounter;
-                Debug.Log("Model set to page:" + _taskScreenManager.pageCounter);
+                //Debug.Log("Model set to page:" + _taskScreenManager.pageCounter);
             }
 
             // Update the mesh render to match the new model
@@ -60,7 +60,7 @@ public class PageSync : RealtimeComponent<TaskModel>
         {
             Debug.Log(e);
         }
-        Debug.Log("ScreenRefresh");
+        //Debug.Log("ScreenRefresh");
     }
 
     public void SetPage(int page)
