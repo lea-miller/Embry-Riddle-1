@@ -22,6 +22,7 @@ public class VitalsManager : MonoBehaviour
     [SerializeField] private leftMainVitalManager leftPanelScreen;
     [SerializeField] private vitalsMainVitalManager vitalPanelScreen;
     [SerializeField] private int lowestCase;
+    public bool networkError = true;
 
     void Awake()
     {
@@ -92,37 +93,39 @@ public class VitalsManager : MonoBehaviour
         StartCoroutine(gameObject.GetComponent<TelemetryStream>().GetText());
         //clear the vitals notification list every frame so errors do not persist after they are fixed
         vitalsList = new List<string>();
-        //update vitals values
-        changeBattery();
-        changePO2();
-        changePO2Rate();
-        changePSOP();
-        changePSOPRate();
-        changeBPM();
-        changeTSUB();
-        changePSUB();
-        changePSUIT();
-        changePH2Og();
-        changePH2OL();
-        changeVFan();
-        changeTimes();
-        writeListToString();
-        //change UIA values every frame as well
-        changeUIA();
-        //writes new values to vitals screen
-        updateVitalScreen();
-        //writes new values to each main screen panel if it exists
-        if (GameObject.FindWithTag("MainScreenTopPanel") != null) 
-        {
-            homeScreen.updateMainScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
-        }
-        if (GameObject.FindWithTag("TopLCanvas") != null)
-        {
-            leftPanelScreen.updatePanelScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
-        }
-        if (GameObject.FindWithTag("VitalTopView") != null)
-        {
-            vitalPanelScreen.updatePanelScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
+        if (networkError == false) {
+            //update vitals values
+            changeBattery();
+            changePO2();
+            changePO2Rate();
+            changePSOP();
+            changePSOPRate();
+            changeBPM();
+            changeTSUB();
+            changePSUB();
+            changePSUIT();
+            changePH2Og();
+            changePH2OL();
+            changeVFan();
+            changeTimes();
+            writeListToString();
+            //change UIA values every frame as well
+            changeUIA();
+            //writes new values to vitals screen
+            updateVitalScreen();
+            //writes new values to each main screen panel if it exists
+            if (GameObject.FindWithTag("MainScreenTopPanel") != null)
+            {
+                homeScreen.updateMainScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
+            }
+            if (GameObject.FindWithTag("TopLCanvas") != null)
+            {
+                leftPanelScreen.updatePanelScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
+            }
+            if (GameObject.FindWithTag("VitalTopView") != null)
+            {
+                vitalPanelScreen.updatePanelScreen(currentBPM, getValues.jsnData.timer, vitalsListString);
+            }
         }
     }
 
