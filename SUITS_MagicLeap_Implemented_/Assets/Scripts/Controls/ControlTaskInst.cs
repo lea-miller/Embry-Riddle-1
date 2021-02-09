@@ -60,6 +60,6 @@ public class ControlTaskInst : ControlCommands
 
     public override void bumperHold()
     {
-        loadingBar.changeColorToSkip();
+        loadingBar.changeColorToIncomplete();
     }
 }

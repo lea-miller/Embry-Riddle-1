@@ -570,6 +570,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5260886002943486643}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2073387900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1229181543812114946, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5260886002943486643}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709250a413877fa42a33a8341d04a875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2089154886 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7105830065617177839, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
@@ -762,6 +774,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2409183575158340830, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
+      propertyPath: OnTriggerHold.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409183575158340830, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: OnTriggerDown.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409183575158340830, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: OnBumperHold.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409183575158340830, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: OnBumperDown.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409183575158340830, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
       propertyPath: OnTriggerDown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -803,7 +835,7 @@ PrefabInstance:
     - target: {fileID: 2409183575158340830, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
       propertyPath: OnBumperDown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: bumperUp
+      value: bumperDown
       objectReference: {fileID: 0}
     - target: {fileID: 2409183575158340830, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
@@ -2106,6 +2138,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.26377842
       objectReference: {fileID: 0}
+    - target: {fileID: 2815731634928382169, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: loadingBar
+      value: 
+      objectReference: {fileID: 2073387900}
     - target: {fileID: 2853904545122370091, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: OnTriggerPressBegan.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2160,6 +2197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Task Instruction
+      objectReference: {fileID: 0}
+    - target: {fileID: 3005421363444337062, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3076540619602566232, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
