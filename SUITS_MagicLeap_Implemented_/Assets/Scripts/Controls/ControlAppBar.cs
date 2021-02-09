@@ -22,7 +22,7 @@ public class ControlAppBar : ControlCommands
         screenObjectList = new LinkedList<GameObject>();
         screenObjectList.AddLast(GameObject.FindWithTag("TaskScreen"));
         screenObjectList.AddLast(GameObject.FindWithTag("ScienceScreen"));
-        screenObjectList.AddLast(GameObject.FindWithTag("NavigationScreen"));
+        screenObjectList.AddLast(GameObject.FindWithTag("Navigation Screen"));
         screenObjectList.AddLast(GameObject.FindWithTag("MediaScreen"));
         handleScreenDisplay();
 

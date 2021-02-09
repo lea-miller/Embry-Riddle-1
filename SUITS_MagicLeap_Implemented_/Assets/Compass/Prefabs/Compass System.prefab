@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb78141539938e45b8d617023cb37da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Facing: {fileID: 209877995440017536}
+  Facing: {fileID: 0}
   CompassDegreeText: {fileID: 209877995440017537}
 --- !u!1 &209877995574044938
 GameObject:
