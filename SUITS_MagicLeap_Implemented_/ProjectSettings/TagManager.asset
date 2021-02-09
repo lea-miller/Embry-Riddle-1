@@ -45,6 +45,7 @@ TagManager:
   - NextTastTitleText
   - MediaIcon
   - MediaScreen
+  - Audio
   layers:
   - Default
   - TransparentFX

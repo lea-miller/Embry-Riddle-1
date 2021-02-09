@@ -1771,6 +1771,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1084485023373903694, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Name
+      value: TaskIcon
+      objectReference: {fileID: 0}
     - target: {fileID: 1088494807648309507, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2065,16 +2070,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Value
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008081269211224251, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 6.89247
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008081269211224251, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.4685483
       objectReference: {fileID: 0}
     - target: {fileID: 2059247629762676252, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
@@ -2525,6 +2520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305088836244418060, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Name
+      value: ScienceIcon
       objectReference: {fileID: 0}
     - target: {fileID: 4441041209379903940, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
@@ -3897,6 +3897,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600496107248801888, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Name
+      value: NavIcon
       objectReference: {fileID: 0}
     - target: {fileID: 8618923671750372081, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}

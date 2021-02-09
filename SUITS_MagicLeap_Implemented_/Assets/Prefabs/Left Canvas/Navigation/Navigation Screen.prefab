@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 7963495842046338524}
   m_Layer: 0
   m_Name: Navigation Screen
-  m_TagString: Navigation Screen
+  m_TagString: NavigationScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

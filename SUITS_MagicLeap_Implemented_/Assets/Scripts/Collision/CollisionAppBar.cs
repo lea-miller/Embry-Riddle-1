@@ -8,26 +8,28 @@ public class CollisionAppBar : GenericCollision
     private Image appBorder;
     public GameObject topPanel { get; set; }
     public GameObject mainScreen { get; set; }
-    public LinkedList<GameObject> screenObjectList;
-    public List<GameObject> iconObjectList;
+    LinkedList<GameObject> screenObjectList;
+    
+  
 
-    //No wake incase list isn't made yet
+    void Awake()
+    {
+        appBorder = GameObject.FindWithTag("AppBar").GetComponent<Image>();
+        topPanel = GameObject.FindWithTag("TopLCanvas");
+        mainScreen = GameObject.FindWithTag("MainScreenTopPanel");
+        
+        screenObjectList = new LinkedList<GameObject>(); 
+        screenObjectList.AddLast(GameObject.FindWithTag("TaskIcon"));
+        screenObjectList.AddLast(GameObject.FindWithTag("NavIcon"));
+        screenObjectList.AddLast(GameObject.FindWithTag("ScienceIcon"));
+        screenObjectList.AddLast(GameObject.FindWithTag("MediaIcon"));
 
-        void Awake()
-        {
-            appBorder = GameObject.FindWithTag("AppBar").GetComponent<Image>();
-            topPanel = GameObject.FindWithTag("TopLCanvas");
-            mainScreen = GameObject.FindWithTag("MainScreenTopPanel"); 
-        }
+        ControlAppBar.GoForwardDelegate += moveScreensForward;
+        ControlAppBar.GoBackwardDelegate += moveScreensBackward;
+    }
    
     void Start()
     {
-        LinkedList<GameObject> screenObjectList = GameObject.FindWithTag("AppBar").GetComponent<ControlAppBar>().screenObjectList;
-        iconObjectList = new List<GameObject>();
-        iconObjectList.Add(GameObject.FindWithTag("TaskIcon"));
-        iconObjectList.Add(GameObject.FindWithTag("NavIcon"));
-        iconObjectList.Add(GameObject.FindWithTag("ScienceIcon"));
-        iconObjectList.Add(GameObject.FindWithTag("MediaIcon"));    
         isOff();
     }
 
@@ -36,6 +38,7 @@ public class CollisionAppBar : GenericCollision
         appBorder.enabled = true;
         topPanel.SetActive(true);
         mainScreen.SetActive(false);
+        showIconObjects();
     }
 
     public override void isOff()
@@ -43,31 +46,50 @@ public class CollisionAppBar : GenericCollision
         appBorder.enabled = false;
         topPanel.SetActive(false);
         mainScreen.SetActive(true);
-        //handleIconObjects(); TODO
+        hideIconObjects(); //TODO
     }
 
-     private void handleIconObjects()
+    //These methods are handled by delegate event in the ControlAppBar
+    private void moveScreensForward()
+    {
+        var oldFirst = screenObjectList.First.Value;
+        screenObjectList.RemoveFirst();
+        screenObjectList.AddLast(oldFirst);
+    }
+
+    private void moveScreensBackward()
+    {
+        var oldLast = screenObjectList.Last;
+        screenObjectList.RemoveLast();
+        screenObjectList.AddFirst(oldLast);
+    }
+
+
+     private void hideIconObjects()
     {
         var  screen = screenObjectList.First;
-        var tempScreen = screen.Value.name;
+        var tempScreen = screen.Value;
+        tempScreen.SetActive(true);
         
         for(int j = 0; j<screenObjectList.Count-1;j++)
         {
-            for(int i = 0; i<screenObjectList.Count-1;i++)
-            {
-                if(tempScreen == iconObjectList[i].name)
-                {    
-                    if(j == 0)
-                    {
-                        iconObjectList[i].SetActive(true);
-                    }else
-                    {
-                        iconObjectList[i].SetActive(false);
-                    }
                     screen = screen.Next;
-                    tempScreen = screen.Value.name;
-                }
-           }  
+                    tempScreen = screen.Value;
+                    tempScreen.SetActive(false); 
+        } 
+    }
+
+    private void showIconObjects()
+    {
+        var  screen = screenObjectList.First;
+        var tempScreen = screen.Value;
+        tempScreen.SetActive(true); 
+
+        for(int j = 0; j<screenObjectList.Count-1;j++)
+        {
+                    screen = screen.Next;
+                    tempScreen = screen.Value;
+                    tempScreen.SetActive(true);           
         } 
     }
 }

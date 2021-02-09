@@ -11,7 +11,7 @@ public class CollisionNav : GenericCollision
     // Start is called before the first frame update
     void Awake()
     {
-        border = GameObject.FindWithTag("Navigation Screen").GetComponent<Image>();
+        border = GameObject.FindWithTag("NavigationScreen").GetComponent<Image>();
         mainScreen = GameObject.FindWithTag("MainScreenTopPanel");
         topPanel = GameObject.FindWithTag("TopLCanvas");
     }
