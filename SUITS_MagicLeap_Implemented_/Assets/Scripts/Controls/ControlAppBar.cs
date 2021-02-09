@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ControlAppBar : ControlCommands
 {
     private Image border;
-    LinkedList<GameObject> screenObjectList;
+    public LinkedList<GameObject> screenObjectList;
     List<Lerp> iconObjectList;
     private GameObject tempScreen; 
     private bool animationIsActive = false;
