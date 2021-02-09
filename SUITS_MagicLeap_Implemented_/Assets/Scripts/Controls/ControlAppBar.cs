@@ -21,16 +21,16 @@ public class ControlAppBar : ControlCommands
         //Orders the screens that would have to be activated or deactivated on the list
         screenObjectList = new LinkedList<GameObject>();
         screenObjectList.AddLast(GameObject.FindWithTag("TaskScreen"));
-        screenObjectList.AddLast(GameObject.FindWithTag("ScienceScreen"));
         screenObjectList.AddLast(GameObject.FindWithTag("Navigation Screen"));
+        screenObjectList.AddLast(GameObject.FindWithTag("ScienceScreen"));
         screenObjectList.AddLast(GameObject.FindWithTag("MediaScreen"));
         handleScreenDisplay();
 
         //Orders the icons on the list
         iconObjectList = new List<Lerp>();
         iconObjectList.Add(GameObject.FindWithTag("TaskIcon").GetComponent<Lerp>());
-        iconObjectList.Add(GameObject.FindWithTag("ScienceIcon").GetComponent<Lerp>());
         iconObjectList.Add(GameObject.FindWithTag("NavIcon").GetComponent<Lerp>());
+        iconObjectList.Add(GameObject.FindWithTag("ScienceIcon").GetComponent<Lerp>());
         iconObjectList.Add(GameObject.FindWithTag("MediaIcon").GetComponent<Lerp>());      
     }
 
