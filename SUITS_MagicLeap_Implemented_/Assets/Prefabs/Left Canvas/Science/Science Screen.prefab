@@ -2261,6 +2261,8 @@ GameObject:
   - component: {fileID: 5889558924988422430}
   - component: {fileID: 7826289792510981298}
   - component: {fileID: 7013035523707359326}
+  - component: {fileID: 9085796186765269478}
+  - component: {fileID: 850173797422158362}
   m_Layer: 0
   m_Name: Science Screen
   m_TagString: ScienceScreen
@@ -2326,6 +2328,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9085796186765269478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755679134059426330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82889fab45034db4a8f3261550c9f03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &850173797422158362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7755679134059426330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3134.812, y: 4505.2188, z: 1.0000085}
+  m_Center: {x: 22.485851, y: -9.431392, z: -0.000004256435}
 --- !u!1 &8161128846734255893
 GameObject:
   m_ObjectHideFlags: 0
