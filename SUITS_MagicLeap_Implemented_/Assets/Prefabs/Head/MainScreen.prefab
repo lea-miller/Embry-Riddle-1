@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 1266606307436493454}
   - component: {fileID: 4615283589948923928}
   - component: {fileID: 6935537335989141121}
+  - component: {fileID: 1593569228423380513}
   m_Layer: 5
   m_Name: MainScreen
   m_TagString: Main Screen
@@ -465,6 +466,18 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1593569228423380513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782393846615823221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fded01d7a68b04c8a0329fbbc516fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2873368813970943068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,7 +650,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top Panel Left Canvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 44417211569930975, guid: 53685d3345f30474a8ef6260da82fb9b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53685d3345f30474a8ef6260da82fb9b, type: 3}
 --- !u!224 &7998543992440650453 stripped
 RectTransform:
