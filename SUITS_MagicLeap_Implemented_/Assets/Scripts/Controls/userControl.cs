@@ -35,13 +35,13 @@ public class userControl : MonoBehaviour
                     isTriggerHold = false;
                     isTrigger = false; //have this a synchronous precaution although unlikely an out of synch error would occur
                     collide.triggerUp();
-                    Debug.Log("Triggered");
+                   //Debug.Log("Triggered");
                 }
                 else if(count >= 70)
                 {
                     isTriggerHold = false;
                     collide.triggerHold();
-                    Debug.Log("Trigger Held");
+                    //Debug.Log("Trigger Held");
                 }
             }   
         }
@@ -83,13 +83,13 @@ public class userControl : MonoBehaviour
                     countBump = 0;
                     isBumperHold = false;
                     isBump = false; //have this a synchronous precaution although unlikely an out of synch error would occur
-                    Debug.Log("Bumper");
+                    //Debug.Log("Bumper");
                     collide.bumperUp();
                 }
                 else if(countBump >= 70)
                 {
                     isBumperHold = false;
-                    Debug.Log("Bumper Held");
+                    //Debug.Log("Bumper Held");
                     collide.bumperHold();
                 }
             }   

@@ -71,7 +71,7 @@ public class CSVReader : MonoBehaviour
             }
         }
 
-        Debug.Log(tasks[0][0] + " " + tasks[0][1]);
+        //Debug.Log(tasks[0][0] + " " + tasks[0][1]);
     }
 
     public int getTaskLength()
