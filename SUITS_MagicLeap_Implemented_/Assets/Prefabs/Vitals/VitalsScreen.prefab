@@ -8222,8 +8222,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3920.0664, y: 2035.3186, z: 0}
-  m_Center: {x: -531.3181, y: -303.42163, z: -0.000004256435}
+  m_Size: {x: 3746.45, y: 2035.3186, z: 0}
+  m_Center: {x: 310.9143, y: -303.42163, z: -0.000004256435}
 --- !u!114 &7533512211104995462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8275,8 +8275,10 @@ MonoBehaviour:
   VFanStatusBar: {fileID: 2603657201326602579}
   getValues: {fileID: 2189390450674261292}
   homeScreen: {fileID: 0}
-  panelScreen: {fileID: 0}
+  leftPanelScreen: {fileID: 0}
+  vitalPanelScreen: {fileID: 0}
   lowestCase: 0
+  networkError: 1
 --- !u!1 &6763523968571114105
 GameObject:
   m_ObjectHideFlags: 0

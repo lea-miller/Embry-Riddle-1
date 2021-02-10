@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 263800325793807915}
   - component: {fileID: 3611601756879373479}
   m_Layer: 5
-  m_Name: Top Panel Left Canvas
+  m_Name: Main Screen Panel
   m_TagString: MainScreenTopPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,8 +524,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3177.4265, y: 454.6211, z: 100}
-  m_Center: {x: 674.3213, y: 0.00014511021, z: 0}
+  m_Size: {x: 1780.1128, y: 1096.4258, z: 99.99999}
+  m_Center: {x: -48.32317, y: -236.92819, z: 0}
 --- !u!114 &3611601756879373479
 MonoBehaviour:
   m_ObjectHideFlags: 0
