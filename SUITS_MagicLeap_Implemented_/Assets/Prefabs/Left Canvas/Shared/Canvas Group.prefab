@@ -235,11 +235,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2406549133191388864}
     m_Modifications:
+    - target: {fileID: 2717902460591566205, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717902460591566205, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3860766672776335232, guid: b7e3d563842c0594e9dee78d586105ed,
         type: 3}
       propertyPath: m_Name
       value: Task Instruction
       objectReference: {fileID: 0}
+    - target: {fileID: 6282058007376859579, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 397
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282058007376859579, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 462
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282058007376859579, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282058007376859579, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282058007376859579, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282058007376859579, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_textInfo.materialCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282058007376859579, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: m_subTextObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1280105181768215420}
     - target: {fileID: 6793742856209238050, guid: b7e3d563842c0594e9dee78d586105ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -350,6 +395,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaskScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7121689134291078171, guid: b7e3d563842c0594e9dee78d586105ed,
+        type: 3}
+      propertyPath: _isRootPrefabView
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8239135604720767755, guid: b7e3d563842c0594e9dee78d586105ed,
         type: 3}
       propertyPath: m_Name
@@ -363,6 +413,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3779704270578124289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1280105181768215420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2717902460591566205, guid: b7e3d563842c0594e9dee78d586105ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 3779704270578124289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4025785444727817970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,6 +436,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AppBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328264153605937866, guid: a294a7c554512d743807c48343adc2be,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328264153605937866, guid: a294a7c554512d743807c48343adc2be,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.86
       objectReference: {fileID: 0}
     - target: {fileID: 6128459000210606430, guid: a294a7c554512d743807c48343adc2be,
         type: 3}

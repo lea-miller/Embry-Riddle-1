@@ -42,6 +42,10 @@ TagManager:
   - ElapsedDuration
   - NextTaskDurationText
   - NextTaskTitleText
+  - NextTastTitleText
+  - MediaIcon
+  - MediaScreen
+  - Audio
   layers:
   - Default
   - TransparentFX

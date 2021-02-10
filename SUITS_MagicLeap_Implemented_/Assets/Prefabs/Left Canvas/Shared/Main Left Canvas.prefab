@@ -356,6 +356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas Group
       objectReference: {fileID: 0}
+    - target: {fileID: 6242384405914700314, guid: 38dd048d300e2894d95f41d2e27e7c2a,
+        type: 3}
+      propertyPath: _isRootPrefabView
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7806573569089117275, guid: 38dd048d300e2894d95f41d2e27e7c2a,
         type: 3}
       propertyPath: m_Name

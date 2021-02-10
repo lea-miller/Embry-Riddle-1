@@ -10,6 +10,8 @@ public class ControlTaskInst : ControlCommands
     private TaskScreenManager taskScreen;
     private Image border;
     private TextMeshProUGUI textInstruction;
+    [SerializeField]
+    private ColorLoad loadingBar;
 
     protected override void Awake()
     {
@@ -19,7 +21,7 @@ public class ControlTaskInst : ControlCommands
         
     }
 
-    public override void triggerDown()
+    public override void triggerUp()
     {
         //Task is open
         if (border.enabled)
@@ -27,19 +29,16 @@ public class ControlTaskInst : ControlCommands
             //taskScreen.getInstruct().nextInst();
             //taskScreen.getDisplay().changePage();
 
-            
-
             if (taskScreen.getPageCounter() < taskScreen.getMaxPages()) 
             {
-                
                 taskScreen.getDisplay().changePage(1);
-                Debug.Log("Trigger Down, coutner approved");
+                //Debug.Log("Trigger Up, approved");
             }
 
         }
     }
 
-    public override void bumperDown()
+    public override void bumperUp()
     {
         //Task is open
         if (border.enabled)
@@ -52,5 +51,15 @@ public class ControlTaskInst : ControlCommands
             }
         }
     }
+    
+    public override void triggerHold()
+    {
+        loadingBar.changeColorToComplete();
+        //Debug.Log("Trigger Hold, approved");
+    }
 
+    public override void bumperHold()
+    {
+        loadingBar.changeColorToIncomplete();
+    }
 }

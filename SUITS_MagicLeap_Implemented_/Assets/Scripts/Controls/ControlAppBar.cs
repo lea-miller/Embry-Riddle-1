@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class ControlAppBar : ControlCommands
 {
     private Image border;
-    LinkedList<GameObject> screenObjectList;
-    List<Lerp> iconObjectList;
+    public LinkedList<GameObject> screenObjectList;
+    public List<Lerp> iconObjectList;
     private GameObject tempScreen; 
     private bool animationIsActive = false;
     private float lerpValue = 1f/3f;
+    
+    public delegate void GoForwardNotify();
+    public static event GoForwardNotify GoForwardDelegate;
+    public delegate void GoBackwardNotify();
+    public static event GoBackwardNotify GoBackwardDelegate;
 
     void Awake()
     {
@@ -21,16 +26,16 @@ public class ControlAppBar : ControlCommands
         //Orders the screens that would have to be activated or deactivated on the list
         screenObjectList = new LinkedList<GameObject>();
         screenObjectList.AddLast(GameObject.FindWithTag("TaskScreen"));
+        screenObjectList.AddLast(GameObject.FindWithTag("NavigationScreen"));
         screenObjectList.AddLast(GameObject.FindWithTag("ScienceScreen"));
-        screenObjectList.AddLast(GameObject.FindWithTag("Navigation Screen"));
         screenObjectList.AddLast(GameObject.FindWithTag("MediaScreen"));
         handleScreenDisplay();
 
         //Orders the icons on the list
         iconObjectList = new List<Lerp>();
         iconObjectList.Add(GameObject.FindWithTag("TaskIcon").GetComponent<Lerp>());
-        iconObjectList.Add(GameObject.FindWithTag("ScienceIcon").GetComponent<Lerp>());
         iconObjectList.Add(GameObject.FindWithTag("NavIcon").GetComponent<Lerp>());
+        iconObjectList.Add(GameObject.FindWithTag("ScienceIcon").GetComponent<Lerp>());
         iconObjectList.Add(GameObject.FindWithTag("MediaIcon").GetComponent<Lerp>());      
     }
 
@@ -42,6 +47,7 @@ public class ControlAppBar : ControlCommands
             moveIconsForward();
             moveScreensForward();
             animationIsActive = false;
+            GoForwardDelegate();
         }
     }
     
@@ -53,6 +59,7 @@ public class ControlAppBar : ControlCommands
             moveIconsBackward();
             moveScreensBackward();
             animationIsActive = false;
+            GoBackwardDelegate();
         }
     }
 
@@ -120,7 +127,6 @@ public class ControlAppBar : ControlCommands
             {
                 iconObjectList[i].setLerp(true); 
             }
-           
         }
     }
 
