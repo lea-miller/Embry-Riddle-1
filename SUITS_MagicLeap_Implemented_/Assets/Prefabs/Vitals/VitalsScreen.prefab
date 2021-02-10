@@ -8276,7 +8276,7 @@ MonoBehaviour:
   getValues: {fileID: 2189390450674261292}
   homeScreen: {fileID: 0}
   leftPanelScreen: {fileID: 0}
-  vitalPanelScreen: {fileID: 0}
+  vitalPanelScreen: {fileID: 3223391146179992033}
   lowestCase: 0
   networkError: 1
 --- !u!1 &6763523968571114105
@@ -10800,3 +10800,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3355112449248071751}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3223391146179992033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 158762694191516070, guid: 99fd21c11230cb641b42a6a775ce8eaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 3355112449248071751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb48d0a77c20cb48a4f3f633815cbc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

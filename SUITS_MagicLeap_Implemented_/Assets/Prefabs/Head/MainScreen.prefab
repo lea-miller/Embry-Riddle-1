@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4615283589948923928}
   - component: {fileID: 6935537335989141121}
   - component: {fileID: 1593569228423380513}
+  - component: {fileID: 8675274390441639441}
   m_Layer: 5
   m_Name: MainScreen
   m_TagString: Main Screen
@@ -498,6 +499,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99fded01d7a68b04c8a0329fbbc516fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8675274390441639441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782393846615823221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb48d0a77c20cb48a4f3f633815cbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2873368813970943068

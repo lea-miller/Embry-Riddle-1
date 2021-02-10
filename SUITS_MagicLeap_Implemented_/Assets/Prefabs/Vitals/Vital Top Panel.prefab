@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 3982601680241555610}
   - component: {fileID: 500677423029895702}
   - component: {fileID: 7934613821284730157}
+  - component: {fileID: 158762694191516070}
   m_Layer: 5
   m_Name: Vital Top Panel
   m_TagString: VitalTopView
@@ -565,6 +566,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4e95eb93dcdaf344920f5c0464431a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &158762694191516070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7621954541589959709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb48d0a77c20cb48a4f3f633815cbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4471906579253972286
