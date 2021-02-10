@@ -1808,6 +1808,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1229181543812114946, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: defColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1291946285565413316, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_Enabled
@@ -4054,6 +4059,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869040105811262629, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Name
+      value: VitalsListLeft
       objectReference: {fileID: 0}
     - target: {fileID: 9063992670074569337, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
