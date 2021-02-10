@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:SUITS_MagicLeap_Implemented_/Assets/Animation.meta
 guid: d9e13eff7cce8d7448907fa7ac1c6040
+=======
+guid: 41d849e82af745d4bb71000aac4a28d5
+>>>>>>> Graydon'sBranch:SUITS_MagicLeap_Implemented_/Assets/Compass.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
