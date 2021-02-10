@@ -115,6 +115,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sample Box
       objectReference: {fileID: 0}
+    - target: {fileID: 8065576178651943792, guid: 63327be90665c3943b3bfdf417d31f46,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8349551019533456594, guid: 63327be90665c3943b3bfdf417d31f46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -239,6 +244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Science Handbook
+      objectReference: {fileID: 0}
+    - target: {fileID: 8527378133107421125, guid: ef5a79e2e48aea04bb837caefe168e78,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9153965111795316399, guid: ef5a79e2e48aea04bb837caefe168e78,
         type: 3}
@@ -469,6 +479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Science Instructions
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503638700602618241, guid: cd6c2bc2614d9ba44af6f014576a3ff0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd6c2bc2614d9ba44af6f014576a3ff0, type: 3}
