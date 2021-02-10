@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MainScreenVitalManager : MonoBehaviour
+public class leftMainVitalManager : MonoBehaviour
 {
     private GameObject BPMMainDispNum, missionTime, vitalsListText;
 
@@ -17,16 +17,15 @@ public class MainScreenVitalManager : MonoBehaviour
     //Assigns the variables once so performance can be quicker than assigining it every update
     private void assignVariables()
     {
-        BPMMainDispNum = GameObject.Find("Main Screen Panel/Vitals/HeartRate/Heart-Rate Numerical Value");
-        missionTime = GameObject.Find("Main Screen Panel/Vital Timers/EVA StartupTime");
-        vitalsListText = GameObject.Find("Main Screen Panel/Vitals/VitalsList");
+        BPMMainDispNum = GameObject.Find("Vitals/HeartRate/Heart-Rate Numerical ValueLeft");
+        missionTime = GameObject.Find("Vital Timers/EVA StartupTimeLeft");
+        vitalsListText = GameObject.Find("Vitals/VitalsListLeft");
     }
 
     //Is called from Vitals Manager, every update
-    public void updateMainScreen(float currentBPM, string missionTimeString, string vitalsListString)
+    public void updatePanelScreen(float currentBPM, string missionTimeString, string vitalsListString)
     {
         BPMMainDispNum.GetComponent<Text>().text = currentBPM.ToString();
-
         if (currentBPM > 100)
         {
             BPMMainDispNum.GetComponent<Text>().color = Color.red;
