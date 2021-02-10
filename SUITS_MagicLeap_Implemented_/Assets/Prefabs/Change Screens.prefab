@@ -52,3 +52,4 @@ MonoBehaviour:
   navCondition: 0
   sciCondition: 0
   mediaCondition: 0
+  appCondition: 0
