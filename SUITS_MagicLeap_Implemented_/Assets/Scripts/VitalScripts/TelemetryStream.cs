@@ -15,7 +15,7 @@ public class TelemetryStream : MonoBehaviour
         yield return getUIAState.SendWebRequest();
         if (getVitals.isNetworkError || getVitals.isHttpError || getUIAState.isNetworkError || getUIAState.isHttpError)
         {
-            Debug.Log("Vital Network Error");
+            //Debug.Log("Vital Network Error");
             gameObject.GetComponent<VitalsManager>().networkError = true;
         }
         else
