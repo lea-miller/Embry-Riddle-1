@@ -518,6 +518,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2112530160}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1790587190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8893892377319677323, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5260886002943486643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1790587194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790587190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837bf346496fdd744adcd8e55c7daa07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  speed: 1
 --- !u!1001 &2112530160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1055,6 +1075,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Screen Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435663287482700936, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: PositionLerpSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435663287482700936, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: RotationLerpSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435663287482700936, guid: 34510ac972e4f1f4795604795d2b4be5,
+        type: 3}
+      propertyPath: CanvasDistanceForwards
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 5530284993489119519, guid: 34510ac972e4f1f4795604795d2b4be5,
         type: 3}
@@ -2302,7 +2337,7 @@ PrefabInstance:
     - target: {fileID: 3076540619602566232, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 42
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 3108089216765765657, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
@@ -2639,6 +2674,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4149708584193633115, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 1144693299859902478, guid: 99dcdaf052aec38418aa7b0b3008fc68,
+        type: 2}
+    - target: {fileID: 4149708584193633115, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1144693299859902478, guid: 99dcdaf052aec38418aa7b0b3008fc68,
+        type: 2}
     - target: {fileID: 4305088836244418060, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_Name
@@ -3082,45 +3129,49 @@ PrefabInstance:
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_text
-      value: "Default Instruction Text\nPicture Caption: STAR Attached to 3 ISS Positions\nSecond
-        line\nThird Line\nMore Testing of line spacing\n2.0: <indent=10%>There is
-        a picture next but it does not fit so it wraps to the next page automatically\n2.1:<indent=20%>Substep
-        number 1 There is a picture next but it does not fit so it wraps to the next
-        page automatically </indent>\n2.2:<indent=20%>Substep number 2 </indent></indent>
-        \n3.0:<indent=10%>Start Step 3 collect basaltic rock sample\n<size=1400%><sprite=\"Slide1\"
-        index=0><size=100%> </indent>\n<page> Text\n<size=1400%><sprite=0> <size=100%>
-        </indent>\n<page>\n<size=1400%><sprite=0> <size=100%> </indent>\n<size=1400%><sprite=0>
-        <size=100%> </indent>\n<page>Text\n\n"
+      value: '<size=1400%><sprite=1> <size=100%> </indent>
+
+        <page>
+
+        <size=1400%><sprite=0>
+        <size=100%> </indent>
+
+        <size=1400%><sprite=0> <size=100%> </indent>
+
+        <page>Text
+
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 400
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 449
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 83
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 27
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 90
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}
@@ -3151,6 +3202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.y
       value: -631.17004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408557494784022429, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5429664717996347419, guid: 0b6983d50bb06c2478b6c4d4abd6aec2,
         type: 3}

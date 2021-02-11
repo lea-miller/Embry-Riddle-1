@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/Scene/SuitHomeScreenScene.unity
     guid: c1405c24aa0fd5340a803e87b060b094
   m_configObjects:
+    com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: b26e4b4b9c9ed4043bde5a20e702bb58,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2ba4dbd235ed941bb8fdb5a40ab00f22,
       type: 2}

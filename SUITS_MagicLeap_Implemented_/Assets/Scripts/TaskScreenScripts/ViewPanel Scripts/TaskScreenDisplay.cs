@@ -106,6 +106,7 @@ public class TaskScreenDisplay
         else
         {
             textNextTitle.text = "";
+            textNextDuration.text = "";
         }
     }
 
