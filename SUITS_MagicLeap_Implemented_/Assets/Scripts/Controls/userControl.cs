@@ -51,7 +51,7 @@ public class userControl : MonoBehaviour
     {
         if(collide != null)
         {
-            if(count >= 30)
+            if(count >= 70)
             {
                 count = 0;
                 isTrigger = false;
@@ -108,7 +108,7 @@ public class userControl : MonoBehaviour
     {
         if(collide !=null)
         {
-            if(countBump >= 30)
+            if(countBump >= 70)
             {
                 countBump = 0;
                 isBump = false;

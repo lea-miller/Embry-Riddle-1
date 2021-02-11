@@ -27,14 +27,14 @@ namespace MagicLeap
         public int callbackOrder { get { return 0; } }
         public void OnPreprocessBuild(BuildReport report)
         {
-            if (report.summary.platform == BuildTarget.Lumin)
+            /*if (report.summary.platform == BuildTarget.Lumin)
             {
                 if (PlayerSettings.colorSpace != ColorSpace.Linear)
                 {
                     Debug.Log("BuildPreprocessor changing PlayerSettings.colorSpace to ColorSpace.Linear");
                     PlayerSettings.colorSpace = ColorSpace.Linear;
                 }
-            }
+            }*/
         }
     }
 }

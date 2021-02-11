@@ -30,8 +30,8 @@ public class CollisionSci : GenericCollision
 
     public override void isOff()
     {
-        border.enabled = false;
+        //border.enabled = false;
         topPanel.SetActive(false);
-        mainScreen.SetActive(true);
+        //mainScreen.SetActive(true);
     }
 }

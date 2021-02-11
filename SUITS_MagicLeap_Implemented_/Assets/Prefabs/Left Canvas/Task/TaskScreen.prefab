@@ -301,26 +301,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8135605874805781130, guid: c5641d17e391a70488ce27849fab5c40,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 2945.1018
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135605874805781130, guid: c5641d17e391a70488ce27849fab5c40,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 810.5871
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135605874805781130, guid: c5641d17e391a70488ce27849fab5c40,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 54.550694
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135605874805781130, guid: c5641d17e391a70488ce27849fab5c40,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 4.100017
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5641d17e391a70488ce27849fab5c40, type: 3}
 --- !u!224 &24515824338718899 stripped

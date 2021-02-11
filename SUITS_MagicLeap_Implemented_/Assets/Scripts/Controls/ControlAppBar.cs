@@ -39,6 +39,7 @@ public class ControlAppBar : ControlCommands
         iconObjectList.Add(GameObject.FindWithTag("MediaIcon").GetComponent<Lerp>());      
     }
 
+
     public override void triggerUp()
     {   
         if(!animationIsActive && border.enabled)
