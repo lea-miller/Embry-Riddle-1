@@ -14,12 +14,13 @@ public class CollisionSci : GenericCollision
         border = GameObject.FindWithTag("ScienceScreen").GetComponent<Image>();
         mainScreen = GameObject.FindWithTag("MainScreenTopPanel");
         topPanel = GameObject.FindWithTag("TopLCanvas");
+        isOff();
     }
 
      void Start()
     {
         Debug.Log("Start: ", topPanel);
-        isOff();
+        
     }
 
     public override void isOn()
@@ -32,9 +33,9 @@ public class CollisionSci : GenericCollision
     public override void isOff()
     {
         Debug.Log(topPanel);
-        //border.enabled = false;
-        topPanel.SetActive(false);
-        //mainScreen.SetActive(true);
+        border.enabled = false; 
+        mainScreen.SetActive(true);
+
         
     }
 }

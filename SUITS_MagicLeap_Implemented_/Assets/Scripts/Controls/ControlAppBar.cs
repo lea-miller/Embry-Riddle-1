@@ -29,7 +29,7 @@ public class ControlAppBar : ControlCommands
         screenObjectList.AddLast(GameObject.FindWithTag("NavigationScreen"));
         screenObjectList.AddLast(GameObject.FindWithTag("ScienceScreen"));
         screenObjectList.AddLast(GameObject.FindWithTag("MediaScreen"));
-        handleScreenDisplay();
+        
 
         //Orders the icons on the list
         iconObjectList = new List<Lerp>();
@@ -37,6 +37,11 @@ public class ControlAppBar : ControlCommands
         iconObjectList.Add(GameObject.FindWithTag("NavIcon").GetComponent<Lerp>());
         iconObjectList.Add(GameObject.FindWithTag("ScienceIcon").GetComponent<Lerp>());
         iconObjectList.Add(GameObject.FindWithTag("MediaIcon").GetComponent<Lerp>());      
+    }
+
+    void Start()
+    {
+        handleScreenDisplay();
     }
 
 
