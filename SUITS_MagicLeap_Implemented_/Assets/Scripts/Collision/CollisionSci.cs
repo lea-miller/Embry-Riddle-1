@@ -18,6 +18,7 @@ public class CollisionSci : GenericCollision
 
      void Start()
     {
+        Debug.Log("Start: ", topPanel);
         isOff();
     }
 
@@ -30,8 +31,10 @@ public class CollisionSci : GenericCollision
 
     public override void isOff()
     {
+        Debug.Log(topPanel);
         //border.enabled = false;
         topPanel.SetActive(false);
         //mainScreen.SetActive(true);
+        
     }
 }
