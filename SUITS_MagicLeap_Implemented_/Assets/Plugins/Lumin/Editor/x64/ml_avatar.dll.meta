@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:SUITS_MagicLeap_Implemented_/Assets/Plugins/Lumin/Editor/x64/FloatDeltaMixer.dll.meta
+guid: e7ba9c3d69fcf5e49a9b4ccd82594f18
+=======
+guid: 577044ce38638294f808107dff53540d
+>>>>>>> Nick's-Branch-Revert:SUITS_MagicLeap_Implemented_/Assets/Plugins/Lumin/Editor/x64/ml_avatar.dll.meta
+PluginImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  iconMap: {}
+  executionOrder: {}
+  defineConstraints: []
+  isPreloaded: 0
+  isOverridable: 0
+  isExplicitlyReferenced: 0
+  validateReferences: 1
+  platformData:
+  - first:
+      Any: 
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 1
+      settings:
+        CPU: x86_64
+        DefaultValueInitialized: true
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

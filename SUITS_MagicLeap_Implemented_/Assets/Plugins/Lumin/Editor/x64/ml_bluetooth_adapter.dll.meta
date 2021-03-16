@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:SUITS_MagicLeap_Implemented_/Assets/Plugins/Lumin/Editor/x64/assimp-vc141-mt.dll.meta
+guid: 986e40ba60996694ebd56c401bbd2557
+=======
+guid: 56d089e70fd00284cb65891ee50f9312
+>>>>>>> Nick's-Branch-Revert:SUITS_MagicLeap_Implemented_/Assets/Plugins/Lumin/Editor/x64/ml_bluetooth_adapter.dll.meta
+PluginImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  iconMap: {}
+  executionOrder: {}
+  defineConstraints: []
+  isPreloaded: 0
+  isOverridable: 0
+  isExplicitlyReferenced: 0
+  validateReferences: 1
+  platformData:
+  - first:
+      Any: 
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 1
+      settings:
+        CPU: x86_64
+        DefaultValueInitialized: true
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

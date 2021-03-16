@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:SUITS_MagicLeap_Implemented_/Assets/Plugins/Lumin/Editor/x64/EyeTrackingStateMixer.dll.meta
+guid: d32d7dca90f31d446ad02f47a2064aec
+========
+guid: f055877fafe0aaf4595b7a2ea44d4ce5
+>>>>>>>> Nick's-Branch-Revert:SUITS_MagicLeap_Implemented_/Assets/Plugins/Lumin/Editor/x64/ml_app_connect.dll.meta
+PluginImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  iconMap: {}
+  executionOrder: {}
+  defineConstraints: []
+  isPreloaded: 0
+  isOverridable: 0
+  isExplicitlyReferenced: 0
+  validateReferences: 1
+  platformData:
+  - first:
+      Any: 
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
+      enabled: 1
+      settings:
+        CPU: x86_64
+        DefaultValueInitialized: true
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
